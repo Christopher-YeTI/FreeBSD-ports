@@ -15,7 +15,6 @@ LIB_DEPENDS=	libjansson.so:devel/jansson \
 		liblz4.so:archivers/liblz4 \
 		libnet.so:net/libnet \
 		libpcre2-8.so:devel/pcre2 \
-		libpfctl.so.0:net/libpfctl \
 		libyaml.so:textproc/libyaml
 
 USES=		autoreconf cpe gmake iconv:translit libtool localbase pathfix \
@@ -32,7 +31,6 @@ CONFIGURE_ARGS+=	--disable-gccmarch-native \
 			--enable-bundled-htp \
 			--enable-gccprotect
 MAKE_ENV=		RUSTFLAGS="${RUSTFLAGS} -C linker=${CC:Q} ${LDFLAGS:C/.+/-C link-arg=&/}"
-LDFLAGS+=	${LOCALBASE}/lib/libpfctl.so.0
 
 INSTALL_TARGET=	install-strip
 TEST_TARGET=	check
@@ -70,7 +68,7 @@ HYPERSCAN_LIB_DEPENDS=	libhs.so:devel/hyperscan
 
 IPFW_CONFIGURE_ON=	--enable-ipfw
 
-LUAJIT_USES=		luajit:luajit-openresty
+LUAJIT_USES=		luajit
 LUAJIT_CONFIGURE_ON=	--enable-luajit
 
 LUA_USES=		lua:51
