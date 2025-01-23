@@ -1430,5 +1430,8 @@
     SUBDIR += zeronet
     SUBDIR += zlint
     SUBDIR += zzuf
+    SUBDIR += libreSense
+    SUBDIR += suricata
+    SUBDIR += pfSense
 
 .include <bsd.port.subdir.mk>
