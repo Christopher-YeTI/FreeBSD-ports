@@ -1,6 +1,6 @@
 # $FreeBSD$
 
-PORTNAME=	pfSense-pkg-squidGuard
+PORTNAME=	libreSense-pkg-squidGuard
 PORTVERSION=	1.16.23
 CATEGORIES=	www
 MASTER_SITES=	# empty
@@ -12,7 +12,7 @@ COMMENT=	pfSense package squidGuard
 
 LICENSE=	APACHE20
 
-RUN_DEPENDS=	pfSense-pkg-squid>0:www/pfSense-pkg-squid \
+RUN_DEPENDS=	libreSense-pkg-squid>0:www/libreSense-pkg-squid \
 		squidGuard>0:www/squidguard
 
 NO_BUILD=	yes
