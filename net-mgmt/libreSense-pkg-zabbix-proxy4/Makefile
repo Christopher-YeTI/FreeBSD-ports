@@ -1,13 +1,13 @@
 # $FreeBSD$
 
-MASTERDIR=	${.CURDIR}/../pfSense-pkg-zabbix-proxy
+MASTERDIR=	${.CURDIR}/../libreSense-pkg-zabbix-proxy
 
-PORTNAME=	pfSense-pkg-zabbix-proxy4
+PORTNAME=	libreSense-pkg-zabbix-proxy4
 
-CONFLICTS=	pfSense-pkg-zabbix-proxy \
-		pfSense-pkg-zabbix-proxy44 \
-		pfSense-pkg-zabbix-proxy5 \
-		pfSense-pkg-zabbix-proxy52
+CONFLICTS=	libreSense-pkg-zabbix-proxy \
+		libreSense-pkg-zabbix-proxy44 \
+		libreSense-pkg-zabbix-proxy5 \
+		libreSense-pkg-zabbix-proxy52
 
 RUN_DEPENDS=	zabbix_proxy:net-mgmt/zabbix4-proxy
 
