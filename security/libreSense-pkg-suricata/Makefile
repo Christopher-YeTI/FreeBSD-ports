@@ -13,7 +13,7 @@ COMMENT=	pfSense package suricata
 
 LICENSE=	APACHE20
 
-RUN_DEPENDS=	suricata>=7.0.7:security/suricata7
+#RUN_DEPENDS=	suricata>=7.0.7:security/suricata7
 
 NO_BUILD=	yes
 NO_MTREE=	yes
