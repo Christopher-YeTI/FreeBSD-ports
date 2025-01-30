@@ -45,7 +45,7 @@
 /etc/inc/parser_dhcpv6_leases.inc
 /etc/inc/parser_ipv6.inc
 /etc/inc/periodic.inc
-/etc/inc/pfsense-utils.inc
+/etc/inc/pfSense-utils.inc
 /etc/inc/phpsessionmanager.inc
 /etc/inc/pkg-utils.inc
 /etc/inc/priv.defs.inc
@@ -382,7 +382,7 @@ share/locale/zh_Hant_TW/LC_MESSAGES/pfSense.mo
 share/locale/zh_Hant_TW/LC_MESSAGES/pfSense.po
 share/locale/zh_TW/LC_MESSAGES/pfSense.mo
 share/locale/zh_TW/LC_MESSAGES/pfSense.po
-%%DATADIR%%/ascii-art/pfsense-logo-small.txt
+%%DATADIR%%/ascii-art/pfSense-logo-small.txt
 %%DATADIR%%/fix_for_SA-19-10.ufs
 %%DATADIR%%/iso_3166-1_list_en.xml
 %%DATADIR%%/ssl/netgate-ca.pem
@@ -858,7 +858,7 @@ www/wizards/traffic_shaper_wizard_dedicated.xml
 www/wizards/traffic_shaper_wizard_multi_all.inc
 www/wizards/traffic_shaper_wizard_multi_all.xml
 www/xmlrpc.php
-/usr/share/doc/radius/dictionary.pfsense
+/usr/share/doc/radius/dictionary.pfSense
 @dir /cf
 @dir /cf/conf
 @dir /etc/inc/priv
