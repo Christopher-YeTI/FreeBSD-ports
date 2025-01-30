@@ -9,8 +9,8 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	coreteam@pfsense.org
-COMMENT=	pfSense package Open-VM-Tools
+MAINTAINER=	coreteam@libresense.org
+COMMENT=	libreSense package Open-VM-Tools
 
 LICENSE=	APACHE20
 
