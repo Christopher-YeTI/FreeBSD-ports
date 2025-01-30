@@ -8,8 +8,8 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	coreteam@pfsense.org
-COMMENT=	pfSense package siproxd
+MAINTAINER=	coreteam@libreSense.org
+COMMENT=	libreSense package siproxd
 
 LICENSE=	APACHE20
 

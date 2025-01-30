@@ -2,7 +2,7 @@
 /*
  * mail_report.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2011-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (C) 2007-2011 Seth Mos <seth.mos@dds.nl>
  * All rights reserved.
@@ -120,8 +120,8 @@ function mail_report_send($headertext, $cmdtext, $logtext, $attachments) {
 
 	$mail->ContentType = 'text/html';
 	$mail->IsHTML(true);
-	$mail->AddReplyTo(config_get_path('notifications/smtp/fromaddress'), gettext("pfSense Email Report"));
-	$mail->SetFrom(config_get_path('notifications/smtp/fromaddress'), gettext("pfSense Email Report"));
+	$mail->AddReplyTo(config_get_path('notifications/smtp/fromaddress'), gettext("libreSense Email Report"));
+	$mail->SetFrom(config_get_path('notifications/smtp/fromaddress'), gettext("libreSense Email Report"));
 	$addresses = explode(",", config_get_path('notifications/smtp/notifyemailaddress'));
 	foreach ($addresses as $address) {
 		$recipient = explode("@", $address);
@@ -129,7 +129,7 @@ function mail_report_send($headertext, $cmdtext, $logtext, $attachments) {
 		$mail->AddAddress($address, ucwords(strtolower($recipient)));
 	}
 	$mail->Subject = config_get_path('system/hostname') . '.' . config_get_path('system/domain') . gettext("Email Report") . ": {$headertext}";
-	$mail->Body .= sprintf(gettext("This is a periodic report from pfSense at %s."), config_get_path('system/hostname') . '.' . config_get_path('system/domain'));
+	$mail->Body .= sprintf(gettext("This is a periodic report from libreSense at %s."), config_get_path('system/hostname') . '.' . config_get_path('system/domain'));
 	$mail->Body .= "<br />\n<br />\n" . gettext("Current report") . ": {$headertext}<br />\n<br />\n";
 	if (!empty($cmdtext)) {
 		$mail->Body .= $cmdtext;

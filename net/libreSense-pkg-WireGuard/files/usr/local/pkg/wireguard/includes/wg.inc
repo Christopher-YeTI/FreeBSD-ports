@@ -2,7 +2,7 @@
 /*
  * wg.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2021-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2021 R. Christian McDonald (https://github.com/rcmcdonald91)
  * Copyright (c) 2020 Ascrod
@@ -21,7 +21,7 @@
  * limitations under the License.
  */
 
-// pfSense includes
+// libreSense includes
 require_once('config.inc');
 require_once('gwlb.inc');
 require_once('util.inc');
@@ -368,7 +368,7 @@ function wg_get_endpoint_resolve_interval() {
 			return config_get_path('system/aliasesresolveinterval');
 		}
 			
-		// Package default is the same as pfSense default (300 seconds)
+		// Package default is the same as libreSense default (300 seconds)
 		return $wgg['default_resolve_interval'];
 	} elseif (is_numericint(config_get_path('installedpackages/wireguard/config/0/resolve_interval'))) {
 		return config_get_path('installedpackages/wireguard/config/0/resolve_interval');
@@ -604,7 +604,7 @@ function wg_tunnel_sync($tunnel_names, $restart_services = false, $resolve_endpo
 
 	$tunnels = array();
 
-	// We need to destroy any rogue tunnels not created by pfSense
+	// We need to destroy any rogue tunnels not created by libreSense
 	wg_destroy_rogue_tunnels();
 
 	// Handle the "apply to all" case

@@ -22,7 +22,7 @@
 require_once('config.inc');
 require_once('globals.inc');
 require_once('notices.inc');
-require_once('pfsense-utils.inc');
+require_once('libresense-utils.inc');
 require_once('pkg-utils.inc');
 require_once('services.inc');
 require_once('service-utils.inc');
@@ -846,7 +846,7 @@ function zeek_do_xmlrpc_sync($sync_to_ip, $username, $password, $varsyncport, $v
 	$synctimeout = intval($varsynctimeout);
 	$execcmd = "require_once('/usr/local/pkg/zeek.inc');\n";
 	$execcmd .= "zeek_all_after_XMLRPC_resync();";
-	$rpc_client = new pfsense_xmlrpc_client();
+	$rpc_client = new libresense_xmlrpc_client();
 	$rpc_client->setConnectionData($sync_to_ip, $varsyncport, $username, $password, $varsyncprotocol);
 	$resp = $rpc_client->xmlrpc_method('merge_installedpackages_section', $xml, $synctimeout);
 	/* Tell zeek to reload our settings on the destination sync host. */

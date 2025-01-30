@@ -280,7 +280,7 @@ $group->add(new Form_Checkbox(
         $pconfig['openappid_rules_detectors'] == 'on' ? true:false,
         'on'
 ));
-$group->setHelp('Note - the AppID Open Text Rules file is maintained by a volunteer contributor and hosted by the pfSense team.  ' . 
+$group->setHelp('Note - the AppID Open Text Rules file is maintained by a volunteer contributor and hosted by the libreSense team.  ' . 
 'The URL for the file ' . 'is <a href="' . SNORT_OPENAPPID_RULES_URL . SNORT_OPENAPPID_RULES_FILENAME . '" target="_blank">' . 
 SNORT_OPENAPPID_RULES_URL . SNORT_OPENAPPID_RULES_FILENAME . '</a>.');
 $section->add($group);

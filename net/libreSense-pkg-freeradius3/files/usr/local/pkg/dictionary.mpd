@@ -1,6 +1,6 @@
 #----------------------------------------------------------
 # dictionary.mpd                                                                                   
-# see https://redmine.pfsense.org/issues/11102
+# see https://redmine.libresense.org/issues/11102
 
 VENDOR		mpd			12341                                                              
 

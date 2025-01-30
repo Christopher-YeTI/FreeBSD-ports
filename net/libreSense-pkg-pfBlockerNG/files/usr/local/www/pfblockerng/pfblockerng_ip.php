@@ -2,7 +2,7 @@
 /*
  * pfblockerng_ip.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2016-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2015-2024 BBcan177@gmail.com
  * All rights reserved.
@@ -69,10 +69,10 @@ $options_inbound_deny_action	= $options_outbound_deny_action		= [ 'block' => 'Bl
 $options_interface_cnt		= count($options_inbound_interface) ?: '1';
 
 $options_pass_order		= [	'order_0' => '| pfB_Pass/Match/Block/Reject | All other Rules | (Default format)',
-					'order_1' => '| pfSense Pass/Match | pfB_Pass/Match | pfB_Block/Reject | pfSense Block/Reject |',
-					'order_2' => '| pfB_Pass/Match | pfSense Pass/Match | pfB_Block/Reject | pfSense Block/Reject |',
-					'order_3' => '| pfB_Pass/Match | pfB_Block/Reject | pfSense Pass/Match | pfSense Block/Reject |',
-					'order_4' => '| pfB_Pass/Match | pfB_Block/Reject | pfSense Block/Reject | pfSense Pass/Match |' ];
+					'order_1' => '| libreSense Pass/Match | pfB_Pass/Match | pfB_Block/Reject | libreSense Block/Reject |',
+					'order_2' => '| pfB_Pass/Match | libreSense Pass/Match | pfB_Block/Reject | libreSense Block/Reject |',
+					'order_3' => '| pfB_Pass/Match | pfB_Block/Reject | libreSense Pass/Match | libreSense Block/Reject |',
+					'order_4' => '| pfB_Pass/Match | pfB_Block/Reject | libreSense Block/Reject | libreSense Pass/Match |' ];
 
 $options_autorule_suffix = [ 'autorule' => 'auto rule', 'standard' => 'Null (no suffix)', 'ar' => 'AR' ];
 
@@ -156,13 +156,13 @@ if ($_POST) {
 				exec('/bin/ps -wx', $result_cron);
 				if (!preg_grep("/pfblockerng[.]php\s+?(uc|gc|ugc)/", $result_cron)) {
 					if (!$input_errors) {
-						// Execute MaxMind update and generate pfSense Notice message on completion
+						// Execute MaxMind update and generate libreSense Notice message on completion
 						$maxmind_esc    = escapeshellarg($maxmind);
 						$p_maxmind_esc  = escapeshellarg($p_maxmind);
 						mwexec_bg("/usr/local/bin/php /usr/local/www/pfblockerng/pfblockerng.php ugc {$maxmind_esc} {$p_maxmind_esc} >> {$pfb['extraslog']} 2>&1");
 
 						$savemsg = "The MaxMind language locale is being changed from [ {$maxmind_esc} to {$p_maxmind_esc} ]. "
-							. "A pfSense Notice message will be submitted on completion.";
+							. "A libreSense Notice message will be submitted on completion.";
 					}
 				} else {
 					$input_errors[] = 'MaxMind GeoIP conversion already in process!';
@@ -352,7 +352,7 @@ $section->addInput(new Form_Select(
 	$options_maxmind_locale
 ))->setHelp('Select the localized name data from the Language options available.<br />'
 		. 'Changes to the Locale will be executed in the background, and will take a few minutes to complete.<br />'
-		. 'Upon completion, a pfSense Notice will be generated.')
+		. 'Upon completion, a libreSense Notice will be generated.')
   ->setAttribute('style', 'width: auto');
 
 $section->addInput(new Form_Checkbox(

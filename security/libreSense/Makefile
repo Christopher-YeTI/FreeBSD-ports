@@ -1,10 +1,10 @@
-PORTNAME=	pfSense
+PORTNAME=	libreSense
 DISTVERSION=	${PRODUCT_VERSION}
 DISTVERSIONPREFIX=	v
 CATEGORIES=	security
 
-MAINTAINER=	coreteam@pfsense.org
-COMMENT?=	Main pfSense package
+MAINTAINER=	coreteam@libreSense.org
+COMMENT?=	Main libreSense package
 
 LICENSE=	APACHE20
 
@@ -48,11 +48,11 @@ RUN_DEPENDS=	bind-tools>=0:dns/bind-tools \
 		${PHP_PKGNAMEPREFIX}pear-Mail>=0:mail/pear-Mail@${PHP_FLAVOR} \
 		${PHP_PKGNAMEPREFIX}pear-Net_IPv6>=0:net/pear-Net_IPv6@${PHP_FLAVOR} \
 		${PHP_PKGNAMEPREFIX}pear-XML_RPC2>=0:net/pear-XML_RPC2@${PHP_FLAVOR} \
-		${PHP_PKGNAMEPREFIX}pfSense-module>=0:devel/php-pfSense-module@${PHP_FLAVOR} \
+		${PHP_PKGNAMEPREFIX}libreSense-module>=0:devel/php-libreSense-module@${PHP_FLAVOR} \
 		${PHP_PKGNAMEPREFIX}phpseclib>=0:security/phpseclib@${PHP_FLAVOR} \
-		pfSense-Status_Monitoring${PHP_PKGNAMESUFFIX}>=0:sysutils/pfSense-Status_Monitoring@${PHP_FLAVOR} \
-		pfSense-composer-deps>=0:devel/pfSense-composer-deps \
-		pfSense-upgrade>=0:sysutils/pfSense-upgrade \
+		libreSense-Status_Monitoring${PHP_PKGNAMESUFFIX}>=0:sysutils/libreSense-Status_Monitoring@${PHP_FLAVOR} \
+		libreSense-composer-deps>=0:devel/libreSense-composer-deps \
+		libreSense-upgrade>=0:sysutils/libreSense-upgrade \
 		pftop>=0:sysutils/pftop \
 		qstats>=0:sysutils/qstats \
 		radvd>=0:net/radvd \
@@ -88,12 +88,12 @@ USE_PHP=	bz2 bcmath ctype curl dom filter gettext gmp intl json mbstring \
 
 NO_BUILD=	yes
 
-CONFLICTS=	pfSense-vmware-[0-9]*
+CONFLICTS=	libreSense-vmware-[0-9]*
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	Christopher-YeTI
-GH_PROJECT= pfsense
-GH_TAGNAME=	${PFSENSE_COMMITHASH}
+GH_PROJECT= libresense
+GH_TAGNAME=	${LIBRESENSE_COMMITHASH}
 MASTER_SITE_BACKUP=
 NO_CHECKSUM=yes
 
@@ -116,8 +116,8 @@ do-install:
 	(cd ${WRKSRC}/src && ${COPYTREE_SHARE} "etc usr" ${STAGEDIR})
 	${ECHO} "${PRODUCT_NAME}" > ${STAGEDIR}/etc/platform
 	${ECHO} ${PORTREVISION} > ${STAGEDIR}/etc/version.patch
-	${ECHO} "${PFSENSE_COMMITHASH}" > ${STAGEDIR}/etc/version.lastcommit
-	${ECHO} "${PFSENSE_DATESTRING}" > ${STAGEDIR}/etc/version.buildtime
+	${ECHO} "${LIBRESENSE_COMMITHASH}" > ${STAGEDIR}/etc/version.lastcommit
+	${ECHO} "${LIBRESENSE_DATESTRING}" > ${STAGEDIR}/etc/version.buildtime
 	${MKDIR} "${STAGEDIR}/cf/conf"
 
 .include <bsd.port.post.mk>

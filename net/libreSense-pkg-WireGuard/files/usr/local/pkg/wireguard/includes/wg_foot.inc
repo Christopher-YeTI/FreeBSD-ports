@@ -2,7 +2,7 @@
 /*
  * wg_foot.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2021 R. Christian McDonald (https://github.com/rcmcdonald91)
  * All rights reserved.
  *

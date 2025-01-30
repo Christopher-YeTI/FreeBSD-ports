@@ -8,7 +8,7 @@ DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
 MAINTAINER=	tech@voleatech.de
-COMMENT=	pfSense package nrpe
+COMMENT=	libreSense package nrpe
 
 LICENSE=	APACHE20
 

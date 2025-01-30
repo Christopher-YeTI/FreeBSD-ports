@@ -2,7 +2,7 @@
 /*
  * wg_api.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2021-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2021 R. Christian McDonald (https://github.com/rcmcdonald91)
  * Copyright (c) 2021 Vajonam
@@ -21,7 +21,7 @@
  * limitations under the License.
  */
 
-// pfSense includes
+// libreSense includes
 require_once('config.inc');
 require_once('filter.inc');
 require_once('gwlb.inc');
@@ -76,7 +76,7 @@ function wg_get_running_config($extras = false, $json = false) {
 
 			if ($extras) {
 				// Gets some extra information about tunnels not returned by `wg show all dump`
-				$tunnel_if_stats		= pfSense_get_interface_stats($current_device);
+				$tunnel_if_stats		= libreSense_get_interface_stats($current_device);
 
 				$tmp_tunnel['status']		= wg_interface_status($current_device) ? 'up' : 'down';
 				$tmp_tunnel['transfer_rx']	= $tunnel_if_stats['inbytes'];
@@ -240,10 +240,10 @@ function wg_interface_update_addresses($if_name, &$cmds = null) {
 
 	if (wg_is_valid_tunnel($if_name, true)
 	    && ([$tun_idx, $tunnel, $is_new] = wg_tunnel_get_config_by_name($if_name))) {
-		// Assigned tunnel interfaces are handled by pfSense and should be ignored here
+		// Assigned tunnel interfaces are handled by libreSense and should be ignored here
 		if (!is_wg_tunnel_assigned($tunnel['name'])) {
 			// Get an array of the current addresses assigned to the tunnel interface
-			$current = pfSense_getall_interface_addresses($tunnel['name']);
+			$current = libreSense_getall_interface_addresses($tunnel['name']);
 
 			// Get an array of the addresses to be assigned to the interface
 			$desired = array_map(function($x) {
@@ -266,11 +266,11 @@ function wg_interface_update_addresses($if_name, &$cmds = null) {
 				$res &= wg_ifconfig_if_address_adddel($tunnel['name'], $address, true, $cmds);
 			}
 
-		// Need to let pfSense handle the assigned interfaces
+		// Need to let libreSense handle the assigned interfaces
 		} elseif (is_wg_tunnel_assigned($tunnel['name'])) {
-			if ($pfsense_if_name = wg_get_pfsense_interface_info($tunnel['name'])) {
+			if ($libresense_if_name = wg_get_libresense_interface_info($tunnel['name'])) {
 				// This doesn't return anything useful...
-				interface_reconfigure($pfsense_if_name['name']);
+				interface_reconfigure($libresense_if_name['name']);
 			}
 		}
 	}
@@ -280,9 +280,9 @@ function wg_interface_update_addresses($if_name, &$cmds = null) {
 }
 
 /* 
- * Translates WireGuard interface names to pfSense interface names and descriptions
+ * Translates WireGuard interface names to libresense interface names and descriptions
  */
-function wg_get_pfsense_interface_info($tunnel_name) {
+function wg_get_libresense_interface_info($tunnel_name) {
 	$ret_array = array();
 
 	$iflist = get_configured_interface_list_by_realif(true);
@@ -486,7 +486,7 @@ function wg_ifconfig_if_group_addremove($if_name, $group, $remove = false, &$cmd
 	$action = $remove ? '-group' : 'group';
 
 	// Is this a real interface and not already in the group?
-	if (in_array($if_name, pfSense_interface_listget())
+	if (in_array($if_name, libreSense_interface_listget())
 	    && ((!wg_interface_in_group($if_name, $group) && !$remove) || (wg_interface_in_group($if_name, $group) && $remove))) {
 		$cmd = "{$wgg['ifconfig']} {$s(escapeshellarg($if_name))} {$s(escapeshellarg($action))} {$s(escapeshellarg($group))} 2>&1";
 		$cmds[] = $res = wg_exec($cmd, 'interface', WG_ERROR_IF_GROUP);
@@ -506,7 +506,7 @@ function wg_interface_update_groups($if_name, &$cmds = null) {
 	$res = true;
 
 	// Is this a real interface?
-	if (in_array($if_name, pfSense_interface_listget())) {
+	if (in_array($if_name, libreSense_interface_listget())) {
 		$res &= wg_ifconfig_if_group_addremove($if_name, $wgg['ifgroupentry']['ifname'], true, $cmds);
 
 		$res &= wg_ifconfig_if_group_addremove($if_name, 'wg', false, $cmds);
@@ -835,7 +835,7 @@ function is_wg_enabled() {
 }
 
 /*
- * Check if at least one tunnel is assigned to a pfSense interface
+ * Check if at least one tunnel is assigned to a libreSense interface
  */
 function wg_is_wg_assigned($disabled = true) {
 	global $wgg;

@@ -1,7 +1,7 @@
 # pfb_unbound.py
 # pfBlockerNG - Unbound resolver python integration
 
-# part of pfSense (https://www.pfsense.org)
+# part of libresense (https://www.libresense.org)
 # Copyright (c) 2015-2025 Rubicon Communications, LLC (Netgate)
 # Copyright (c) 2015-2023 BBcan177@gmail.com
 # All rights reserved.
@@ -1237,7 +1237,7 @@ def operate(id, event, qstate, qdata):
             else:
                 excludeSS.append(q_name_original)
 
-        # Python_control - Receive TXT commands from pfSense local IP
+        # Python_control - Receive TXT commands from libresense local IP
         if qstate_valid and q_type == RR_TYPE_TXT and q_name_original.startswith('python_control.'):
 
             control_rcd = False

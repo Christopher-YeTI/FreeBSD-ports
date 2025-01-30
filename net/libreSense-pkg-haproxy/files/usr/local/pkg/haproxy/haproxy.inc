@@ -2,7 +2,7 @@
 /*
  * haproxy.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2009-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2013-2016 PiBa-NL
  * All rights reserved.
@@ -597,7 +597,7 @@ function haproxy_custom_php_install_command() {
 
 . /etc/rc.subr
 
-# rc_fast=yes workaround for pfSense that calls start when it
+# rc_fast=yes workaround for libresense that calls start when it
 # means restart (for a wan-ip change for example..)
 # this way it doesnt check for a already running process 
 # and just fires of the start procedure again. which will
@@ -2334,13 +2334,13 @@ function load_ipfw_rules() {
 
 	if (haproxy_utils::$pf_version < 2.4) {
 		$rulenum = 64000; // why that high? captiveportal.inc also does it...
-		// pfSense 2.2 FreeBSD 10
+		// libresense 2.2 FreeBSD 10
 		mwexec("/sbin/ipfw zone $ipfw_zone_haproxy create", true);
 		foreach($transparent_interfaces as $transparent_if => $value) {
 			mwexec("/sbin/ipfw zone $ipfw_zone_haproxy madd $transparent_if", true);
 		}
 	} else {
-		// pfSense 2.4, captive portal rules start at 1000
+		// libresense 2.4, captive portal rules start at 1000
 		$rulenum = 10;
 	}
 
@@ -2379,7 +2379,7 @@ function delete_ipfw_rules() {
 
 
 function haproxy_plugin_carp($pluginparams) {
-	// called by pfSense when a CARP interface changes its state (called multiple times when multiple interfaces change state)
+	// called by libresense when a CARP interface changes its state (called multiple times when multiple interfaces change state)
 	// $pluginparams['type'] always 'carp'
 	// $pluginparams['event'] either 'rc.carpmaster' or 'rc.carpbackup'
 	// $pluginparams['interface'] contains the affected interface
@@ -3021,8 +3021,8 @@ function haproxy_find_create_certificate($certificatename) {
 
 	$new_cert = array();
 	$dn = array(
-		"organizationName" => "haproxy-pfsense",
-		"commonName"       => "haproxy-pfsense"
+		"organizationName" => "haproxy-libresense",
+		"commonName"       => "haproxy-libresense"
 	);
 	$new_cert = array();
 	ca_create($new_cert, 1024, 2000, $dn);

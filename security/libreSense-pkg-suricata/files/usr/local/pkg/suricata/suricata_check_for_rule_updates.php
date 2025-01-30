@@ -25,7 +25,7 @@
 
 require_once("functions.inc");
 require_once("service-utils.inc");
-require_once("pfsense-utils.inc");
+require_once("libresense-utils.inc");
 require_once("notices.inc");
 require_once("/usr/local/pkg/suricata/suricata.inc");
 require_once("/usr/local/pkg/suricata/suricata_defs.inc");

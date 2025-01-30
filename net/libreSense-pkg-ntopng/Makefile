@@ -8,8 +8,8 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	coreteam@pfsense.org
-COMMENT=	pfSense package ntopng
+MAINTAINER=	coreteam@libresense.org
+COMMENT=	libresense package ntopng
 
 LICENSE=	APACHE20
 

@@ -2,7 +2,7 @@
 /*
  * cellular.widget.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libreSense (https://www.libresense.org)
  * Copyright (c) 2017-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (C) 2016 Voleatech GmbH, Fabian Schweinfurth
  * All rights reserved.
@@ -21,7 +21,7 @@
  */
 
 require_once("guiconfig.inc");
-require_once("pfsense-utils.inc");
+require_once("libresense-utils.inc");
 require_once("util.inc");
 require_once("/usr/local/www/widgets/include/interfaces.inc");
 
@@ -34,7 +34,7 @@ if (!file_exists(PYTHON_BIN)) {
 	return;
 }
 if (!file_exists(INTERFACE_BIN)) {
-	echo "Error: /usr/local/sbin/cellular not found. Reinstall pfSense-pkg-cellular package.";
+	echo "Error: /usr/local/sbin/cellular not found. Reinstall libreSense-pkg-cellular package.";
 	return;
 }
 

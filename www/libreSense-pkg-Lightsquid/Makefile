@@ -8,8 +8,8 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	coreteam@pfsense.org
-COMMENT=	pfSense package Lightsquid
+MAINTAINER=	coreteam@libresense.org
+COMMENT=	libreSense package Lightsquid
 
 LICENSE=	APACHE20
 

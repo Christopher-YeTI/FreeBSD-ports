@@ -2,7 +2,7 @@
 /*
  * patches.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2012-2025 Rubicon Communications, LLC (Netgate)
  * All rights reserved.
  *
@@ -20,11 +20,11 @@
  */
 require_once("globals.inc");
 require_once("util.inc");
-require_once("pfsense-utils.inc");
+require_once("libresense-utils.inc");
 require_once("patches/manifest.inc");
 
 global $git_root_url, $patch_suffix, $patch_dir, $patch_cmd, $recommended_patches;
-$git_root_url = 'https://github.com/pfsense/pfsense/commit/';
+$git_root_url = 'https://github.com/libresense/libresense/commit/';
 $patch_suffix = '.patch';
 $patch_dir = '/var/patches/';
 $rec_patch_dir = '/usr/local/pkg/patches/';
@@ -116,7 +116,7 @@ function patch_fetch(& $patch, $id = null) {
 		return false;
 	} else {
 		$patch['patch'] = base64_encode($text);
-		// Detect pfSense move from / to /src and fix pathstrip
+		// Detect libresense move from / to /src and fix pathstrip
 		if (is_github_url($patch['location']) &&
 		    $patch['pathstrip'] == 1 &&
 		    preg_match('/\n--- a\/src\//', $text)) {

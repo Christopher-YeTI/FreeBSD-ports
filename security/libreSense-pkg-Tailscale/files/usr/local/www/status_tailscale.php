@@ -2,7 +2,7 @@
 /*
  * status_tailscale.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2022-2025 Rubicon Communications, LLC (Netgate)
  * All rights reserved.
  *
@@ -45,7 +45,7 @@ if ($is_enabled_and_running = (tailscale_is_enabled() && tailscale_is_running())
 
 # here we define what packages to query for the package version section
 $pkg_field_map = ['name' => '%n', 'version' => '%v', 'comment' => '%c'];
-$pkg_packages = ['pfSense-pkg-Tailscale', 'tailscale'];
+$pkg_packages = ['libreSense-pkg-Tailscale', 'tailscale'];
 
 $shortcut_section = "tailscale";
 

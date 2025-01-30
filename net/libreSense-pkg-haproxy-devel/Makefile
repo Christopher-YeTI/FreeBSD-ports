@@ -8,8 +8,8 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	coreteam@pfsense.org
-COMMENT=	pfSense package haproxy-devel
+MAINTAINER=	coreteam@libresense.org
+COMMENT=	libresense package haproxy-devel
 
 LICENSE=	APACHE20
 

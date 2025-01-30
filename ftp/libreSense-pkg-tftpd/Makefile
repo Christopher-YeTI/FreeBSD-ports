@@ -8,8 +8,8 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	pfsense@stefanseidel.info
-COMMENT=	pfSense package for tftp server
+MAINTAINER=	libresense@stefanseidel.info
+COMMENT=	libresense package for tftp server
 
 LICENSE=	APACHE20
 

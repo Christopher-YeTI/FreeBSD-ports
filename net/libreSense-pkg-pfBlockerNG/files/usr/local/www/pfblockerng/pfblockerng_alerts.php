@@ -2,7 +2,7 @@
 /*
  * pfblockerng_alerts.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2015-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2015-2023 BBcan177@gmail.com
  * All rights reserved.
@@ -4782,8 +4782,8 @@ if ($alertrefresh == 'on') {
 		$pageview = '';
 	}
 
-        // Validate pfSense URL
-	$pfSense_url = '';
+        // Validate libreSense URL
+	$libreSense_url = '';
 	if ($_SERVER['REQUEST_SCHEME'] == 'http' || $_SERVER['REQUEST_SCHEME'] == 'https') {
 		$HTTP_HOST = '';
 		if (strpos($_SERVER['HTTP_HOST'], ':') !== FALSE) {
@@ -4796,24 +4796,24 @@ if ($alertrefresh == 'on') {
 			$HTTP_HOST = pfb_filter($_SERVER['HTTP_HOST'], PFB_FILTER_DOMAIN, 'alerts refresh');
 		}
 		if (!empty($HTTP_HOST)) {
-			$pfSense_url = "{$_SERVER['REQUEST_SCHEME']}://{$HTTP_HOST}";
+			$libreSense_url = "{$_SERVER['REQUEST_SCHEME']}://{$HTTP_HOST}";
 
-			if (!pfb_filter("{$pfSense_url}/", PFB_FILTER_URL, 'alerts refresh', '', TRUE)) {
-				$pfSense_url = '';
+			if (!pfb_filter("{$libreSense_url}/", PFB_FILTER_URL, 'alerts refresh', '', TRUE)) {
+				$libreSense_url = '';
 			}
 		}
 	}
 
 	// Refresh page with 'Filter options', if defined
-	if (!empty($pfSense_url)) {
+	if (!empty($libreSense_url)) {
 		if ($pfb['filterlogentries']) {
 			$refreshentries = urlencode(json_encode($filterfieldsarray));
-			print ("<meta id=\"AlertRefresh\" http-equiv=\"refresh\" content=\"60;url={$pfSense_url}/pfblockerng/pfblockerng_alerts.php?refresh={$refreshentries}{$pageview}\" />\n");
+			print ("<meta id=\"AlertRefresh\" http-equiv=\"refresh\" content=\"60;url={$libreSense_url}/pfblockerng/pfblockerng_alerts.php?refresh={$refreshentries}{$pageview}\" />\n");
 		}
 
 		// Refresh page
 		else {
-			print ("<meta id=\"AlertRefresh\" http-equiv=\"refresh\" content=\"60;url={$pfSense_url}/pfblockerng/pfblockerng_alerts.php{$pageview}\" />\n");
+			print ("<meta id=\"AlertRefresh\" http-equiv=\"refresh\" content=\"60;url={$libreSense_url}/pfblockerng/pfblockerng_alerts.php{$pageview}\" />\n");
 		}
 	}
 }

@@ -2,7 +2,7 @@
 /*
  * status_ladvd.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2014 Andrea Tuccia
  * Copyright (c) 2014-2025 Rubicon Communications, LLC (Netgate)
  * All rights reserved.

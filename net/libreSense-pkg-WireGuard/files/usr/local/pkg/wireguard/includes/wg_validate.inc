@@ -2,7 +2,7 @@
 /*
  * wg_validate.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2021-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2021 R. Christian McDonald (https://github.com/rcmcdonald91)
  * All rights reserved.
@@ -20,9 +20,9 @@
  * limitations under the License.
  */
 
-// pfSense includes 
+// libresense includes 
 require_once('config.inc');
-require_once('pfsense-utils.inc');
+require_once('libresense-utils.inc');
 require_once('util.inc');
 
 // WireGuard includes
@@ -49,9 +49,9 @@ function wg_validate_tunnel_delete($tunnel) {
 
 	// We can't delete assigned tunnels
 	if (is_wg_tunnel_assigned($tunnel['name'])) {
-		$wg_pfsense_if = wg_get_pfsense_interface_info($tunnel['name']);
+		$wg_libresense_if = wg_get_libresense_interface_info($tunnel['name']);
 
-		$input_errors[] = "Cannot delete {$tunnel['name']} while it is assigned to {$wg_pfsense_if['descr']} ({$wg_pfsense_if['name']})";
+		$input_errors[] = "Cannot delete {$tunnel['name']} while it is assigned to {$wg_libresense_if['descr']} ({$wg_libresense_if['name']})";
 	}
 
 	return $input_errors;
@@ -63,9 +63,9 @@ function wg_validate_tunnel_toggle($tunnel) {
 	$is_enabled = (isset($tunnel['enabled']) && ($tunnel['enabled']) == 'yes');
 
 	if (!$is_enabled && is_wg_tunnel_assigned($tunnel['name'])) {
-		$wg_pfsense_if = wg_get_pfsense_interface_info($tunnel['name']);
+		$wg_libresense_if = wg_get_libresense_interface_info($tunnel['name']);
 
-		$input_errors[] = "Cannot disable {$tunnel['name']} while it is assigned to {$wg_pfsense_if['descr']} ({$wg_pfsense_if['name']}).";
+		$input_errors[] = "Cannot disable {$tunnel['name']} while it is assigned to {$wg_libresense_if['descr']} ({$wg_libresense_if['name']}).";
 	}
 
 	// Consumers expect an array
@@ -81,7 +81,7 @@ function wg_validate_settings_post($pconfig) {
 	$enable = $pconfig['enable'];
 
 	if (wg_is_wg_assigned() && (isset($enable) && (empty($enable) || ($enable == 'off')))) {
-		$input_errors[] = gettext('Cannot disable WireGuard when one or more tunnels is assigned to a pfSense interface.');
+		$input_errors[] = gettext('Cannot disable WireGuard when one or more tunnels is assigned to a libreSense interface.');
 	}
 	
 	// Check endpoint hostname resolve interval
@@ -104,9 +104,9 @@ function wg_validate_tunnel_post($pconfig, $idx_from_post) {
 
 	// Check enabled/disabled status
 	if (is_wg_tunnel_assigned($pconfig['name']) && (!isset($pconfig['enabled']) || ($pconfig['enabled'] != 'yes'))) {
-		$wg_pfsense_if = wg_get_pfsense_interface_info($pconfig['name']);
+		$wg_libresense_if = wg_get_libresense_interface_info($pconfig['name']);
 
-		$input_errors[] = "Cannot disable {$pconfig['name']} while it is assigned to {$wg_pfsense_if['name']} ({$wg_pfsense_if['name']}).";
+		$input_errors[] = "Cannot disable {$pconfig['name']} while it is assigned to {$wg_libresense_if['name']} ({$wg_libresense_if['name']}).";
 	}
 
 	// Check listen port

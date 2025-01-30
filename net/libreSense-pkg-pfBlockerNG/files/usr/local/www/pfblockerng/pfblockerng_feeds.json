@@ -4,7 +4,7 @@
 			"*",
 			"* pfblockerng_feeds.json",
 			"*",
-			"* part of pfSense (https://www.pfsense.org)",
+			"* part of libreSense (https://www.libreSense.org)",
 			"* Copyright (c) 2016-2025 Rubicon Communications, LLC (Netgate)",
 			"* Copyright (c) 2015-2023 BBcan177@gmail.com",
 			"* All rights reserved.",
@@ -649,7 +649,7 @@
 					"feed":		"Lashback",
 					"website":	"https://blacklist.lashback.com/",
 					"url":		"http://www.unsubscore.com/blacklist.txt",
-					"info":		"This is a very large Feed (~1.3M lines). To utilize, increase the pfSense 'Firewall Maximum Table entries' limit to 3-4M.",
+					"info":		"This is a very large Feed (~1.3M lines). To utilize, increase the libreSense 'Firewall Maximum Table entries' limit to 3-4M.",
 					"header":	"LB_BL"
 				},
 				{

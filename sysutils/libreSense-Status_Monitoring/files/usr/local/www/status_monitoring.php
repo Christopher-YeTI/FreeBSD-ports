@@ -2,7 +2,7 @@
 /*
  * status_monitoring.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2008-2025 Rubicon Communications, LLC (Netgate)
  * All rights reserved.
  *
@@ -23,7 +23,7 @@
  * limitations under the License.
  */
 
-// See pfSense-Status_Monitoring.priv.inc for the page priv data for status_monitoring.
+// See libreSense-Status_Monitoring.priv.inc for the page priv data for status_monitoring.
 
 require("guiconfig.inc");
 require_once("filter.inc");

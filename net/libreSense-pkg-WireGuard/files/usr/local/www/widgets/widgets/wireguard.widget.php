@@ -2,7 +2,7 @@
 /*
  * wireguard.widget.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2021-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2021 R. Christian McDonald (https://github.com/rcmcdonald91)
  * Copyright (c) 2021 Vajonam
@@ -22,7 +22,7 @@
  * limitations under the License.
  */
 
-// pfSense includes
+// libresense includes
 require_once('guiconfig.inc');
 require_once('util.inc');
 

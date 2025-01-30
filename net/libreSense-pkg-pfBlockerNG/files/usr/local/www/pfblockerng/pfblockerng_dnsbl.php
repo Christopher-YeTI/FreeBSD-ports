@@ -2,7 +2,7 @@
 /*
  * pfblockerng_dnsbl.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2016-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2015-2023 BBcan177@gmail.com
  * All rights reserved.
@@ -338,7 +338,7 @@ $options_action			= [ 'Disabled' => 'Disabled', 'Deny_Inbound' => 'Deny Inbound'
 
 $options_aliaslog		= [ 'enabled' => 'Enable', 'disabled' => 'Disable' ];
 
-// Collect all pfSense 'Port' Aliases
+// Collect all libreSense 'Port' Aliases
 $ports_list = $networks_list = '';
 foreach (config_get_path('aliases/alias', []) as $alias) {
 	if ($alias['type'] == 'port') {
@@ -590,7 +590,7 @@ if ($_POST) {
 			$pfb['dconfig']['pfb_pytld_sort']	= pfb_filter($_POST['pfb_pytld_sort'], PFB_FILTER_ON_OFF, 'dnsbl')	?: '';
 			$pfb['dconfig']['pfb_py_nolog']		= pfb_filter($_POST['pfb_py_nolog'], PFB_FILTER_ON_OFF, 'dnsbl')	?: '';
 
-			// Python TLD Allow (Add default TLD Allows + ARPA + pfSense TLD
+			// Python TLD Allow (Add default TLD Allows + ARPA + libreSense TLD
 			if (!empty($_POST['pfb_pytlds_gtld'])) {
 				$pfb['dconfig']['pfb_pytlds_gtld']	= "arpa,{$local_tld}," . implode(',', (array)$_POST['pfb_pytlds_gtld']); 
 			} else {
@@ -753,7 +753,7 @@ $dnsbl_text = '<div class="infoblock">
 			To debug issues with \'False Positives\', the following tools below can be used:<br />
 			<ol>
 				<li>Browser Dev mode (F12) and goto \'Console\' to review any error messages.</li>
-				<li>Execute the following command from pfSense Shell (Changing the interface \'re1\' to the pfSense Lan Interface):<br />
+				<li>Execute the following command from libreSense Shell (Changing the interface \'re1\' to the libreSense Lan Interface):<br />
 					&emsp;<strong>tcpdump -nnvli re1 port 53 | grep -B1 \'A 10.10.10.1\'</strong></li>
 				<li>Packet capture software such as Wireshark.</li>
 			</ol>
@@ -827,7 +827,7 @@ $section->addInput(new Form_Select(
 		. '<strong>Unbound Mode</strong>:<br />'
 		. '&emsp;&emsp;&emsp;&emsp;This mode will utilize Unbound local-zone/local-data entries for DNSBL (requires more memory).<br />'
 		. '<strong>Unbound Python Mode</strong>:<br />'
-		. '&emsp;&emsp;&emsp;&emsp;This mode is only available for pfSense version 2.4.5 and above.<br />'
+		. '&emsp;&emsp;&emsp;&emsp;This mode is only available for libreSense version 2.4.5 and above.<br />'
 		. '&emsp;&emsp;&emsp;&emsp;This mode will utilize the python integration of Unbound for DNSBL.<br />'
 		. '&emsp;&emsp;&emsp;&emsp;This mode will allow logging of DNS Replies, and more advanced DNSBL Blocking features.<br />'
 		. '&emsp;&emsp;&emsp;&emsp;This mode requires substantially less memory </div>'
@@ -849,7 +849,7 @@ $section->addInput(new Form_Checkbox(
 	'on'
 ))->setHelp('Enabling this option will allow sending python_control commands (via DNS TXT) to the Python integration.'
 	. '<div class="infoblock" style="width: 90%;">'
-	. 'The python_control feature is limited to DNS TXT records sent from pfSense localhost (127.0.0.1) only!<br />'
+	. 'The python_control feature is limited to DNS TXT records sent from libreSense localhost (127.0.0.1) only!<br />'
 	. 'This is a temporary intervention, and will be reset on a restart of the Resolver<br />'
 	. 'These commands can be incorporated in CRON/Scheduler tasks or run manually as required<br />'
 	. 'All events are logged to the Reports Tab (Gear icon)<br /><br />'
@@ -2505,7 +2505,7 @@ $section->addInput(new Form_Checkbox(
 	'on'
 ))->setHelp('Enable the Python TLD Allow feature (1,546 TLDs available). This will block all TLDs that are not specifically selected.'
 		. '<div id="dnsbl_python_tld_allow_text">'
-		. '<strong>By default</strong> \'ARPA\' and the pfSense TLD \'' . strtoupper($local_tld) . '\' are allowed.<br />'
+		. '<strong>By default</strong> \'ARPA\' and the libreSense TLD \'' . strtoupper($local_tld) . '\' are allowed.<br />'
 		. 'If no TLDs are selected, the following are added by default [ COM, NET, ORG, EDU, CA, CO, IO ]<br /><br />'
 		. 'Detailed TLD listings : <a target=_blank href="http://www.iana.org/domains/root/db">Root Zone Top-Level Domains.</a><br />'
 		. 'Changes to this option will require a Force Update to take effect.<br /><br />'
@@ -3034,7 +3034,7 @@ $list_action_text = 'Default: <strong>Disabled</strong>
 
 				<strong><u>\'Alias\' Rule:</u></strong><br />
 				<strong>\'Alias\'</strong> rules create an <a href="/firewall_aliases.php">alias</a> for the list (and do nothing else).
-				This enables a pfBlockerNG list to be used by name, in any firewall rule or pfSense function, as desired.
+				This enables a pfBlockerNG list to be used by name, in any firewall rule or libreSense function, as desired.
 			</div>';
 
 $section->addInput(new Form_Select(

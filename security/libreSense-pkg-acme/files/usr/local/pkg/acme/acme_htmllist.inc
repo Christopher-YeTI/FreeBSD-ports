@@ -23,7 +23,7 @@
   be moved to the general pfSense php library for possible easy use by other parts of pfSense
 */
 
-namespace pfsense_pkg\acme;
+namespace libresense_pkg\acme;
 
 require_once("config.inc");
 require_once("acme_utils.inc");

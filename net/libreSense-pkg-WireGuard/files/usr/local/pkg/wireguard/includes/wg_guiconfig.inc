@@ -2,7 +2,7 @@
 /*
  * wg_guiconfig.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2021 R. Christian McDonald (https://github.com/rcmcdonald91)
  * All rights reserved.
  *
@@ -19,7 +19,7 @@
  * limitations under the License.
  */
 
-// pfSense includes
+// libresense includes
 require_once('util.inc');
 
 // WireGuard includes
@@ -329,11 +329,11 @@ function wg_generate_tunnel_address_popover_link($tunnel_name) {
 		if (!is_wg_tunnel_assigned($tunnel['name'])) {
 			return wg_compose_address_popover_link($tunnel['addresses']['row'], gettext('Interface Addresses'), "vpn_wg_tunnels_edit.php?tun={$tunnel_name}");
 		} else {
-			$wg_pfsense_if = wg_get_pfsense_interface_info($tunnel['name']);
+			$wg_libresense_if = wg_get_libresense_interface_info($tunnel['name']);
 
 			$ret_html = 	<<<"RET"
 					<i class="fa-solid fa-sitemap" style="vertical-align: middle;"></i>
-					<a style="padding-left: 3px" href="../../interfaces.php?if={$s(htmlspecialchars($wg_pfsense_if['name']))}">{$s(htmlspecialchars($wg_pfsense_if['descr']))} ({$s(htmlspecialchars($wg_pfsense_if['name']))})</a>
+					<a style="padding-left: 3px" href="../../interfaces.php?if={$s(htmlspecialchars($wg_libresense_if['name']))}">{$s(htmlspecialchars($wg_libresense_if['descr']))} ({$s(htmlspecialchars($wg_libresense_if['name']))})</a>
 					
 					RET;
 

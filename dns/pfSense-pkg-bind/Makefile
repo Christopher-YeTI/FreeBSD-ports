@@ -1,6 +1,6 @@
 # $FreeBSD$
 
-PORTNAME=	pfSense-pkg-bind
+PORTNAME=	libreSense-pkg-bind
 PORTVERSION=	9.20
 PORTREVISION=	0
 CATEGORIES=	dns

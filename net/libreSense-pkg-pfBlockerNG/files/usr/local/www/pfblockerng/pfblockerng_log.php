@@ -2,13 +2,13 @@
 /*
  * pfblockerng_log.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2016-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2015-2023 BBcan177@gmail.com
  * All rights reserved.
  *
  * Portions of this code are based on original work done for the
- * Snort package for pfSense from the following contributors:
+ * Snort package for libresense from the following contributors:
  *
  * Copyright (c) 2009 Robert Zelaya Sr. Developer
  * Copyright (c) 2005 Bill Marquette

@@ -8,8 +8,8 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	coreteam@pfsense.org
-COMMENT=	pfSense package FTP_Client_Proxy
+MAINTAINER=	coreteam@libresense.org
+COMMENT=	libresense package FTP_Client_Proxy
 
 LICENSE=	APACHE20
 

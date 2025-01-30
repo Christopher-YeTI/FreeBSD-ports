@@ -2,7 +2,7 @@
 /*
  * lightsquid.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2015-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2006-2012 Sergey Dvoriancev <dv_serg@mail.ru>
  * All rights reserved.
@@ -24,7 +24,7 @@ require_once('certs.inc');
 require_once('config.inc');
 require_once('filter.inc');
 require_once('globals.inc');
-require_once('pfsense-utils.inc');
+require_once('libresense-utils.inc');
 require_once('pkg-utils.inc');
 require_once('service-utils.inc');
 require_once('util.inc');
@@ -136,7 +136,7 @@ function lightsquid_write_webconfig() {
 		$lightsquid_config['lighttpd_ls_user'] = "admin";
 	}
 	if (empty($lightsquid_config['lighttpd_ls_password'])) {
-		$lightsquid_config['lighttpd_ls_password'] = "pfsense";
+		$lightsquid_config['lighttpd_ls_password'] = "libresense";
 	}
 
 	touch($lighttpd_ls_auth_path);

@@ -2,10 +2,10 @@
 /*
  * haproxy_pool_edit.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2009-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2013-2015 PiBa-NL
- * Copyright (c) 2008 Remco Hoef <remcoverhoef@pfsense.com>
+ * Copyright (c) 2008 Remco Hoef <remcoverhoef@libresense.com>
  * All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -861,7 +861,7 @@ $section->addInput(new Form_Input('monitor_username', 'Check with Username', 'te
 This is the username which will be used when connecting to MySQL/PostgreSQL server.
 				<pre>
 USE mysql;
-CREATE USER '<span id="sqlcheckusername"></span>'@'&lt;pfSenseIP&gt;';
+CREATE USER '<span id="sqlcheckusername"></span>'@'&lt;libreSenseIP&gt;';
 FLUSH PRIVILEGES;</pre>
 EOT
 );
@@ -1130,7 +1130,7 @@ EOT
 <<<EOT
 
 	Connect transparently to the backend server's so the connection seams to come straight from the client ip address.
-	To work properly this requires the reply traffic to pass through pfSense by means of correct routing.<br/>
+	To work properly this requires the reply traffic to pass through libreSense by means of correct routing.<br/>
 	When using IPv6 only routable ip addresses can be used, host names or link-local addresses (FE80) will not work.<br/>
 	(uses the option "source 0.0.0.0 usesrc clientip" or "source ipv6@ usesrc clientip")
 	<br/><br/>

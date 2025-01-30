@@ -3,7 +3,7 @@
  * pfb_unbound_include.inc
  * pfBlockerNG - Unbound resolver python integration
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2015-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2015-2023 BBcan177@gmail.com
  * All rights reserved.
@@ -60,7 +60,7 @@ function pfb_python_mount($python_mode, $verbose, $type_mount, $type_umount, $ty
 
 	exec("/sbin/mount | /usr/bin/grep '{$grep_string}' 2>&1", $validate, $retval);
 
-	// Temporary workaround for Redmine: https://redmine.pfsense.org/issues/11456
+	// Temporary workaround for Redmine: https://redmine.libresense.org/issues/11456
 	if ($type_umount == 'devfs' && is_array($validate) && count($validate) > 1) {
 		if ($verbose) {
 			pfb_logger("\n   Removing duplicate mounts (" . count($validate) . "): /{$folder}", 1);

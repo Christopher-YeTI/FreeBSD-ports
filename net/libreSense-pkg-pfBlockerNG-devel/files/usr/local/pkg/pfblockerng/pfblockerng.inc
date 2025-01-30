@@ -2,7 +2,7 @@
 /*
  * pfblockerng.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2015-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2015-2024 BBcan177@gmail.com
  * All rights reserved.
@@ -24,12 +24,12 @@ require_once('config.lib.inc');
 require_once('util.inc');
 require_once('functions.inc');
 require_once('pkg-utils.inc');
-require_once('pfsense-utils.inc');
+require_once('libreSense-utils.inc');
 require_once('globals.inc');
 require_once('services.inc');
 require_once('service-utils.inc');
 if (file_exists('/usr/local/pkg/pfblockerng/pfblockerng_extra.inc')) {
-	require_once('/usr/local/pkg/pfblockerng/pfblockerng_extra.inc');	// 'include functions' not yet merged into pfSense
+	require_once('/usr/local/pkg/pfblockerng/pfblockerng_extra.inc');	// 'include functions' not yet merged into libreSense
 }
 
 global $g, $pfb;
@@ -164,7 +164,7 @@ foreach (array('existing', 'actual') as $pftype) {
 }
 
 // Default cURL options
-$pfb['curl_defaults'] = array(  CURLOPT_USERAGENT	=> 'pfSense/pfBlockerNG cURL download agent-' . system_get_uniqueid(),
+$pfb['curl_defaults'] = array(  CURLOPT_USERAGENT	=> 'libreSense/pfBlockerNG cURL download agent-' . system_get_uniqueid(),
 				CURLOPT_SSL_CIPHER_LIST	=> 'TLSv1.3, TLSv1.2',
 				CURLOPT_FOLLOWLOCATION	=> true,
 				CURLOPT_SSL_VERIFYPEER	=> true,
@@ -366,7 +366,7 @@ function pfb_filter($input, $type, $reference='Unknown', $default='', $escape=FA
 					$validate_list = resolve_host_addresses("{$data['host']}.");
 				}
 
-				$pfsense_configured = FALSE;
+				$libresense_configured = FALSE;
 				if (!empty($validate_list) && is_array($validate_list)) {
 					foreach ($validate_list as $validate) {
 						if ($validate['type'] == 'CNAME' && !empty($validate['data'])) {
@@ -380,14 +380,14 @@ function pfb_filter($input, $type, $reference='Unknown', $default='', $escape=FA
 							if (!empty($cname_list) && is_array($cname_list)) {
 								foreach ($cname_list as $cname) {
 									if (!empty($cname['data']) && is_ipaddr_configured($cname['data'])) {
-										$pfsense_configured = TRUE;
+										$libresense_configured = TRUE;
 										break 2;
 									}
 								}
 							}
 						}
 						if (!empty($validate['data']) && is_ipaddr_configured($validate['data'])) {
-							$pfsense_configured = TRUE;
+							$libresense_configured = TRUE;
 							break;
 						}
 					}
@@ -400,9 +400,9 @@ function pfb_filter($input, $type, $reference='Unknown', $default='', $escape=FA
 
 				$path = pathinfo($data['path'], PATHINFO_DIRNAME);
 
-				// Validate only pfSense URLS (localfile check and Alerts Tab refresh)
+				// Validate only libresense URLS (localfile check and Alerts Tab refresh)
 				if ($escape) {
-					if ($pfsense_configured ||
+					if ($libresense_configured ||
 					    ($data['host'] == '127.0.0.1') ||
 					    ($data['host'] == '::1')) {
 
@@ -418,8 +418,8 @@ function pfb_filter($input, $type, $reference='Unknown', $default='', $escape=FA
 					return FALSE;
 				}
 
-				// pfSense URL
-				if (($pfsense_configured) ||
+				// libresense URL
+				if (($libresense_configured) ||
 				    ($data['host'] == '127.0.0.1') ||
 				    ($data['host'] == '::1')) {
 
@@ -854,7 +854,7 @@ function pfb_filter_service() {
 	# Ensure all processes are stopped
 	rc_stop
 
-	# clog is not required for pfSense 2.5 and above
+	# clog is not required for libresense 2.5 and above
 	filter_type='tail_pfb'
 	if [ -e "/usr/local/sbin/clog_pfb" ]; then
 		filter_type='clog_pfb'
@@ -894,7 +894,7 @@ function pfb_filter_service() {
 EOF;
 	$rc['stop']	= <<<EOF
 
-	# clog is not required for pfSense 2.5 and above
+	# clog is not required for libresense 2.5 and above
 	filter_type='tail_pfb'
 	if [ -e "/usr/local/sbin/clog_pfb" ]; then
 		filter_type='clog_pfb'
@@ -983,7 +983,7 @@ if (!file_exists('/usr/local/etc/rc.d/pfb_dnsbl.sh')) {
 	pfb_dnsbl_service();
 }
 
-// clog is not required for pfSense 2.5 and above
+// clog is not required for libresense 2.5 and above
 if (substr(trim(file_get_contents('/etc/version')), 0, 3) > '2.5' && file_exists('/usr/local/sbin/clog_pfb')) {
 	unlink_if_exists('/usr/local/sbin/clog_pfb');
 	unlink_if_exists('/usr/bin/tail_pfb');
@@ -1023,7 +1023,7 @@ if (isset($argv[1])) {
 			ignore_user_abort(TRUE);
 			set_time_limit(0);
 			if (!file_exists('/var/log/filter.log')) {
-				log_error('[pfBlockerNG] pfSense Firewall log missing');
+				log_error('[pfBlockerNG] libreSense Firewall log missing');
 				exit;
 			}
 			pfb_daemon_filterlog();
@@ -1871,7 +1871,7 @@ function pfb_create_dnsbl($mode) {
 
 		// DNSBL NAT rules generation
 		$pfbfound = FALSE;
-		// Collect existing pfSense NAT rules
+		// Collect existing libresense NAT rules
 		foreach (config_get_path('nat/rule', []) as $ex_nat) {
 			if (strpos($ex_nat['descr'], 'pfB DNSBL') !== FALSE) {
 				// Collect DNSBL NAT rules
@@ -1975,7 +1975,7 @@ function pfb_create_dnsbl($mode) {
 		}
 
 		$pfbfound = FALSE;
-		// Collect existing pfSense VIPs
+		// Collect existing libresense VIPs
 		foreach (config_get_path('virtualip/vip', []) as $ex_vip) {
 			if (strpos($ex_vip['descr'], 'pfB DNSBL') !== FALSE) {
 				// Collect DNSBL VIP
@@ -2175,7 +2175,7 @@ function pfb_unbound_dnsbl($mode) {
 	$pfbupdate = FALSE;
 	$unbound_include = "server:include: {$pfb['dnsbl_file']}.*conf";
 
-	// Collect Unbound custom option pfSense conf line
+	// Collect Unbound custom option libresense conf line
 	$pfb['unboundconfig']	= config_get_path('unbound/custom_options');
 
 	if (!empty($pfb['unboundconfig'])) {
@@ -2186,7 +2186,7 @@ function pfb_unbound_dnsbl($mode) {
 
 	// Determine if DNSBL include line exists
 	if (!empty($unbound_custom)) {
-		// Append DNSBL Unbound pfSense conf integration
+		// Append DNSBL Unbound libresense conf integration
 		if (!strstr($unbound_custom, 'pfb_dnsbl.*conf')) {
 			if ($mode == 'enabled') {
 				if (!$pfb['dnsbl_py_blacklist']) {
@@ -2204,7 +2204,7 @@ function pfb_unbound_dnsbl($mode) {
 			}
 		}
 		else {
-			// Remove DNSBL Unbound pfSense conf integration when disabled
+			// Remove DNSBL Unbound libresense conf integration when disabled
 			// or when DNSBL python mode is enabled but not when SafeSearch is enabled
 			if ($mode == 'disabled' || $pfb['dnsbl_py_blacklist']) {
 				$custom = explode ("\n", $unbound_custom);
@@ -2232,7 +2232,7 @@ function pfb_unbound_dnsbl($mode) {
 		}
 	}
 	else {
-		// Add DNSBL Unbound pfSense conf integration
+		// Add DNSBL Unbound libresense conf integration
 		if ($mode == 'enabled') {
 			if (!$pfb['dnsbl_py_blacklist']) {
 				$pfbupdate = TRUE;
@@ -3862,7 +3862,7 @@ function find_reported_header($ip, $pfbfolder, $geoip=FALSE) {
 				}
 				else {
 					/* Normalize IPv6 prefix to its start address to avoid PHP errors
-					 * https://redmine.pfsense.org/issues/14256
+					 * https://redmine.libresense.org/issues/14256
 					 */
 					list($prefix, $length) = explode('/', $line[1]);
 					$prefix = gen_subnetv6($prefix, $length);
@@ -3955,7 +3955,7 @@ function pfb_download($list_url, $file_dwn, $pflex=FALSE, $header, $format, $log
 		return TRUE;
 	}
 	else {
-		// Determine if URL is a pfSense localfile
+		// Determine if URL is a libresense localfile
 		$localfile = FALSE;
 		if (pfb_filter("{$list_download}", PFB_FILTER_URL, 'pfb_download', '', TRUE)) {
 			$localfile = TRUE;
@@ -4851,7 +4851,7 @@ function pfb_filterrules() {
 				$type = strstr(ltrim(strstr($result, ' ', FALSE), ' '), ' ', TRUE);
 				if (in_array($type, array('block', 'pass', 'match'))) {
 
-					// Since pfSense CE 2.6 and pfSense Plus 22.01, pf rules use an 'ridentifier' string
+					// Since libresense CE 2.6 and libresense Plus 22.01, pf rules use an 'ridentifier' string
 					if (strrpos($result, 'ridentifier') !== FALSE) {
 						$id_begin_delim = 'ridentifier ';
 						$id_end_delim = ' ';
@@ -5280,7 +5280,7 @@ function pfb_collect_localhosts() {
 	// Collect DHCP hostnames/IPs
 	$local_hosts = array();
 
-	// Collect configured pfSense interfaces
+	// Collect configured libresense interfaces
 	$pf_int = get_configured_ip_addresses();
 	if (isset($pf_int)) {
 		$local_hosts = array_merge($local_hosts, array_flip(array_filter($pf_int)));
@@ -5360,9 +5360,9 @@ function pfb_collect_localhosts() {
 	foreach (config_get_path('virtualip/vip', []) as $list) {
 		if (!empty($list['subnet']) && !empty($list['subnet_bits'])) {
 	
-			// Use pfSense hostname for DNSBL vip
+			// Use libresense hostname for DNSBL vip
 			if ($list['subnet'] == $pfb['dnsbl_vip']) {
-				$list['descr'] = config_get_path('system/hostname', 'pfSense') . '.' . (config_get_path('system/domain', 'localdomain'));
+				$list['descr'] = config_get_path('system/hostname', 'libreSense') . '.' . (config_get_path('system/domain', 'localdomain'));
 			}
 			$local_hosts[$list['subnet']] = strtolower("{$list['descr']}");
 		}
@@ -5370,7 +5370,7 @@ function pfb_collect_localhosts() {
 
 	// Add localhost hostname
 	if (!isset($local_hosts['127.0.0.1'])) {
-		$local_hosts['127.0.0.1'] = strtolower((config_get_path('system/hostname', 'pfSense')) . '.' . (config_get_path('system/domain', 'localdomain')));
+		$local_hosts['127.0.0.1'] = strtolower((config_get_path('system/hostname', 'libreSense')) . '.' . (config_get_path('system/domain', 'localdomain')));
 	}
 
 	return $local_hosts;
@@ -5436,7 +5436,7 @@ function pfb_daemon_filterlog() {
 		$skip_cnt = $filter_cnt = 0;
 	}
 
-	/* filter.log reference: URL: https://docs.netgate.com/pfsense/en/latest/monitoring/logs/raw-filter-format.html
+	/* filter.log reference: URL: https://docs.netgate.com/libresense/en/latest/monitoring/logs/raw-filter-format.html
 
 		$line -> $f
 
@@ -7243,7 +7243,7 @@ function sync_package_pfblockerng($cron='') {
 	#	Configure INBOUND/OUTBOUND INTERFACES		#
 	#########################################################
 
-	// Collect pfSense interface order
+	// Collect libresense interface order
 	$ifaces = pfb_build_if_list(TRUE, FALSE);
 
 	foreach (array('inbound', 'outbound') as $type) {
@@ -10085,7 +10085,7 @@ function sync_package_pfblockerng($cron='') {
 	}
 
 	#########################################
-	#	UPDATE pfSense ALIAS TABLES	#
+	#	UPDATE libresense ALIAS TABLES	#
 	#########################################
 
 	// Reload config.xml to get any recent changes
@@ -10142,7 +10142,7 @@ function sync_package_pfblockerng($cron='') {
 			// Collect all existing rules
 			$rules = config_get_path('filter/rule', []);
 
-			// Collect existing pfSense rules 'pass', 'match' and 'other' pfSense rules into new arrays.
+			// Collect existing libresense rules 'pass', 'match' and 'other' libresense rules into new arrays.
 			if (!empty($rules)) {
 				foreach ($rules as $rule) {
 
@@ -10213,10 +10213,10 @@ function sync_package_pfblockerng($cron='') {
 			#################################################################################
 			#			IP FIREWALL RULES ORDER					#
 			#  ORDER 0 |	pfB (p/m/b/r)	| All other	|				#
-			#  ORDER 1 |	pfSense (p/m)	| pfB (p/m)	| pfB (b/r) 	| pfSense (b/r)	#
-			#  ORDER 2 |	pfB (p/m)	| pfSense (p/m) | pfB (b/r)	| pfSense (b/r)	#
-			#  ORDER 3 |	pfB (p/m)	| pfB (b/r) 	| pfSense (p/m)	| pfSense (b/r)	#
-			#  ORDER 4 |	pfB (p/m)	| pfB (b/r)	| pfSense (b/r)	| pfSense (p/m)	#
+			#  ORDER 1 |	libreSense (p/m)	| pfB (p/m)	| pfB (b/r) 	| libreSense (b/r)	#
+			#  ORDER 2 |	pfB (p/m)	| libreSense (p/m) | pfB (b/r)	| libreSense (b/r)	#
+			#  ORDER 3 |	pfB (p/m)	| pfB (b/r) 	| libreSense (p/m)	| libreSense (b/r)	#
+			#  ORDER 4 |	pfB (p/m)	| pfB (b/r)	| libreSense (b/r)	| libreSense (p/m)	#
 			#################################################################################
 
 
@@ -10436,7 +10436,7 @@ function sync_package_pfblockerng($cron='') {
 	}
 
 	#################################
-	#	pfSense Integration	#
+	#	libreSense Integration	#
 	#################################
 
 	// If 'Rule Changes' are found, utilize the 'filter_configure()' function, if not, utilize 'pfctl replace' command
@@ -11047,7 +11047,7 @@ function pfblockerng_do_xmlrpc_sync($sync_to_ip, $port, $protocol, $username, $p
 		if (config_get_path('installedpackages/pfblockerngdnsblsettings') != null) {
 			$xml['pfblockerngdnsblsettings']= config_get_path('installedpackages/pfblockerngdnsblsettings');
 
-			// Increase CARP Advskew value, see https://redmine.pfsense.org/issues/11964
+			// Increase CARP Advskew value, see https://redmine.libreSense.org/issues/11964
 			if (isset($xml['pfblockerngdnsblsettings']['config'][0]['pfb_dnsvip_skew'])) {
 				$advskew = intval($xml['pfblockerngdnsblsettings']['config'][0]['pfb_dnsvip_skew']);
 				$advskew += 100;
@@ -11093,7 +11093,7 @@ function pfblockerng_do_xmlrpc_sync($sync_to_ip, $port, $protocol, $username, $p
 		$xml['pfblockerngsafesearch']		= config_get_path('installedpackages/pfblockerngsafesearch');
 
 
-	// Execute applicable XMLRPC code as per pfSense version
+	// Execute applicable XMLRPC code as per libreSense version
 	if (substr(trim(file_get_contents('/etc/version')), 0, 3) < '2.4') {
 
 		require_once('xmlrpc.inc');
@@ -11105,7 +11105,7 @@ function pfblockerng_do_xmlrpc_sync($sync_to_ip, $port, $protocol, $username, $p
 		$params = array(XML_RPC_encode($password), XML_RPC_encode($xml));
 
 		/* set a few variables needed for sync code borrowed from filter.inc */
-		$msg = new XML_RPC_Message('pfsense.merge_installedpackages_section_xmlrpc', $params);
+		$msg = new XML_RPC_Message('libresense.merge_installedpackages_section_xmlrpc', $params);
 		$cli = new XML_RPC_Client('/xmlrpc.php', $url, $port);
 		$cli->setCredentials($username, $password);
 		if ($g['debug']) {
@@ -11139,7 +11139,7 @@ function pfblockerng_do_xmlrpc_sync($sync_to_ip, $port, $protocol, $username, $p
 		}
 
 		$synctimeout = intval($synctimeout);
-		$rpc_client = new pfsense_xmlrpc_client();
+		$rpc_client = new libresense_xmlrpc_client();
 		$rpc_client->setConnectionData($sync_to_ip, $port, $username, $password, $protocol);
 		$resp = $rpc_client->xmlrpc_method('merge_installedpackages_section', $xml, $synctimeout);
 

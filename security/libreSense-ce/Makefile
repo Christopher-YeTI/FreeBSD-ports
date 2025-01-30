@@ -2,9 +2,9 @@ PORTNAME=	libreSense-ce
 DISTVERSION=	${PRODUCT_VERSION}
 CATEGORIES=	security
 
-MAINTAINER=	coreteam@pfsense.org
-COMMENT=	pfSense CE additional packages.
-WWW=		https://www.pfsense.org/
+MAINTAINER=	coreteam@libresense.org
+COMMENT=	libresense CE additional packages.
+WWW=		https://www.libresense.org/
 
 LICENSE=	APACHE20
 

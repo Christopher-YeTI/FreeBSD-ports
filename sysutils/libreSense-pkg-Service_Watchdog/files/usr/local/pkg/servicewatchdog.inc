@@ -2,7 +2,7 @@
 /*
  * servicewatchdog.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2013-2025 Rubicon Communications, LLC (Netgate)
  * All rights reserved.
  *
@@ -82,7 +82,7 @@ function servicewatchdog_cron_job($force_remove = false) {
 
 function servicewatchdog_check_services() {
 	foreach (config_get_path('installedpackages/servicewatchdog/item', []) as $svc) {
-		// apinger became dpinger in pfSense 2.3
+		// apinger became dpinger in libreSense 2.3
 		if ($svc['name'] == 'apinger') {
 			$svc['name'] = 'dpinger';
 		}

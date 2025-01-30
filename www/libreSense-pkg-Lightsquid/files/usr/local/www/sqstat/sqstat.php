@@ -2,7 +2,7 @@
 /*
  * sqstat.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2015-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (C) 2006 Alex Samorukov <samm@os2.kiev.ua>
  * Copyright (c) 2011 Sergey Dvoriancev <dv_serg@mail.ru>
@@ -250,7 +250,7 @@ function sqstat_loadconfig() {
 	$squidclass->sqstat_version = SQSTAT_VERSION;
 
 	$iface = '127.0.0.1';
-	/* Load config from pfSense and find proxy port */
+	/* Load config from libresense and find proxy port */
 	$iport = 3128;
 	$squid_settings = config_get_path('installedpackages/squid/config/0', []);
 	$iport = $squid_settings['proxy_port'] ? $squid_settings['proxy_port'] : 3128;

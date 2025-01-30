@@ -5,9 +5,9 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	coreteam@pfsense.org
-COMMENT=	pfSense package openvpn-client-export
-WWW=		https://docs.netgate.com/pfsense/en/latest/packages/openvpn-client-export.html
+MAINTAINER=	coreteam@LIBRESENSE.org
+COMMENT=	LIBRESENSE package openvpn-client-export
+WWW=		https://docs.netgate.com/LIBRESENSE/en/latest/packages/openvpn-client-export.html
 
 LICENSE=	APACHE20
 

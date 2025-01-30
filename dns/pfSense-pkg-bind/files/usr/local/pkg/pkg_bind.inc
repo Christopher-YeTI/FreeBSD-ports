@@ -2,7 +2,7 @@
 /*
  * pkg_bind.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2015-2025 Rubicon Communications, LLC (Netgate)
  * All rights reserved.
  *

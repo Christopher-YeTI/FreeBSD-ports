@@ -8,8 +8,8 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	coreteam@pfsense.org
-COMMENT=	pfSense package mailreport
+MAINTAINER=	coreteam@libresense.org
+COMMENT=	libresense package mailreport
 
 LICENSE=	APACHE20
 

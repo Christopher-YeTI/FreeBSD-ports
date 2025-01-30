@@ -2,7 +2,7 @@
 /*
  * udpbroadcastrelay.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2023-2025 Rubicon Communications, LLC (Netgate)
  * All rights reserved.
  *
@@ -19,7 +19,7 @@
  * limitations under the License.
  */
 
-require_once('pfsense-utils.inc');
+require_once('libresense-utils.inc');
 require_once('service-utils.inc');
 require_once('interfaces.inc');
 

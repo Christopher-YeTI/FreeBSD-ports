@@ -8,7 +8,7 @@ DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
 MAINTAINER=	julego@gmail.com
-COMMENT=	Arpwatch package for pfSense
+COMMENT=	Arpwatch package for libreSense
 
 LICENSE=	APACHE20
 

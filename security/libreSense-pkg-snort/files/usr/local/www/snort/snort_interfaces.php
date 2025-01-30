@@ -107,7 +107,7 @@ if (isset($_POST['del_x'])) {
 			if ($if_real == "") {
 				rmdir_recursive("{$snortlogdir}/snort_*{$snort_uuid}");
 				rmdir_recursive("{$snortdir}/snort_{$snort_uuid}_*");
-				syslog(LOG_NOTICE, "Deleted the Snort instance on a previously removed pfSense interface per user request...");
+				syslog(LOG_NOTICE, "Deleted the Snort instance on a previously removed libreSense interface per user request...");
 			}
 			else {
 				$if_friendly = convert_friendly_interface_to_friendly_descr($snortcfg['interface']);
@@ -157,7 +157,7 @@ else {
 		if ($if_real == "") {
 			rmdir_recursive("{$snortlogdir}/snort_*{$snort_uuid}");
 			rmdir_recursive("{$snortdir}/snort_{$snort_uuid}_*");
-			syslog(LOG_NOTICE, "Deleted the Snort instance on a previously removed pfSense interface per user request...");
+			syslog(LOG_NOTICE, "Deleted the Snort instance on a previously removed libreSense interface per user request...");
 		}
 		else {
 			$if_friendly = convert_friendly_interface_to_friendly_descr($a_nat[$delbtn_list]['interface']);

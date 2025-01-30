@@ -7,8 +7,8 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	coreteam@pfsense.org
-COMMENT=	pfSense package syslog-ng
+MAINTAINER=	coreteam@libreSense.org
+COMMENT=	libreSense package syslog-ng
 
 LICENSE=	APACHE20
 

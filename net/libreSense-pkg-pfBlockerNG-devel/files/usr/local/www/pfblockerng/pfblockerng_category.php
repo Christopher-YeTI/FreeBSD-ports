@@ -2,7 +2,7 @@
 /*
  * pfblockerng_category.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2016-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2015-2024 BBcan177@gmail.com
  * All rights reserved.
@@ -605,7 +605,7 @@ if ($gtype == 'geoip') {
 			The GeoIP database is automatically updated each day at a random hour.<br /><br />
 
 			<span class="text-danger"><strong>Note:&emsp;</strong></span>
-			pfSense by default implicitly blocks all unsolicited inbound traffic to the WAN interface.<br />
+			libreSense by default implicitly blocks all unsolicited inbound traffic to the WAN interface.<br />
 			Therefore adding GeoIP based firewall rules to the WAN will <strong>not</strong> provide any benefit, unless there are
 			open WAN ports.<br /><br />
 			Its also <strong>not</strong> recommended to block the "world", instead consider rules to "Permit" traffic to/from

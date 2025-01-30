@@ -2,7 +2,7 @@
 /*
  * haproxy_xmlrpcsyncclient.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2009-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2013 PiBa-NL
  * All rights reserved.
@@ -56,7 +56,7 @@ function xmlrpc_sync_execute_24($sync_logname, $xml, $sync_include,$sync_functio
 	
 	require_once("xmlrpc_client.inc");
 	
-	$rpc_client = new pfsense_xmlrpc_client();
+	$rpc_client = new libresense_xmlrpc_client();
 	$resp = $rpc_client->xmlrpc_method('merge_installedpackages_section', $xml);
 	
 	$execcmd  = "require_once('{$sync_include}');\n";
@@ -122,7 +122,7 @@ function xmlrpc_sync_execute_23($sync_logname, $xml, $sync_include,$sync_functio
 	/* set a few variables needed for sync code borrowed from filter.inc */
 	$url = $synchronizetoip;
 	log_error("Beginning {$sync_logname} XMLRPC sync to {$url}:{$port}.");
-	$method = 'pfsense.merge_installedpackages_section_xmlrpc';
+	$method = 'libresense.merge_installedpackages_section_xmlrpc';
 	$msg = new XML_RPC_Message($method, $params);
 	$cli = new XML_RPC_Client('/xmlrpc.php', $url, $port);
 	$cli->setCredentials('admin', $password);
@@ -146,7 +146,7 @@ function xmlrpc_sync_execute_23($sync_logname, $xml, $sync_include,$sync_functio
 	}
 
 	/* tell package to reload our settings on the destination sync host. */
-	$method = 'pfsense.exec_php';
+	$method = 'libresense.exec_php';
 	$execcmd  = "require_once('{$sync_include}');\n";
 	$execcmd .= "{$sync_function}();\n";
 	

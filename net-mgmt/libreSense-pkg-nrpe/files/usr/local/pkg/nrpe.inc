@@ -20,7 +20,7 @@
  * limitations under the License.
  */
 require_once("filter.inc");
-require_once("pfsense-utils.inc");
+require_once("libresense-utils.inc");
 require_once("pkg-utils.inc");
 require_once("util.inc");
 require_once("xmlrpc_client.inc");
@@ -304,7 +304,7 @@ nrpe_resync_package();
 EOD;
 
 	$synctimeout = intval($synctimeout);
-	$rpc_client = new pfsense_xmlrpc_client();
+	$rpc_client = new libresense_xmlrpc_client();
 	$rpc_client->setConnectionData($sync_to_ip, $port, $username, $password,
 	    $protocol);
 	$resp = $rpc_client->xmlrpc_method('merge_installedpackages_section',

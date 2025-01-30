@@ -1,9 +1,9 @@
 #!/bin/sh
 
-# PROVIDE: pfsense_tailscaled
+# PROVIDE: libresense_tailscaled
 # REQUIRE: tailscaled
 
-# part of pfSense (https://www.pfsense.org)
+# part of libresense (https://www.libresense.org)
 # Copyright (c) 2022-2025 Rubicon Communications, LLC (Netgate)
 # All rights reserved.
 #
@@ -21,57 +21,57 @@
 
 . /etc/rc.subr 
 
-name="pfsense_tailscaled"
+name="libresense_tailscaled"
 
 load_rc_config $name
 
 # defaults parameter values
-: ${pfsense_tailscaled_acceptdns_enable:="YES"}
-: ${pfsense_tailscaled_acceptroutes_enable:="NO"}
-: ${pfsense_tailscaled_advertiseroutes:=""}
-: ${pfsense_tailscaled_exitnode_enable:="NO"}
-: ${pfsense_tailscaled_loginserver:="https://controlplane.tailscale.com"}
-: ${pfsense_tailscaled_snat_subnet_routes:="NO"}
+: ${libresense_tailscaled_acceptdns_enable:="YES"}
+: ${libresense_tailscaled_acceptroutes_enable:="NO"}
+: ${libresense_tailscaled_advertiseroutes:=""}
+: ${libresense_tailscaled_exitnode_enable:="NO"}
+: ${libresense_tailscaled_loginserver:="https://controlplane.tailscale.com"}
+: ${libresense_tailscaled_snat_subnet_routes:="NO"}
 
 # source the tailscaled rc configuration too
 load_rc_config tailscaled
 
 # handle the --auth-key parameter
-pfsense_tailscaled_up_flags="--auth-key=${pfsense_tailscaled_authkey}"
+libresense_tailscaled_up_flags="--auth-key=${libresense_tailscaled_authkey}"
 
 # handle the --login-server parameter
-pfsense_tailscaled_up_flags="${pfsense_tailscaled_up_flags} --login-server=${pfsense_tailscaled_loginserver}"
+libresense_tailscaled_up_flags="${libresense_tailscaled_up_flags} --login-server=${libresense_tailscaled_loginserver}"
 
 # handle the --advertise-exit-node parameter
-if checkyesno pfsense_tailscaled_exitnode_enable; then
-	pfsense_tailscaled_up_flags="${pfsense_tailscaled_up_flags} --advertise-exit-node"
+if checkyesno libresense_tailscaled_exitnode_enable; then
+	libresense_tailscaled_up_flags="${libresense_tailscaled_up_flags} --advertise-exit-node"
 else
-	pfsense_tailscaled_up_flags="${pfsense_tailscaled_up_flags} --advertise-exit-node=false"
+	libresense_tailscaled_up_flags="${libresense_tailscaled_up_flags} --advertise-exit-node=false"
 fi
 
 # handle the --accept-routes parameter
-if checkyesno pfsense_tailscaled_acceptroutes_enable; then
-	pfsense_tailscaled_up_flags="${pfsense_tailscaled_up_flags} --accept-routes"
+if checkyesno libresense_tailscaled_acceptroutes_enable; then
+	libresense_tailscaled_up_flags="${libresense_tailscaled_up_flags} --accept-routes"
 else
-	pfsense_tailscaled_up_flags="${pfsense_tailscaled_up_flags} --accept-routes=false"
+	libresense_tailscaled_up_flags="${libresense_tailscaled_up_flags} --accept-routes=false"
 fi
 
 # handle the --acept-dns parameter
-if checkyesno pfsense_tailscaled_acceptdns_enable; then
-	pfsense_tailscaled_up_flags="${pfsense_tailscaled_up_flags} --accept-dns"
+if checkyesno libresense_tailscaled_acceptdns_enable; then
+	libresense_tailscaled_up_flags="${libresense_tailscaled_up_flags} --accept-dns"
 else
-	pfsense_tailscaled_up_flags="${pfsense_tailscaled_up_flags} --accept-dns=false"
+	libresense_tailscaled_up_flags="${libresense_tailscaled_up_flags} --accept-dns=false"
 fi
 
 # handle the --advertise-routes parameter
-pfsense_tailscaled_up_flags="${pfsense_tailscaled_up_flags} --advertise-routes=${pfsense_tailscaled_advertiseroutes}"
+libresense_tailscaled_up_flags="${libresense_tailscaled_up_flags} --advertise-routes=${libresense_tailscaled_advertiseroutes}"
 
 # This is currently on available on Linux (see https://github.com/tailscale/tailscale/issues/5573)
 # handle the –-snat-subnet-routes parameter
-#if checkyesno pfsense_tailscaled_snat_subnet_routes; then
-#	pfsense_tailscaled_up_flags="${pfsense_tailscaled_up_flags} --snat-subnet-routes"
+#if checkyesno libresense_tailscaled_snat_subnet_routes; then
+#	libresense_tailscaled_up_flags="${libresense_tailscaled_up_flags} --snat-subnet-routes"
 #else
-#	pfsense_tailscaled_up_flags="${pfsense_tailscaled_up_flags} --snat-subnet-routes=false"
+#	libresense_tailscaled_up_flags="${libresense_tailscaled_up_flags} --snat-subnet-routes=false"
 #fi
 
 extra_commands="clean" 
@@ -93,7 +93,7 @@ tailscaled_state_file="tailscaled.state"
 tailscaled_vendor_state_dir="/var/db/tailscale"
 
 # rc command hook
-pfsense_tailscaled_start() {
+libresense_tailscaled_start() {
 	# ensure if_tuntap is loaded
 	check_load_if_tuntap || return 1
 
@@ -105,7 +105,7 @@ pfsense_tailscaled_start() {
 }
 
 # rc command hook
-pfsense_tailscaled_poststart() {
+libresense_tailscaled_poststart() {
 	# wait for the tun device to come up
 	wait_for_tun_dev ${tailscale_tun_dev_wait} || return 1
 
@@ -116,16 +116,16 @@ pfsense_tailscaled_poststart() {
 	tailscale_up
 
 	# reload the packet filter
-	pfsense_reload_filter
+	libresense_reload_filter
 }
 
 # rc command hook
-pfsense_tailscaled_stop() {
+libresense_tailscaled_stop() {
 	tailscaled_stop
 }
 
 # rc command hook
-pfsense_tailscaled_clean() {
+libresense_tailscaled_clean() {
 	# stop tailscaled daemon
 	tailscaled_stop
 
@@ -135,8 +135,8 @@ pfsense_tailscaled_clean() {
 
 # bring up tailscale using the generated up flags from the configuration
 tailscale_up() {
-	logger -s -t tailscale "Bringing up ${tailscale_tun_dev} with ${pfsense_tailscaled_up_flags}"
-	${tailscale_bin} up ${pfsense_tailscaled_up_flags} || {
+	logger -s -t tailscale "Bringing up ${tailscale_tun_dev} with ${libresense_tailscaled_up_flags}"
+	${tailscale_bin} up ${libresense_tailscaled_up_flags} || {
 		logger -s -t "Unable to bring up ${tailscale_tun_dev}. Check authentication."
 	}
 }
@@ -256,9 +256,9 @@ tun_dev_add_group() {
 	return 1
 }
 
-# reload pfsense packet filter rules
-pfsense_reload_filter() {
-	debug "Reloading pfSense packet filter"
+# reload libresense packet filter rules
+libresense_reload_filter() {
+	debug "Reloading libresense packet filter"
 	/etc/rc.filter_configure_sync
 }
 

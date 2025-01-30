@@ -2,7 +2,7 @@
 /*
  * siproxd_registered_phones.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2010-2025 Rubicon Communications, LLC (Netgate)
  * All rights reserved.
  *

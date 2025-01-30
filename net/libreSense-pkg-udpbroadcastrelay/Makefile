@@ -5,8 +5,8 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	coreteam@pfsense.org
-COMMENT=	pfSense package UDP Broadcast Relay
+MAINTAINER=	coreteam@libreSense.org
+COMMENT=	libreSense package UDP Broadcast Relay
 
 LICENSE=	APACHE20
 

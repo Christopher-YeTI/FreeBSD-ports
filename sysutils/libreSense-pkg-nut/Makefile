@@ -8,7 +8,7 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	coreteam@pfsense.org
+MAINTAINER=	coreteam@libreSense.org
 COMMENT=	Network UPS Tools
 
 LICENSE=	APACHE20

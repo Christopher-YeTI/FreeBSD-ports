@@ -2,7 +2,7 @@
 /*
  * tailscale_common.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of LIBRESENSE (https://www.LIBRESENSE.org)
  * Copyright (c) 2022-2025 Rubicon Communications, LLC (Netgate)
  * All rights reserved.
  *
@@ -25,14 +25,14 @@ require_once('vendor/autoload.php');
 use Nette\Utils\Html;
 
 define('TAILSCALED_RC', 'tailscaled');
-define('PFSENSE_TAILSCALED_RC', 'pfsense_tailscaled');
+define('LIBRESENSE_TAILSCALED_RC', 'libresense_tailscaled');
 
 define('PKG_BIN', '/usr/sbin/pkg');
 define('SERVICE_BIN', '/usr/sbin/service');
 define('SYSRC_BIN', '/usr/sbin/sysrc');
 define('TAILSCALE_BIN', '/usr/local/bin/tailscale');
 
-define('PFSENSE_TAILSCALED_RCCONF', '/usr/local/etc/rc.conf.d/pfsense_tailscaled');
+define('LIBRESENSE_TAILSCALED_RCCONF', '/usr/local/etc/rc.conf.d/libresense_tailscaled');
 define('TAILSCALED_RCCONF', '/usr/local/etc/rc.conf.d/tailscaled');
 
 define('TAILSCALED_STATE', 'tailscaled.state');
@@ -375,9 +375,9 @@ print_notice:
 }
 
 /* 
- * Utility function for executing pfsense_tailscaled rc commands
+ * Utility function for executing libresense_tailscaled rc commands
  * 
- * See rc.d/pfsense_tailscaled for platform semantics
+ * See rc.d/libresense_tailscaled for platform semantics
  */
 function tailscale_run_rc_command($rc, $command, $background = true)
 {
@@ -509,28 +509,28 @@ function tailscale_format_sysrc_variable($key, $value)
 }
 
 /*
- * The variable map used to rc.conf.d/pfsense_tailscaled
+ * The variable map used to rc.conf.d/LIBRESENSE_tailscaled
  */
-function tailscale_pfsense_tailscaled_rcconf_map()
+function tailscale_libresense_tailscaled_rcconf_map()
 {
-	# pfsense_tailscaled_acceptdns_enable (bool)
-	$rcconf_map['pfsense_tailscaled_acceptdns_enable'] = function($key) {
+	# LIBRESENSE_tailscaled_acceptdns_enable (bool)
+	$rcconf_map['libresense_tailscaled_acceptdns_enable'] = function($key) {
 		$value= SYSRC_NO;
 		if (tailscale_get_config('tailscale', 'acceptdns', 'on') === 'on')
 			$value = SYSRC_YES;
 		return tailscale_format_sysrc_variable($key, $value);
 	};
 
-	# pfsense_tailscaled_acceptroutes_enable (bool)
-	$rcconf_map['pfsense_tailscaled_acceptroutes_enable'] = function($key) {
+	# LIBRESENSE_tailscaled_acceptroutes_enable (bool)
+	$rcconf_map['libresense_tailscaled_acceptroutes_enable'] = function($key) {
 		$value = SYSRC_NO;
 		if (tailscale_get_config('tailscale', 'acceptroutes', 'off') === 'on')
 			$value = SYSRC_YES;
 		return tailscale_format_sysrc_variable($key, $value);
 	};
 
-	# pfsense_tailscaled_advertiseroutes (str)
-	$rcconf_map['pfsense_tailscaled_advertiseroutes'] = function($key) {
+	# LIBRESENSE_tailscaled_advertiseroutes (str)
+	$rcconf_map['libresense_tailscaled_advertiseroutes'] = function($key) {
 		$values = tailscale_get_config('tailscale', 'row', []);
 		array_walk($values, function(&$value) {
 			$value = $value['advertisedroutevalue'];
@@ -539,20 +539,20 @@ function tailscale_pfsense_tailscaled_rcconf_map()
 		return tailscale_format_sysrc_variable($key, $value);
 	};
 
-	# pfsense_tailscaled_authkey (str)
-	$rcconf_map['pfsense_tailscaled_authkey'] = function($key) {
+	# LIBRESENSE_tailscaled_authkey (str)
+	$rcconf_map['libresense_tailscaled_authkey'] = function($key) {
 		$value = tailscale_get_config('tailscaleauth', 'preauthkey', NULL);
 		return tailscale_format_sysrc_variable($key, $value);
 	};
 
-	# pfsense_tailscaled_loginserver (str)
-	$rcconf_map['pfsense_tailscaled_loginserver'] = function($key) {
+	# LIBRESENSE_tailscaled_loginserver (str)
+	$rcconf_map['libresense_tailscaled_loginserver'] = function($key) {
 		$value = tailscale_get_config('tailscaleauth', 'loginserver', TAILSCALE_SERVER);
 		return tailscale_format_sysrc_variable($key, $value);
 	};
 
-	# pfsense_tailscaled_exitnode_enable (bool)
-	$rcconf_map['pfsense_tailscaled_exitnode_enable'] = function($key) {
+	# LIBRESENSE_tailscaled_exitnode_enable (bool)
+	$rcconf_map['libresense_tailscaled_exitnode_enable'] = function($key) {
 		$value = SYSRC_NO;
 		if (tailscale_get_config('tailscale', 'exitnode', 'off') === 'on')
 			$value = SYSRC_YES;
@@ -560,8 +560,8 @@ function tailscale_pfsense_tailscaled_rcconf_map()
 	};
 
 	# This is currently only available on Linux (see https://github.com/tailscale/tailscale/issues/5573)
-	# pfsense_tailscaled_snat_subnet_routes (bool)
-	/** $rcconf_map['pfsense_tailscaled_snat_subnet_routes'] = function($key) {
+	# LIBRESENSE_tailscaled_snat_subnet_routes (bool)
+	/** $rcconf_map['libresense_tailscaled_snat_subnet_routes'] = function($key) {
 		$value = SYSRC_NO;
 		if (tailscale_get_config('tailscale', 'snatsubnetroutes', 'off') === 'on')
 			$value = SYSRC_YES;

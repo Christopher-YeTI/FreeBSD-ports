@@ -9,7 +9,7 @@ DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
 MAINTAINER=	jimp@netgate.com
-COMMENT=	ACME package for pfSense
+COMMENT=	ACME package for libreSense
 
 LICENSE=	APACHE20
 

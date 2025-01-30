@@ -21,7 +21,7 @@
 
 require_once("certs.inc");
 require_once("config.inc");
-require_once("pfsense-utils.inc");
+require_once("libresense-utils.inc");
 require_once("util.inc");
 require_once('services.inc');
 require_once('service-utils.inc');
@@ -236,7 +236,7 @@ if (file_exists('/usr/local/pkg/stunnel.inc')) {
 EOD;
 
 	$synctimeout = intval($synctimeout);
-	$rpc_client = new pfsense_xmlrpc_client();
+	$rpc_client = new libresense_xmlrpc_client();
 	$rpc_client->setConnectionData($sync_to_ip, $port, $username, $password,
 	    $protocol);
 	$resp = $rpc_client->xmlrpc_method('merge_installedpackages_section',

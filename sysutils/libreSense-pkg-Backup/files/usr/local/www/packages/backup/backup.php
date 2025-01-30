@@ -2,7 +2,7 @@
 /*
  * backup.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2015-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2008 Mark J Crane
  * All rights reserved.
@@ -25,7 +25,7 @@ require_once("/usr/local/pkg/backup.inc");
 global $backup_dir, $backup_filename, $backup_path;
 
 $backup_dir = "/root/backup";
-$backup_filename = "pfsense.bak.tgz";
+$backup_filename = "libresense.bak.tgz";
 $backup_path = "{$backup_dir}/{$backup_filename}";
 
 if ($_GET['act'] == "del") {
@@ -129,7 +129,7 @@ display_top_tabs($tab_array);
 				<tr>
 					<td>Use this to tool to backup files and directories. The following directories are recommended for backup:
 						<table>
-							<tr><td><strong>pfSense Config:</strong></td><td>/cf/conf</td></tr>
+							<tr><td><strong>libreSense Config:</strong></td><td>/cf/conf</td></tr>
 							<tr><td><strong>RRD Graph Data Files:</strong></td><td>/var/db/rrd</td></tr>
 						</table>
 					</td>
@@ -169,8 +169,8 @@ display_top_tabs($tab_array);
 			<table class="table table-hover">
 				<tr>
 					<td>
-					The 'Backup' button compresses the directories that are listed below to /root/backup/pfsense.bak.tgz; after that it presents the file for download.<br />
-					If the backup file does not exist in /root/backup/pfsense.bak.tgz then the 'Restore' and 'Delete' buttons will be hidden.
+					The 'Backup' button compresses the directories that are listed below to /root/backup/libresense.bak.tgz; after that it presents the file for download.<br />
+					If the backup file does not exist in /root/backup/libresense.bak.tgz then the 'Restore' and 'Delete' buttons will be hidden.
 					</td>
 				</tr>
 				<tr>

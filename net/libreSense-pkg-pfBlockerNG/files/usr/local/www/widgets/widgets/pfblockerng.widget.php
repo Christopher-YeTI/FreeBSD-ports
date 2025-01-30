@@ -2,7 +2,7 @@
 /*
  * pfblockerng.widget.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2016-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2015-2023 BBcan177@gmail.com
  * All rights reserved.
@@ -341,7 +341,7 @@ function pfBlockerNG_update_table() {
 
 		// Get the packet count for each pfB rule
 		if (!empty($tracked_rules)) {
-			foreach (pfSense_get_pf_rules() as $prule) {
+			foreach (libreSense_get_pf_rules() as $prule) {
 
 				// prule may be an error string if pftcl_get_rule() returned an error
 				if (!is_array($prule)) {

@@ -253,7 +253,7 @@ sudo_write_config();
 EOD;
 
 	$synctimeout = intval($synctimeout);
-	$rpc_client = new pfsense_xmlrpc_client();
+	$rpc_client = new libresense_xmlrpc_client();
 	$rpc_client->setConnectionData($sync_to_ip, $port, $username, $password,
 	    $protocol);
 	$resp = $rpc_client->xmlrpc_method('merge_installedpackages_section',

@@ -561,7 +561,7 @@ if ($_POST['save'] && !$input_errors) {
 		/* advise user that VLAN Hardware Filtering should be disabled.     */
 		if ($natent['enable'] == 'on' && $natent['ips_mode'] == 'ips_mode_inline' && interface_is_vlan(get_real_interface($natent['interface']))) {
 			$vlan_warn_msg = gettext('NOTICE:  When using Inline IPS Mode with VLAN interfaces, hardware-level VLAN filtering should be disabled with most network cards. Follow the steps in the Netgate documentation ') . 
-					 '<a target="_blank" href="https://docs.netgate.com/pfsense/en/latest/hardware/tuning-and-troubleshooting-network-cards.html#intel-ix-4-cards">' . gettext('here') . 
+					 '<a target="_blank" href="https://docs.netgate.com/libresense/en/latest/hardware/tuning-and-troubleshooting-network-cards.html#intel-ix-4-cards">' . gettext('here') . 
 					 '</a>' . gettext(' to disable hardware VLAN filtering.');
 		}
 

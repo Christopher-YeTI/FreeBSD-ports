@@ -8,8 +8,8 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	coreteam@pfsense.org
-COMMENT=	pfSense package mtr-nox11
+MAINTAINER=	coreteam@libresense.org
+COMMENT=	libresense package mtr-nox11
 
 LICENSE=	APACHE20
 

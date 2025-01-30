@@ -2,7 +2,7 @@
 /*
  * freeradius.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2015-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2013 Alexander Wilke <nachtfalkeaw@web.de>
  * Copyright (c) 2013 Marcello Coutinho
@@ -26,7 +26,7 @@ require_once("filter.inc");
 require_once("globals.inc");
 require_once("notices.inc");
 require_once("openvpn.inc");
-require_once("pfsense-utils.inc");
+require_once("libresense-utils.inc");
 require_once("pkg-utils.inc");
 require_once("services.inc");
 require_once("service-utils.inc");
@@ -209,7 +209,7 @@ function freeradius_install_command() {
 	unlink_if_exists(FREERADIUS_CERTS . "/index*");
 	unlink_if_exists(FREERADIUS_CERTS . "/client.tar");
 	// unlink_if_exists(FREERADIUS_CERTS . "/bootstrap");
-	unlink_if_exists(FREERADIUS_CERTS . "/pfsense_cert_mgr");
+	unlink_if_exists(FREERADIUS_CERTS . "/libresense_cert_mgr");
 
 	// Update configuration from old versions
 	freeradius_upgrade_config();
@@ -754,7 +754,7 @@ EOD;
 				$varFREERADIUS_SCRIPTS = FREERADIUS_SCRIPTS;
 				$varusersreplyitem .= <<<EOD
 
-	pfSense-Max-Total-Octets := {$varusersmaxtotaloctets},
+	libreSense-Max-Total-Octets := {$varusersmaxtotaloctets},
 
 	Exec-Program-Wait = "/bin/sh {$varFREERADIUS_SCRIPTS}/datacounter_auth.sh {$varusersusername} {$varusersmaxtotaloctetstimerange}"
 EOD;
@@ -1031,7 +1031,7 @@ EOD;
 				$varFREERADIUS_SCRIPTS = FREERADIUS_SCRIPTS;
 				$varmacsreplyitem .= <<<EOD
 
-	pfSense-Max-Total-Octets := {$varmacsmaxtotaloctets},
+	libreSense-Max-Total-Octets := {$varmacsmaxtotaloctets},
 
 	Exec-Program-Wait = "/bin/sh {$varFREERADIUS_SCRIPTS}/datacounter_auth.sh {$varmacsaddress} {$varmacsmaxtotaloctetstimerange}"
 EOD;
@@ -1132,10 +1132,10 @@ EOD;
 		} // endforeach
 	} else {
 		$conf .= <<<EOD
-client pfsense {
+client libresense {
 	ipaddr = 127.0.0.1
-	secret = pfsense
-	shortname = pfsense
+	secret = libresense
+	shortname = libresense
 	limit {
 		max_connections = 16
 		lifetime = 0
@@ -1223,7 +1223,7 @@ EOD;
 		unlink_if_exists(FREERADIUS_SITESENABLED . "/soh");
 	}
 
-	// For pfSense cert manager
+	// For libreSense cert manager
 	$ca_cert = lookup_ca($eapconf["ssl_ca_cert"]);
 	$ca_cert = $ca_cert['item'];
 	if ($ca_cert == false) {
@@ -2503,12 +2503,12 @@ function freeradius_do_xmlrpc_sync($sync_to_ip, $username, $password, $varsyncpo
 			}
 		}
 		$synctimeout = intval($synctimeout);
-		$rpc_client = new pfsense_xmlrpc_client();
+		$rpc_client = new libresense_xmlrpc_client();
 		$rpc_client->setConnectionData($sync_to_ip, $varsyncport, $username, $password, $varsyncprotocol);
 		$resp = $rpc_client->xmlrpc_method('merge_installedpackages_section', $xml, $synctimeout);
 		$resp = $rpc_client->xmlrpc_exec_php($execcmd, $synctimeout);
 	} else {
-		// pfSense before 2.4
+		// libreSense before 2.4
 		require_once('xmlrpc.inc');
 
 		/* Take care of IPv6 literal address */
@@ -2524,7 +2524,7 @@ function freeradius_do_xmlrpc_sync($sync_to_ip, $username, $password, $varsyncpo
 
 		/* Set a few variables needed for sync code */
 		log_error("[FreeRADIUS]: Beginning FreeRADIUS XMLRPC sync with {$url}:{$port}.");
-		$method = 'pfsense.merge_installedpackages_section_xmlrpc';
+		$method = 'libresense.merge_installedpackages_section_xmlrpc';
 		$msg = new XML_RPC_Message($method, $params);
 		$cli = new XML_RPC_Client('/xmlrpc.php', $url, $port);
 		$cli->setCredentials($username, $password);
@@ -2548,7 +2548,7 @@ function freeradius_do_xmlrpc_sync($sync_to_ip, $username, $password, $varsyncpo
 		}
 
 		/* Tell FreeRADIUS to reload our settings on the destionation sync host. */
-		$method = 'pfsense.exec_php';
+		$method = 'libresense.exec_php';
 
 		/* Assemble XMLRPC payload. */
 		$params = array(XML_RPC_encode($password), XML_RPC_encode($execcmd));
@@ -3670,7 +3670,7 @@ ATTRIBUTE 		MOTP-Init-Secret 		900 	string
 ATTRIBUTE 		MOTP-PIN 			901 	string
 ATTRIBUTE 		MOTP-Offset 			902 	string
 
-\$INCLUDE /usr/share/doc/radius/dictionary.pfsense
+\$INCLUDE /usr/share/doc/radius/dictionary.libresense
 \$INCLUDE /usr/local/pkg/dictionary.mpd
 
 EOD;

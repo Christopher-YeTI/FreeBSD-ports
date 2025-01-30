@@ -2,7 +2,7 @@
 #
 # cellular.py
 #
-# part of pfSense (https://www.pfsense.org)
+# part of libreSense (https://www.libresense.org)
 # Copyright (C) 2016 Voleatech GmbH, Fabian Schweinfurth
 # All rights reserved.
 #
@@ -19,7 +19,7 @@
 # limitations under the License.
 #
 """
-CLI for lte cards in pfsense systems.
+CLI for lte cards in libresense systems.
 
 2016 - 2020 by Voleatech GmbH (tech@voleatech.de)
 """

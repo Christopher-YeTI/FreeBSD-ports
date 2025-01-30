@@ -2,7 +2,7 @@
 /*
  * cellular.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libreSense (https://www.libresense.org)
  * Copyright (c) 2017-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (C) 2016 Voleatech GmbH, Fabian Schweinfurth
  * All rights reserved.

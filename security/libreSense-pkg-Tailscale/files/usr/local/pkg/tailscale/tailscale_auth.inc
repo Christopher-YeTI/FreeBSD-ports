@@ -2,7 +2,7 @@
 /*
  * tailscale_auth.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2022-2025 Rubicon Communications, LLC (Netgate)
  * All rights reserved.
  *
@@ -24,7 +24,7 @@ require_once('tailscale/tailscale_common.inc');
 /* 
  * Utility function for cleanly restarting tailscale (e.g. on authkey changes)
  * 
- * See rc.d/pfsense_tailscaled for platform semantics
+ * See rc.d/libresense_tailscaled for platform semantics
  */
 function tailscale_clean_restart()
 {
@@ -32,11 +32,11 @@ function tailscale_clean_restart()
 	$needs_start = (tailscale_is_enabled() && tailscale_is_running());
 
 	# this stops tailscale and purges the local state cache
-	tailscale_run_rc_command(PFSENSE_TAILSCALED_RC, 'clean', false);
+	tailscale_run_rc_command(LIBRESENSE_TAILSCALED_RC, 'clean', false);
 
 	# only start if tailscale was running before cleaning
 	if ($needs_start)
-		tailscale_run_rc_command(PFSENSE_TAILSCALED_RC, 'start', false);
+		tailscale_run_rc_command(LIBRESENSE_TAILSCALED_RC, 'start', false);
 }
 
 /*
@@ -57,17 +57,17 @@ function tailscale_auth_validation_hook(&$post, &$input_errors)
  * 
  * This is the resync hook for the tailscale_auth.xml page. The goal here is to
  * ensure service state is consistent with the configuration and to update the
- * pfsense_tailscaled rcconf file. If changes were made to the rcconf files,
+ * LIBRESENSE_tailscaled rcconf file. If changes were made to the rcconf files,
  * the service needs to be restarted,
  */
 function tailscale_auth_resync_config_hook()
 {
 	if (!empty($_POST['service_clean'])) {
-		tailscale_run_rc_command(PFSENSE_TAILSCALED_RC, 'clean', false);
+		tailscale_run_rc_command(LIBRESENSE_TAILSCALED_RC, 'clean', false);
 		return;
 	}
 
-	$pfsense_tailscaled_map = tailscale_pfsense_tailscaled_rcconf_map();
-	if (tailscale_map_and_write_rcconf($pfsense_tailscaled_map, PFSENSE_TAILSCALED_RCCONF))
+	$libresense_tailscaled_map = tailscale_libresense_tailscaled_rcconf_map();
+	if (tailscale_map_and_write_rcconf($libresense_tailscaled_map, LIBRESENSE_TAILSCALED_RCCONF))
 		tailscale_clean_restart();
 }

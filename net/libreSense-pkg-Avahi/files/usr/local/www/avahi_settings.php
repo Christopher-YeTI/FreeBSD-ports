@@ -2,7 +2,7 @@
 /*
  * avahi_settings.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libreSense (https://www.libresense.org)
  * Copyright (c) 2018 Denny Page
  * All rights reserved.
  *
@@ -288,10 +288,10 @@ $section = new Form_Section('Publishing');
 $section->addInput(new Form_Checkbox(
 	'publishing',
 	'Enable publishing',
-	'Enable publishing of information about the pfSense host',
+	'Enable publishing of information about the libreSense host',
 	$pconfig['publishing']
 ))->setHelp(
-	'Use with caution. Publishing can reveal a good deal of information about your pfSense host.%sNote that this option enables publishing of default system services such as ssh and ftp-ssh.', '<br/>'
+	'Use with caution. Publishing can reveal a good deal of information about your libreSense host.%sNote that this option enables publishing of default system services such as ssh and ftp-ssh.', '<br/>'
 );
 
 $group = new Form_Group('Publish addresses');
@@ -299,7 +299,7 @@ $group->addClass('publishing');
 $group->add(new Form_Checkbox(
 	'publish_addresses',
 	'Publish addresses',
-	'Publish address records for the pfSense host',
+	'Publish address records for the libreSense host',
 	$pconfig['publish_addresses']
 ));
 $section->add($group);
@@ -309,7 +309,7 @@ $group->addClass('publishing');
 $group->add(new Form_Checkbox(
 	'publish_hinfo',
 	'Publish host info',
-	'Publish a host information record (OS and CPU info) for the pfSense host',
+	'Publish a host information record (OS and CPU info) for the libreSense host',
 	$pconfig['publish_hinfo']
 ));
 $section->add($group);
@@ -319,7 +319,7 @@ $group->addClass('publishing');
 $group->add(new Form_Checkbox(
 	'publish_workstation',
 	'Publish workstation',
-	'Publish a workstation record for the pfSense host',
+	'Publish a workstation record for the libreSense host',
 	$pconfig['publish_workstation']
 ));
 $section->add($group);
@@ -329,7 +329,7 @@ $group->addClass('publishing');
 $group->add(new Form_Checkbox(
 	'publish_domain',
 	'Publish Domain',
-	'Publish the domain name in use by the pfSense host',
+	'Publish the domain name in use by the libreSense host',
 	$pconfig['publish_domain']
 ));
 $section->add($group);

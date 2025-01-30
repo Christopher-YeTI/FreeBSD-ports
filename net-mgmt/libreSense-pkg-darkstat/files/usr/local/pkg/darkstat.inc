@@ -21,7 +21,7 @@
 
 require_once('config.inc');
 require_once('interfaces.inc');
-require_once('pfsense-utils.inc');
+require_once('libresense-utils.inc');
 require_once('services.inc');
 require_once('service-utils.inc');
 require_once('util.inc');
@@ -156,7 +156,7 @@ function validate_input_darkstat($post, &$input_errors) {
 			}
 		}
 		if ($post['port'] == "{$webgui_port}") {
-			$input_errors[] = gettext("The value for 'Web Interface Port' must not be the same port where pfSense WebGUI is running ($webgui_port).");
+			$input_errors[] = gettext("The value for 'Web Interface Port' must not be the same port where libreSense WebGUI is running ($webgui_port).");
 		}
 	}
 	/* Validate Web Interface Hostname or IP */

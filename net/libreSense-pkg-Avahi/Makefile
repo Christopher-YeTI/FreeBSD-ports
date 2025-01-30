@@ -7,8 +7,8 @@ CATEGORIES=	net
 MASTER_SITES=	# empty
 DISTFILES=	# empty
 
-MAINTAINER=	coreteam@pfsense.org
-COMMENT=	pfSense package Avahi
+MAINTAINER=	coreteam@libresense.org
+COMMENT=	libreSense package Avahi
 
 LICENSE=	APACHE20
 

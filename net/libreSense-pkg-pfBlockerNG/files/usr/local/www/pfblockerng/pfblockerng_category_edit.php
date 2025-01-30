@@ -2,7 +2,7 @@
 /*
  * pfblockerng_category_edit.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2016-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2015-2023 BBcan177@gmail.com
  * All rights reserved.
@@ -349,7 +349,7 @@ $options_sort			= [	'sort' => 'Enable auto-sort', 'no-sort' => 'Disable auto-sor
 $options_aliaslog		= [	'enabled' => 'Enabled', 'disabled' => 'Disabled' ];
 $options_stateremoval		= [	'enabled' => 'Enabled', 'disabled' => 'Disabled' ];
 
-// Collect all pfSense 'Port' Aliases
+// Collect all libreSense 'Port' Aliases
 $portslist = $networkslist = '';
 $options_aliasports_in = $options_aliasports_out = array();
 
@@ -1275,7 +1275,7 @@ if ($gtype == 'ipv4' || $gtype == 'ipv6') {
 				</ul>
 				<strong><u>'Alias' Rules:</u></strong><br />
 				<strong>'Alias'</strong> rules create an <a href=\"/firewall_aliases.php\">alias</a> for the list (and do nothing else).
-				This enables a pfBlockerNG list to be used by name, in any firewall rule or pfSense function, as desired.
+				This enables a pfBlockerNG list to be used by name, in any firewall rule or libreSense function, as desired.
 					<ul>
 						<li><strong>Options - Alias Deny,&nbsp; Alias Permit,&nbsp; Alias Match,&nbsp; Alias Native</strong></li>
 						<li>'Alias Deny' can use De-Duplication and Reputation Processes if configured.</li>

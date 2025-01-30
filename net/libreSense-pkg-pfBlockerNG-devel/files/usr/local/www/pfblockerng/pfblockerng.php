@@ -2,7 +2,7 @@
 /*
  * pfblockerng.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2015-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2015-2024 BBcan177@gmail.com
  * All rights reserved.
@@ -57,7 +57,7 @@ require_once('pkg-utils.inc');
 require_once('globals.inc');
 require_once('services.inc');
 require_once('/usr/local/pkg/pfblockerng/pfblockerng.inc');
-require_once('/usr/local/pkg/pfblockerng/pfblockerng_extra.inc');	// 'include functions' not yet merged into pfSense
+require_once('/usr/local/pkg/pfblockerng/pfblockerng_extra.inc');	// 'include functions' not yet merged into libreSense
 
 global $g, $pfb;
 
@@ -398,7 +398,7 @@ function pfb_update_check($header, $list_url, $pfbfolder, $pfborig, $pflex, $for
 			return;
 		}
 
-		// Determine if URL is a pfSense localfile
+		// Determine if URL is a libreSense localfile
 		$localfile = FALSE;
 		if (pfb_filter($list_download, PFB_FILTER_URL, 'php', '', TRUE)) {
 			$localfile = TRUE;
@@ -1478,7 +1478,7 @@ $php_data = <<<EOF
 /*
  * pfblockerng_{$continent_en}.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2016-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2015-2024 BBcan177@gmail.com
  * All rights reserved.
@@ -1521,7 +1521,7 @@ $options_action			= [	'Disabled' => 'Disabled', 'Deny_Inbound' => 'Deny Inbound'
 
 $options_aliaslog		= [	'enabled' => 'Enabled', 'disabled' => 'Disabled' ];
 
-// Collect all pfSense 'Port' Aliases
+// Collect all libreSense 'Port' Aliases
 $portslist = $networkslist = '';
 $options_aliasports_in = $options_aliasports_out = array();
 
@@ -1774,7 +1774,7 @@ $section->addInput(new Form_StaticText(
 	. '<hr style="height: 1px; border: none; background-color: #d6d6d6;"/>'
 
 	. '<div id="Txtfld" tabindex="1" class="bg-info">'
-	. 'pfSense by default implicitly blocks all unsolicited inbound traffic to the WAN interface.<br />'
+	. 'libreSense by default implicitly blocks all unsolicited inbound traffic to the WAN interface.<br />'
 	. 'Therefore adding GeoIP based firewall rules to the WAN will <strong>not</strong> provide any benefit, unless there are open WAN ports.<br /><br />'
 	. 'It\'s also <strong>not</strong> recommended to block the \'world\', instead consider rules to \'Permit\' traffic from selected Countries only.<br />'
 	. 'Also consider protecting just the specific open WAN ports and it\'s just as important to protect the outbound LAN traffic.<br /><br />'
@@ -1865,7 +1865,7 @@ $action_txt = "Default: <strong>Disabled</strong>
 
 			<strong><u>'Alias' Rules:</u></strong><br />
 			<strong>'Alias'</strong> rules create an <a href=\"/firewall_aliases.php\">alias</a> for the list (and do nothing else).
-			This enables a pfBlockerNG list to be used by name, in any firewall rule or pfSense function, as desired.
+			This enables a pfBlockerNG list to be used by name, in any firewall rule or libreSense function, as desired.
 				<ul>
 					<li><strong>Options - Alias Deny,&nbsp; Alias Permit,&nbsp; Alias Match,&nbsp; Alias Native</strong></li>
 					<li>'Alias Deny' can use De-Duplication and Reputation Processes if configured.</li>
@@ -2077,7 +2077,7 @@ function pfb_build_reputation_tab($et_options='') {
 /*
  * pfblockerng_reputation.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2016-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2015-2024 BBcan177@gmail.com
  * All rights reserved.

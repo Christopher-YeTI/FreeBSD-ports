@@ -7,8 +7,8 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	coreteam@pfsense.org
-COMMENT=	pfSense package squid
+MAINTAINER=	coreteam@libresense.org
+COMMENT=	libreSense package squid
 
 LICENSE=	APACHE20
 

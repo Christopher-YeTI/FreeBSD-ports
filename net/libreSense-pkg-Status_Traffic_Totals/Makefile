@@ -8,7 +8,7 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	coreteam@pfsense.org
+MAINTAINER=	coreteam@libresense.org
 COMMENT=	Traffic Totals using the vnStat database
 
 LICENSE=	APACHE20

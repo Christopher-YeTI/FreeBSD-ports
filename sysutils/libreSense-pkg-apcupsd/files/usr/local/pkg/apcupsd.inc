@@ -226,12 +226,12 @@ function apccontrol_scripts_install($emailnotification,$shutdownbehavior) {
 				}
 			}
 
-			$pfSense_hostname = gethostname();
+			$libreSense_hostname = gethostname();
 
 			$apccontrol_script_file =<<<EOF
 #!/bin/sh
 
-HOSTNAME="{$pfSense_hostname}"
+HOSTNAME="{$libreSense_hostname}"
 MSG="{$apcstatus["{$apccontrol_script}"]}"
 #
 (

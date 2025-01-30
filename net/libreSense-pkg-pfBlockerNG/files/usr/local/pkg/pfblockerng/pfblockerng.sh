@@ -60,7 +60,7 @@ pfborig=/var/db/pfblockerng/original/
 pfbmatch=/var/db/pfblockerng/match/
 pfbpermit=/var/db/pfblockerng/permit/
 pfbnative=/var/db/pfblockerng/native/
-pfsensealias=/var/db/aliastables/
+libresensealias=/var/db/aliastables/
 pfbdomain=/var/db/pfblockerng/dnsbl/
 pfbdomainorig=/var/db/pfblockerng/dnsblorig/
 
@@ -106,7 +106,7 @@ DISK_NAME="$(/bin/df /var/db/rrd | /usr/bin/tail -1 | /usr/bin/awk '{print $1;}'
 DISK_TYPE="$(/usr/bin/basename ${DISK_NAME} | /usr/bin/cut -c1-2)"
 
 if [ ! -d "${pfbdb}" ]; then mkdir "${pfbdb}"; fi
-if [ ! -d "${pfsensealias}" ]; then mkdir "${pfsensealias}"; fi
+if [ ! -d "${libresensealias}" ]; then mkdir "${libresensealias}"; fi
 if [ ! -d "${pfbmatch}" ]; then mkdir "${pfbmatch}"; fi
 if [ ! -d "${etdir}" ]; then mkdir "${etdir}"; fi
 if [ ! -d "${tmpxlsx}" ]; then mkdir "${tmpxlsx}"; fi
@@ -758,7 +758,7 @@ whoisconvert() {
 			asn="$(echo ${host} | tr -d 'AaSs')"
 			printf "  Downloading ASN: ${asn}"
 
-			ua="pfSense/pfBlockerNG cURL download agent-"
+			ua="libreSense/pfBlockerNG cURL download agent-"
 			guid="$(/usr/sbin/gnid)"
 			ua_final="${ua}${guid}"
 
@@ -814,7 +814,7 @@ whoisconvert() {
 iptoasn() {
 	host="${alias}"
 
-	ua="pfSense/pfBlockerNG cURL download agent-"
+	ua="libreSense/pfBlockerNG cURL download agent-"
 	guid="$(/usr/sbin/gnid)"
 	ua_final="${ua}${guid}"
 
@@ -1292,9 +1292,9 @@ closingprocess() {
 	fi
 
 	echo; echo 'Alias table IP Counts'; echo '-----------------------------'
-	wc -l "${pfsensealias}"pfB_*.txt 2>/dev/null | sort -n -r
+	wc -l "${libresensealias}"pfB_*.txt 2>/dev/null | sort -n -r
 
-	echo; echo 'pfSense Table Stats'; echo '-------------------'
+	echo; echo 'libreSense Table Stats'; echo '-------------------'
 	"${pathpfctl}" -s memory | grep 'table-entries'
 	pfctlcount="$(${pathpfctl} -vvsTables | awk '/Addresses/ {s+=$2}; END {print s}')"
 	echo "Table Usage Count         ${pfctlcount}"

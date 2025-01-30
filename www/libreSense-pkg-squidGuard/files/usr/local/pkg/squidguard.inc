@@ -2,7 +2,7 @@
 /*
  * squidguard.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2015-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2006-2011 Serg Dvoriancev
  * Copyright (c) 2013 Alexander Wilke <nachtfalkeaw@web.de>
@@ -25,7 +25,7 @@ require_once('config.inc');
 require_once('filter.inc');
 require_once('globals.inc');
 require_once("notices.inc");
-require_once('pfsense-utils.inc');
+require_once('libresense-utils.inc');
 require_once('pkg-utils.inc');
 require_once('service-utils.inc');
 require_once('util.inc');
@@ -171,7 +171,7 @@ function squidguard_validate_acl(&$post, &$input_errors)
         }
     }
 
-    # !ATTENTION! on pfSense XML config must be must(shell) be '!all' instead of 'none' - it is a must for correct work GUI
+    # !ATTENTION! on libresense XML config must be must(shell) be '!all' instead of 'none' - it is a must for correct work GUI
 
     # if not exists key 'all', then add 'none' - default 'deny all'
     if ((substr_count($pass_up_val, 'all') == 0)) {
@@ -1662,12 +1662,12 @@ function squidguard_do_xmlrpc_sync($sync_to_ip, $varsyncport, $varsyncprotocol, 
 			}
 		}
 		$synctimeout = intval($synctimeout);
-		$rpc_client = new pfsense_xmlrpc_client();
+		$rpc_client = new libresense_xmlrpc_client();
 		$rpc_client->setConnectionData($sync_to_ip, $varsyncport, $username, $password, $varsyncprotocol);
 		$resp = $rpc_client->xmlrpc_method('merge_installedpackages_section', $xml, $synctimeout);
 		$resp = $rpc_client->xmlrpc_exec_php($execcmd, $synctimeout);
 	} else {
-		// pfSense before 2.4
+		// libresense before 2.4
 		require_once('xmlrpc.inc');
 
 		// Take care of IPv6 literal address
@@ -1682,7 +1682,7 @@ function squidguard_do_xmlrpc_sync($sync_to_ip, $varsyncport, $varsyncprotocol, 
 
 		/* Set a few variables needed for sync code */
 		log_error("[SquidGuard] Beginning XMLRPC sync with {$url}:{$port}.");
-		$method = 'pfsense.merge_installedpackages_section_xmlrpc';
+		$method = 'libresense.merge_installedpackages_section_xmlrpc';
 		$msg = new XML_RPC_Message($method, $params);
 		$cli = new XML_RPC_Client('/xmlrpc.php', $url, $port);
 		$cli->setCredentials($username, $password);
@@ -1706,7 +1706,7 @@ function squidguard_do_xmlrpc_sync($sync_to_ip, $varsyncport, $varsyncprotocol, 
 		}
 
 		/* Tell Squidguard to reload our settings on the destionation sync host. */
-		$method = 'pfsense.exec_php';
+		$method = 'libresense.exec_php';
 
 		/* Assemble XMLRPC payload. */
 		$params = array(XML_RPC_encode($password), XML_RPC_encode($execcmd));

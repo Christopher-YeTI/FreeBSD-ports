@@ -5,7 +5,7 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	coreteam@pfsense.org
+MAINTAINER=	coreteam@libresense.org
 COMMENT=	Default config.xml
 
 LICENSE=	APACHE20

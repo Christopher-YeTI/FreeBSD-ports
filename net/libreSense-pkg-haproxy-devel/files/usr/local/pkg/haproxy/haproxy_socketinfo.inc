@@ -2,7 +2,7 @@
 /*
  * haproxy_socketinfo.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2016-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2013 PiBa-NL
  * Copyright (c) 2011 Thomas Schaefer - Tomschaefer.org
@@ -23,7 +23,7 @@
  */
 
 /*
-	Some mods made from pfBlocker widget to make this for HAProxy on Pfsense
+	Some mods made from pfBlocker widget to make this for HAProxy on libresense
 	Copyleft 2012 by jvorhees
 */
 

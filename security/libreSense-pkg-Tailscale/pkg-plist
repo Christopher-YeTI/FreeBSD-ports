@@ -1,6 +1,6 @@
-etc/rc.conf.d/pfsense_tailscaled
+etc/rc.conf.d/libresense_tailscaled
 etc/rc.conf.d/tailscaled
-etc/rc.d/pfsense_tailscaled
+etc/rc.d/libresense_tailscaled
 pkg/tailscale.xml
 pkg/tailscale/tailscale.inc
 pkg/tailscale/tailscale_auth.inc

@@ -6,7 +6,7 @@
 // however if included it will hang filter rule generation, and might cause pf to not load any rules.
 // This happens when /usr/local/pkg/*.inc files are dynamically loaded during package generation from filter.inc with function discover_pkg_rules(x).
 
-namespace pfsense_pkg\acme;
+namespace libresense_pkg\acme;
 
 global $acme_tab_array;
 

@@ -2,7 +2,7 @@
 /*
  * frr_zebra.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2017-2025 Rubicon Communications, LLC (Netgate)
  * All rights reserved.
  *
@@ -841,5 +841,5 @@ function read_frr_running_config() {
 		config_set_path('installedpackages/frrglobalraw/config/0/frrrunning',
 				base64_encode("# file frr.conf does not exist or is empty."));
 	}
-	write_config(gettext("FRR: Saved running configuration into pfSense config file."), false, true);
+	write_config(gettext("FRR: Saved running configuration into libresense config file."), false, true);
 }

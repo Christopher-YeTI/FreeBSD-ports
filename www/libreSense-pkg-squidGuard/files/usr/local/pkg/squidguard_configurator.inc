@@ -2,7 +2,7 @@
 /*
  * squidguard_configurator.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2015-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2006-2011 Serg Dvoriancev
  * All rights reserved.
@@ -41,7 +41,7 @@
 require_once('globals.inc');
 require_once('config.inc');
 require_once('util.inc');
-require_once('pfsense-utils.inc');
+require_once('libresense-utils.inc');
 require_once('pkg-utils.inc');
 require_once('filter.inc');
 require_once('service-utils.inc');
@@ -533,7 +533,7 @@ function sg_reconfigure_user_db() {
 		sg_addlog("sg_reconfigure_user_db", "Create user DB directory '$dbhome'.", SQUIDGUARD_INFO);
 	}
 
-	/* bypass local IPs for squid_status.php, see https://redmine.pfsense.org/issues/11711 */
+	/* bypass local IPs for squid_status.php, see https://redmine.libresense.org/issues/11711 */
 	if ($squidguard_config[F_DEFAULT][F_NOTALLOWINGIP]) {
 		$proxy_ifaces = explode(",", config_get_path('installedpackages/squid/config/0/active_interface'));
 		$sgips = '';

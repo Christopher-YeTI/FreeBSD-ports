@@ -7,8 +7,8 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	coreteam@pfsense.org
-COMMENT=	Setup pfSense pkg(8) repositories
+MAINTAINER=	coreteam@libreSense.org
+COMMENT=	Setup libreSense pkg(8) repositories
 
 LICENSE=	APACHE20
 
@@ -22,15 +22,15 @@ SUB_LIST=	PORTNAME=${PORTNAME} \
 DATADIR=	${PREFIX}/share/libreSense
 
 # Flag used to detect when we want to reinstall all packages during upgrade
-PFSENSE_PKG_SET_VERSION?=	${DISTVERSION}
+LIBRESENSE_PKG_SET_VERSION?=	${DISTVERSION}
 
 .include <bsd.port.pre.mk>
 
 MIRROR_TYPE?=	none
-PFSENSE_DEFAULT_REPO?=	libreSense-repo-devel
-PFSENSE_DEFAULT_REPO_${ARCH}?=	${PFSENSE_DEFAULT_REPO}
+LIBRESENSE_DEFAULT_REPO?=	libreSense-repo-devel
+LIBRESENSE_DEFAULT_REPO_${ARCH}?=	${LIBRESENSE_DEFAULT_REPO}
 SIGNATURE_TYPE?=	fingerprints
-DEFAULT_REPO=	${DATADIR}/pkg/repos/${PFSENSE_DEFAULT_REPO_${ARCH}}.conf
+DEFAULT_REPO=	${DATADIR}/pkg/repos/${LIBRESENSE_DEFAULT_REPO_${ARCH}}.conf
 PLIST_FILES=	${DEFAULT_REPO}.default \
 		${DATADIR}/next_pkg_set_version
 
@@ -110,7 +110,7 @@ do-install:
 	${INSTALL_DATA} ${WRKSRC}/${PKG_REPO_FILENAME_${b}}.altabi ${STAGEDIR}${DATADIR}/pkg/repos
 . endif
 .endfor
-	${ECHO_CMD} ${PFSENSE_PKG_SET_VERSION} \
+	${ECHO_CMD} ${LIBRESENSE_PKG_SET_VERSION} \
 		> ${STAGEDIR}${DATADIR}/next_pkg_set_version
 
 .include <bsd.port.post.mk>

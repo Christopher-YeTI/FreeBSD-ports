@@ -2,7 +2,7 @@
 /*
  * vpn_wg_tunnels_edit.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2021-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2021 R. Christian McDonald (https://github.com/rcmcdonald91)
  * All rights reserved.
@@ -27,7 +27,7 @@
 ##|*MATCH=vpn_wg_tunnels_edit.php*
 ##|-PRIV
 
-// pfSense includes
+// libresense includes
 require_once('functions.inc');
 require_once('guiconfig.inc');
 
@@ -205,12 +205,12 @@ $tun_enable = new Form_Checkbox(
 	$pconfig['enabled'] == 'yes'
 );
 
-$tun_enable->setHelp('<span class="text-danger">Note: </span>Tunnel must be <b>enabled</b> in order to be assigned to a pfSense interface.');	
+$tun_enable->setHelp('<span class="text-danger">Note: </span>Tunnel must be <b>enabled</b> in order to be assigned to a libreSense interface.');	
 
-// Disable the tunnel enabled button if interface is assigned in pfSense
+// Disable the tunnel enabled button if interface is assigned in libreSense
 if (is_wg_tunnel_assigned($pconfig['name'])) {
 	$tun_enable->setDisabled();
-	$tun_enable->setHelp('<span class="text-danger">Note: </span>Tunnel cannot be <b>disabled</b> when assigned to a pfSense interface.');
+	$tun_enable->setHelp('<span class="text-danger">Note: </span>Tunnel cannot be <b>disabled</b> when assigned to a libreSense interface.');
 
 	// We still want to POST this field, make it a hidden field now
 	$form->addGlobal(new Form_Input(
@@ -347,21 +347,21 @@ if (!is_wg_tunnel_assigned($pconfig['name'])) {
 		'fa-solid fa-plus'
 	))->addClass('btn-success btn-sm addbtn');
 } else {
-	$wg_pfsense_if = wg_get_pfsense_interface_info($pconfig['name']);
+	$wg_libresense_if = wg_get_libresense_interface_info($pconfig['name']);
 
 	$section->addInput(new Form_StaticText(
 		'Assignment',
-		"<i class='fa-solid fa-sitemap' style='vertical-align: middle;'></i><a style='padding-left: 3px' href='/interfaces_assign.php'>{$s(htmlspecialchars($wg_pfsense_if['descr']))} ({$s(htmlspecialchars($wg_pfsense_if['name']))})</a>"
+		"<i class='fa-solid fa-sitemap' style='vertical-align: middle;'></i><a style='padding-left: 3px' href='/interfaces_assign.php'>{$s(htmlspecialchars($wg_libresense_if['descr']))} ({$s(htmlspecialchars($wg_libresense_if['name']))})</a>"
 	));
 
 	$section->addInput(new Form_StaticText(
 		'Interface',
-		"<i class='fa-solid fa-ethernet' style='vertical-align: middle;'></i><a style='padding-left: 3px' href='/interfaces.php?if={$s(htmlspecialchars($wg_pfsense_if['name']))}'>{$s(gettext('Interface Configuration'))}</a>"
+		"<i class='fa-solid fa-ethernet' style='vertical-align: middle;'></i><a style='padding-left: 3px' href='/interfaces.php?if={$s(htmlspecialchars($wg_libresense_if['name']))}'>{$s(gettext('Interface Configuration'))}</a>"
 	));
 
 	$section->addInput(new Form_StaticText(
 		'Firewall Rules',
-		"<i class='fa-solid fa-shield-alt' style='vertical-align: middle;'></i><a style='padding-left: 3px' href='/firewall_rules.php?if={$s(htmlspecialchars($wg_pfsense_if['name']))}'>{$s(gettext('Firewall Configuration'))}</a>"
+		"<i class='fa-solid fa-shield-alt' style='vertical-align: middle;'></i><a style='padding-left: 3px' href='/firewall_rules.php?if={$s(htmlspecialchars($wg_libresense_if['name']))}'>{$s(gettext('Firewall Configuration'))}</a>"
 	));
 }
 

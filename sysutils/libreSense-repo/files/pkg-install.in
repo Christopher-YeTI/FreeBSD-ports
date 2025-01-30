@@ -4,7 +4,7 @@ if [ "${2}" != "POST-INSTALL" ]; then
 	exit 0
 fi
 
-# Workaround to prevent https://redmine.pfsense.org/issues/9873
+# Workaround to prevent https://redmine.libreSense.org/issues/9873
 if grep -q "pkg info" /etc/rc.php_ini_setup; then
 	sed -i '' -e 's,pkg info,/usr/local/sbin/pkg-static info,g' \
 	    /etc/rc.php_ini_setup

@@ -19,7 +19,7 @@
  * limitations under the License.
  */
 
-namespace pfsense_pkg\acme;
+namespace libresense_pkg\acme;
 
 class FTPConnection
 {

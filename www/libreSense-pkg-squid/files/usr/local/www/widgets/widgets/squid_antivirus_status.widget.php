@@ -2,7 +2,7 @@
 /*
  * squid_antivirus_status.widget.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2015-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (C) 2010 Serg Dvoriancev <dv_serg@mail.ru>
  * All rights reserved.
@@ -22,7 +22,7 @@
 
 require_once("functions.inc");
 require_once("guiconfig.inc");
-require_once("pfsense-utils.inc");
+require_once("libresense-utils.inc");
 require_once("pkg-utils.inc");
 require_once("service-utils.inc");
 if (file_exists("/usr/local/pkg/squid.inc")) {

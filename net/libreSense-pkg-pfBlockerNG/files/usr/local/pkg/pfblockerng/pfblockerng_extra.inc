@@ -2,7 +2,7 @@
 /*
  * pfblockerng_extra.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2015-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2015-2023 BBcan177@gmail.com
  * All rights reserved.
@@ -20,5 +20,5 @@
  * limitations under the License.
  */
 
-// This file is used to 'include functions' not yet merged into pfSense
+// This file is used to 'include functions' not yet merged into libresense
 ?>

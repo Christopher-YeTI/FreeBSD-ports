@@ -2,7 +2,7 @@
 /*
  * lcdproc.php
  *
- * part of pfSense (https://www.pfsense.org/)
+ * part of libresense (https://www.libresense.org/)
  * Copyright (c) 2016-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2011 Michele Di Maria
  * Copyright (c) 2007-2009 Seth Mos <seth.mos@dds.nl>
@@ -292,8 +292,8 @@ $section->addInput(
 $section->addInput(
 	new Form_Checkbox(
 		'controlmenu', // checkbox name (id)
-		'pfSense control menu', // checkbox label
-		'Enable the pfSense control menu next to LCDproc\'s Options menu.', // checkbox text
+		'libreSense control menu', // checkbox label
+		'Enable the libreSense control menu next to LCDproc\'s Options menu.', // checkbox text
 		$pconfig['controlmenu'] // checkbox initial value
 	)
 )->setHelp(

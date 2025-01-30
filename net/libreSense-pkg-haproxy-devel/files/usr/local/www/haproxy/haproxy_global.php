@@ -2,10 +2,10 @@
 /*
  * haproxy_global.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2009-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2013 PiBa-NL
- * Copyright (C) 2008 Remco Hoef <remcoverhoef@pfsense.com>
+ * Copyright (C) 2008 Remco Hoef <remcoverhoef@libresense.com>
  * All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -298,7 +298,7 @@ $section->addInput(new Form_Checkbox(
 	Note: when this option is selected, connections will be closed when haproxy is restarted.
 	Otherwise the existing connections will be served by the old haproxy process until they are closed.
 	Checking this option will interrupt existing connections on a restart (which happens when the configuration is applied,
-	but possibly also when pfSense detects an interface coming up or a change in its ip-address.)
+	but possibly also when libresense detects an interface coming up or a change in its ip-address.)
 EOD
 );
 
@@ -338,7 +338,7 @@ $form->add($section);
 
 $section = new Form_Section('Logging');
 $section->addInput(new Form_Input('remotesyslog', 'Remote syslog host', 'text', $pconfig['remotesyslog']
-))->setHelp('To log to the local pfSense systemlog fill the host with the value <b>/var/run/log</b>, however if a lot of messages are generated logging is likely to be incomplete. (Also currently no informational logging gets shown in the systemlog.)');
+))->setHelp('To log to the local libresense systemlog fill the host with the value <b>/var/run/log</b>, however if a lot of messages are generated logging is likely to be incomplete. (Also currently no informational logging gets shown in the systemlog.)');
 $section->addInput(new Form_Select(
 	'logfacility',
 	'Syslog facility',
@@ -451,7 +451,7 @@ $section->addInput(new Form_StaticText(
 	'',
 	$btnclear . " (Other changes on this page will be lost)"
 ))->setHelp(<<<EOD
-	This can be required after certificates have been created or imported. As pfSense 2.1.0 currently does not
+	This can be required after certificates have been created or imported. As libresense 2.1.0 currently does not
 	always keep track of these dependencies which might be required to create a proper certificate chain when using SSLoffloading.
 EOD
 );
@@ -464,7 +464,7 @@ $section->addInput(new Form_Checkbox(
 	'Sync HAProxy configuration to backup CARP members via XMLRPC.',
 	$pconfig['enablesync']
 ))->setHelp(<<<EOD
-	Note: The synchronisation host and password are those configured in pfSense main <a href="/system_hasync.php">"System: High Availability Sync"</a> settings.
+	Note: The synchronisation host and password are those configured in libresense main <a href="/system_hasync.php">"System: High Availability Sync"</a> settings.
 EOD
 );
 $form->add($section);

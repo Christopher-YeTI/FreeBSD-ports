@@ -6,8 +6,8 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	coreteam@pfsense.org
-COMMENT=	pfSense package pfBlockerNG
+MAINTAINER=	coreteam@libresense.org
+COMMENT=	libresense package pfBlockerNG
 
 LICENSE=	APACHE20
 

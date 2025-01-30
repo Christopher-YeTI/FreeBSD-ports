@@ -8,8 +8,8 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	coreteam@pfsense.org
-COMMENT=	PIMD package for pfSense
+MAINTAINER=	coreteam@libreSense.org
+COMMENT=	PIMD package for libreSense
 
 LICENSE=	APACHE20
 

@@ -2,7 +2,7 @@
 /*
  * squid_reverse.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2015-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2012 Martin Fuchs
  * Copyright (c) 2012-2014 Marcello Coutinho
@@ -23,7 +23,7 @@
  */
 
 require_once('certs.inc');
-require_once("pfsense-utils.inc");
+require_once("libresense-utils.inc");
 require_once('util.inc');
 /* This file is currently only being included in squid.inc and not used separately */
 // require_once('squid.inc');

@@ -2,7 +2,7 @@
 /*
  * nut.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2004-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2016-2024 Denny Page
  * All rights reserved.
@@ -42,7 +42,7 @@ function nut_check_var_db() {
 		there are a couple of circumstance in which it might not exist:
 
 		The prior nut package incorrectly assumed ownership of the directory and
-		removed it upon deinstall. If the pfSense nut package was reinstalled, but
+		removed it upon deinstall. If the libreSense nut package was reinstalled, but
 		the nut package itself was not, the directory will be missing.
 
 		The other situation in which the directory will be missing is when /var is

@@ -2,7 +2,7 @@
 /*
  * frr.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2017-2025 Rubicon Communications, LLC (Netgate)
  * All rights reserved.
  *
@@ -164,8 +164,8 @@ function frr_plugin_carp($pluginparams) {
 
 /*
  * Called when gathering status output.
- * See https://redmine.pfsense.org/issues/14777 and
- *     https://redmine.pfsense.org/issues/14588
+ * See https://redmine.libresense.org/issues/14777 and
+ *     https://redmine.libresense.org/issues/14588
  */
 
 function frr_plugin_statusoutput($pluginparams) {
@@ -676,7 +676,7 @@ function frr_setkey($restart_needed) {
 		}
 	}
 
-	/* restart setkey only if parameters have changed, see https://redmine.pfsense.org/issues/11325 */
+	/* restart setkey only if parameters have changed, see https://redmine.libresense.org/issues/11325 */
 	if (!empty($md5pw_add) && !empty($md5pw_del)) {
 		if (is_service_running('bgpd') && file_exists("{$frr_config_base}/frr_md5pw_add.conf")) {
 			$existing_md5pw_add = file_get_contents("{$frr_config_base}/frr_md5pw_add.conf");

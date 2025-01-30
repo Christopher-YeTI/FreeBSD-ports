@@ -2,7 +2,7 @@
 /*
  * filer.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2017-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2012 Marcello Coutinho
  * Copyright (c) 2012 Brian Scholer
@@ -226,12 +226,12 @@ function filer_do_xmlrpc_sync($sync_to_ip, $port, $protocol, $username, $passwor
 			}
 		}
 		$synctimeout = intval($synctimeout);
-		$rpc_client = new pfsense_xmlrpc_client();
+		$rpc_client = new libresense_xmlrpc_client();
 		$rpc_client->setConnectionData($sync_to_ip, $port, $username, $password, $protocol);
 		$resp = $rpc_client->xmlrpc_method('merge_installedpackages_section', $xml, $synctimeout);
 		$resp = $rpc_client->xmlrpc_exec_php($execcmd, $synctimeout);
 	} else {
-		// pfSense before 2.4
+		// libresense before 2.4
 		require_once('xmlrpc.inc');
 		// Take care of IPv6 literal address
 		if (is_ipaddrv6($sync_to_ip)) {
@@ -241,7 +241,7 @@ function filer_do_xmlrpc_sync($sync_to_ip, $port, $protocol, $username, $passwor
 		/* Assemble XMLRPC payload */
 		$params = array(XML_RPC_encode($password), XML_RPC_encode($xml));
 		/* Set a few variables needed for sync */
-		$method = 'pfsense.merge_installedpackages_section_xmlrpc';
+		$method = 'libresense.merge_installedpackages_section_xmlrpc';
 		$msg = new XML_RPC_Message($method, $params);
 		$cli = new XML_RPC_Client('/xmlrpc.php', $url, $port);
 		$cli->setCredentials($username, $password);
@@ -264,7 +264,7 @@ function filer_do_xmlrpc_sync($sync_to_ip, $port, $protocol, $username, $passwor
 			log_error("[filer] XMLRPC sync successfully completed with {$url}:{$port}.");
 		}
 		/* Tell filer to reload our settings on the destination sync host. */
-		$method = 'pfsense.exec_php';
+		$method = 'libresense.exec_php';
 
 		/* Assemble XMLRPC payload */
 		$params = array(XML_RPC_encode($password), XML_RPC_encode($execcmd));
@@ -274,7 +274,7 @@ function filer_do_xmlrpc_sync($sync_to_ip, $port, $protocol, $username, $passwor
 		$cli->setCredentials($username, $password);
 		$resp = $cli->send($msg, $synctimeout);
 		if (!$resp) {
-			$error = "A communication error occurred while attempting XMLRPC sync with {$url}:{$port} (pfsense.exec_php).";
+			$error = "A communication error occurred while attempting XMLRPC sync with {$url}:{$port} (libresense.exec_php).";
 			log_error("[filer] {$error}");
 			file_notice("sync_settings", $error, "filer Settings Sync", "");
 		} elseif ($resp->faultCode()) {
@@ -284,7 +284,7 @@ function filer_do_xmlrpc_sync($sync_to_ip, $port, $protocol, $username, $passwor
 			log_error("[filer] {$error}");
 			file_notice("sync_settings", $error, "filer Settings Sync", "");
 		} else {
-			log_error("[filer] XMLRPC reload data success with {$url}:{$port} (pfsense.exec_php).");
+			log_error("[filer] XMLRPC reload data success with {$url}:{$port} (libresense.exec_php).");
 		}
 	}
 }

@@ -2,7 +2,7 @@
 /*
  * acme_sh.inc
  * 
- * part of pfSense (https://www.pfsense.org/)
+ * part of libreSense (https://www.libreSense.org/)
  * Copyright (c) 2016 PiBa-NL
  * All rights reserved.
  *
@@ -19,7 +19,7 @@
  * limitations under the License.
  */
 
-namespace pfsense_pkg\acme;
+namespace libresense_pkg\acme;
 
 class acme_sh_domain {
 	public $domainname;
@@ -206,16 +206,16 @@ class acme_sh {
 		chmod($reloadfile, 0755);
 
 		$hookcontent_httpapi  = <<<EOF
-pfSenseacme_add() {
+libreSenseacme_add() {
   /usr/local/pkg/acme/acme_command.sh "deploykey" "{$this->name}" "\$1" "\$2" "\$3"
 }
 
-pfSenseacme_rm() {
+libreSenseacme_rm() {
   /usr/local/pkg/acme/acme_command.sh "removekey" "{$this->name}" "\$1" "\$2"
 }
 EOF;
 		safe_mkdir("{$this->acmeconf}httpapi");
-		$hookfile_httpapi = "{$this->acmeconf}httpapi/pfSenseacme.sh";
+		$hookfile_httpapi = "{$this->acmeconf}httpapi/libreSenseacme.sh";
 		file_put_contents($hookfile_httpapi, $hookcontent_httpapi);
 		chmod($hookfile_httpapi, 0755);
 		
@@ -248,7 +248,7 @@ EOF;
 					$port = empty($envvariables['port']) ? 443 : $envvariables['port'];
 					$domainparameters = " --alpn --tlsport " . escapeshellarg($port);
 				} else {
-					$domainparameters = " --webroot pfSenseacme";
+					$domainparameters = " --webroot libreSenseacme";
 				}
 				$domainstr .= $domainparameters;
 			}

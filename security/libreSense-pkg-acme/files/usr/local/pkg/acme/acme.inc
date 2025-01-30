@@ -2,7 +2,7 @@
 /*
  * acme.inc
  *
- * part of pfSense (https://www.pfsense.org/)
+ * part of libresense (https://www.libresense.org/)
  * Copyright (c) 2016 PiBa-NL
  * All rights reserved.
  *
@@ -90,7 +90,7 @@ namespace { // global code
 	/* Attempt to restart a remote service via XMLRPC with the default XMLRPC settings. */
 	function acme_xmlrpc_restart_service($servicename = "webgui", $extras = array()) {
 		require_once("xmlrpc_client.inc");
-		$rpc_client = new pfsense_xmlrpc_client();
+		$rpc_client = new libresense_xmlrpc_client();
 		$execstr = "";
 		if ($servicename == "webgui") {
 			/* The GUI needs a special event to restart, it is not a traditional service. */
@@ -145,12 +145,12 @@ EOD;
 	}
 }
 
-namespace pfsense_pkg\acme {
+namespace libresense_pkg\acme {
 
 /* include all configuration functions */
 require_once("functions.inc");
 require_once("pkg-utils.inc");
-require_once("pfsense-utils.inc");
+require_once("libresense-utils.inc");
 require_once("notices.inc");
 require_once("util.inc");
 require_once("acme_utils.inc");
@@ -3195,7 +3195,7 @@ function get_certificate($name) {
 					}
 
 					/* Password for SelfHost needs encoding.
-					 * See https://redmine.pfsense.org/issues/15229 */
+					 * See https://redmine.libresense.org/issues/15229 */
 					if (($method == "dns_selfhost") &&
 					    array_key_exists('SELFHOSTDNS_PASSWORD', $envvariables) &&
 					    !empty($envvariables['SELFHOSTDNS_PASSWORD'])) {

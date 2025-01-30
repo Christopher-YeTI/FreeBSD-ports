@@ -2,7 +2,7 @@
 /*
  * lcdproc_client.php
  *
- * part of pfSense (https://www.pfsense.org/)
+ * part of libresense (https://www.libresense.org/)
  * Copyright (c) 2016-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2016 Treer
  * Copyright (c) 2011 Michele Di Maria
@@ -24,7 +24,7 @@
 require_once("config.inc");
 require_once("functions.inc");
 require_once("interfaces.inc");
-require_once("pfsense-utils.inc");
+require_once("libresense-utils.inc");
 require_once("pkg-utils.inc");
 require_once("ipsec.inc");
 require_once("includes/functions.inc.php");
@@ -148,7 +148,7 @@ function lcdproc_get_cpu_temperature() {
 }
 
 // NTP Status
-function lcdproc_get_ntp_status() { // https://github.com/pfsense/pfsense/blob/master/src/usr/local/www/widgets/widgets/ntp_status.widget.php#L36
+function lcdproc_get_ntp_status() { // https://github.com/libresense/libresense/blob/master/src/usr/local/www/widgets/widgets/ntp_status.widget.php#L36
 	if (config_path_enabled('ntpd')) {
 		if (config_path_enabled('system', 'ipv6allow')) {
 			$inet_version = "";
@@ -196,7 +196,7 @@ function get_version() {
 }
 
 // Returns the max frequency in Mhz, or false if powerd is not supported.
-// powerd is not supported on all systems - "no cpufreq(4) support" https://redmine.pfsense.org/issues/5739
+// powerd is not supported on all systems - "no cpufreq(4) support" https://redmine.libresense.org/issues/5739
 function get_cpu_maxfrequency() {
 	$cpufreqs = get_single_sysctl("dev.cpu.0.freq_levels");
 
@@ -206,13 +206,13 @@ function get_cpu_maxfrequency() {
 		return array_shift($maxfreqs);
 	} else {
 		// sysctrl probably returned "unknown oid 'dev.cpu.0.freq_levels'",
-		// see https://redmine.pfsense.org/issues/5739
+		// see https://redmine.libresense.org/issues/5739
 		return false;
 	}
 }
 
 // Returns the current frequency in Mhz, or false if powerd is not supported.
-// powerd is not supported on all systems - "no cpufreq(4) support" https://redmine.pfsense.org/issues/5739
+// powerd is not supported on all systems - "no cpufreq(4) support" https://redmine.libresense.org/issues/5739
 function get_cpu_currentfrequency() {
 	$curfreq = get_single_sysctl("dev.cpu.0.freq");
 
@@ -220,7 +220,7 @@ function get_cpu_currentfrequency() {
 		return trim($curfreq);
 	} else {
 		// sysctrl probably returned "unknown oid 'dev.cpu.0.freq'",
-		// see https://redmine.pfsense.org/issues/5739
+		// see https://redmine.libresense.org/issues/5739
 		return false;
 	}
 }
@@ -567,7 +567,7 @@ function build_interface_traffic_stats_list() {
 		// get the interface stats (code from ifstats.php)
 		$interface      = config_get_path("interfaces/{$key}");
 		$interfaceName  = $interface['if'];
-		$interfaceStats = pfSense_get_interface_stats($interfaceName);
+		$interfaceStats = libreSense_get_interface_stats($interfaceName);
 
 		calculate_interfaceBytesPerSecond_sinceLastChecked($interfaceName, $interfaceStats, $in_Bps, $out_Bps);
 		calculate_bytesToday($interfaceName, $interfaceStats, $in_bytesToday, $out_bytesToday);
@@ -899,9 +899,9 @@ function build_interface($lcd) {
 
 	$lcd_cmds = [];
 	$lcd_cmds[] = "hello";
-	$lcd_cmds[] = "client_set name pfSense";
+	$lcd_cmds[] = "client_set name libreSense";
 
-	/* setup pfsense control menu */
+	/* setup libreSense control menu */
 	if (cmenu_enabled()) {
 		$lcd_cmds[] = 'menu_add_item "" carpmaint_menu menu "CARP Maintenance"';
 		$lcd_cmds[] = 'menu_add_item "carpmaint_menu" cm_ask_no action "Cancel" -next _close_';
@@ -1245,7 +1245,7 @@ function output_status($lcd, $lcdproc_screens_config, $lcdpanel_width, $lcdpanel
 			/* Include the CPU frequency as a percentage */
 			$maxfreq = get_cpu_maxfrequency();
 			if ($maxfreq === false || $maxfreq == 0) {
-				$lcd_summary_data .= "  N/A"; // powerd not available on all systems - https://redmine.pfsense.org/issues/5739
+				$lcd_summary_data .= "  N/A"; // powerd not available on all systems - https://redmine.libreSense.org/issues/5739
 			} else {
 				$lcd_summary_data .= sprintf(" %3d%%", get_cpu_currentfrequency() / $maxfreq * 100);
 			}

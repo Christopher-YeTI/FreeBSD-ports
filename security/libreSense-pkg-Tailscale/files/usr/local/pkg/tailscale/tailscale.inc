@@ -2,7 +2,7 @@
 /*
  * tailscale.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of LIBRESENSE (https://www.LIBRESENSE.org)
  * Copyright (c) 2022-2025 Rubicon Communications, LLC (Netgate)
  * All rights reserved.
  *
@@ -31,13 +31,13 @@ function tailscale_service_checkpoint()
 {
 	# start the service if enabled and not running
 	if (tailscale_is_enabled() && tailscale_is_not_running()) {
-		tailscale_run_rc_command(PFSENSE_TAILSCALED_RC, 'start');
+		tailscale_run_rc_command(LIBRESENSE_TAILSCALED_RC, 'start');
 		return;
 	}
 
 	# stop the service if running and not enabled
 	if (tailscale_is_not_enabled() && tailscale_is_running()) {
-		tailscale_run_rc_command(PFSENSE_TAILSCALED_RC, 'stop');
+		tailscale_run_rc_command(LIBRESENSE_TAILSCALED_RC, 'stop');
 		return;
 	}
 }
@@ -73,7 +73,7 @@ function tailscale_validation_hook(&$post, &$input_errors)
  * 
  * This is the resync hook for the primary tailscale.xml page. The goal here is to
  * ensure service state is consistent with the configuration and to update the
- * tailscaled and pfsense_tailscaled rcconf files are current. If changes were made
+ * tailscaled and LIBRESENSE_tailscaled rcconf files are current. If changes were made
  * to the rcconf files, the service needs to be restarted,
  * 
  * The resync hook is called during package installation. However, we only want to write
@@ -92,12 +92,12 @@ function tailscale_resync_config_hook()
 	if (tailscale_map_and_write_rcconf(tailscale_tailscaled_rcconf_map(), TAILSCALED_RCCONF))
 		$need_restart = true;
 
-	if (tailscale_map_and_write_rcconf(tailscale_pfsense_tailscaled_rcconf_map(), PFSENSE_TAILSCALED_RCCONF))
+	if (tailscale_map_and_write_rcconf(tailscale_libresense_tailscaled_rcconf_map(), LIBRESENSE_TAILSCALED_RCCONF))
 		$need_restart = true;
 
 	# we perform this in the background, it can otherwise block for a while
 	if ($need_restart && !$tailscale_is_installing)
-		tailscale_run_rc_command(PFSENSE_TAILSCALED_RC, 'restart');
+		tailscale_run_rc_command(LIBRESENSE_TAILSCALED_RC, 'restart');
 
 	# definitely not installing at this point
 	$tailscale_is_installing = false;

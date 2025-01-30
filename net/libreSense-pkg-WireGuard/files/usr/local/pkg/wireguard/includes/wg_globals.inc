@@ -2,7 +2,7 @@
 /*
  * wg_globals.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2021 R. Christian McDonald (https://github.com/rcmcdonald91)
  * Copyright (c) 2022-2025 Rubicon Communications, LLC (Netgate)
  * All rights reserved.
@@ -22,7 +22,7 @@
 
 // Global defines
 
-// pfSense includes
+// libresense includes
 require_once('config.inc');
 require_once('globals.inc');
 
@@ -66,7 +66,7 @@ $wgg = array(
 	'nrb'			=> '-NoReMoTeBaCkUp',
 	'applylist'		=> array(
 					'tunnels' => "{$g['tmp_path']}/.wireguard_tunnel.apply"),
-	'pkg_name'		=> 'pfSense-pkg-WireGuard',
+	'pkg_name'		=> 'libreSense-pkg-WireGuard',
 	'conf_path'		=> '/usr/local/etc/wireguard',
 	'xml_path'		=> 'installedpackages/wireguard',
 	'if_prefix'		=> 'tun_wg',

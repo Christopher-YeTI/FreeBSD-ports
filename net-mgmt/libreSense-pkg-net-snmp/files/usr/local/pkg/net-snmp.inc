@@ -23,7 +23,7 @@
 require_once("globals.inc");
 require_once("services.inc");
 require_once("service-utils.inc");
-require_once("pfsense-utils.inc");
+require_once("libresense-utils.inc");
 require_once("certs.inc");
 
 global $snmpd_config_file;

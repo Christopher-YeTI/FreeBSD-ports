@@ -2,7 +2,7 @@
 /*
  * haproxy_htmllist.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2016-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2016 PiBa-NL
  * All rights reserved.
@@ -22,7 +22,7 @@
 
 /*
   This file contains functions which are NOT specific to HAProxy and may/could/should
-  be moved to the general pfSense php library for possible easy use by other parts of pfSense
+  be moved to the general libresense php library for possible easy use by other parts of libresense
 */
 
 require_once("config.inc");

@@ -7,8 +7,8 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	coreteam@pfsense.org
-COMMENT=	pfSense package darkstat
+MAINTAINER=	coreteam@libresense.org
+COMMENT=	libresense package darkstat
 
 LICENSE=	APACHE20
 

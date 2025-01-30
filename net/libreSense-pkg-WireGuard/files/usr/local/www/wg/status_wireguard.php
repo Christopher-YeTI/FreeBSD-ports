@@ -2,7 +2,7 @@
 /*
  * status_wireguard.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2021 R. Christian McDonald (https://github.com/rcmcdonald91)
  * Copyright (c) 2021 Vajonam
  * Copyright (c) 2020 Ascrod
@@ -28,7 +28,7 @@
 ##|*MATCH=status_wireguard.php*
 ##|-PRIV
 
-// pfSense includes
+// libresense includes
 require_once('guiconfig.inc');
 require_once('util.inc');
 

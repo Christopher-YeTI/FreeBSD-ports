@@ -2,7 +2,7 @@
 /*
  * vpn_wg_tunnels.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2021-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2021 R. Christian McDonald (https://github.com/rcmcdonald91)
  * All rights reserved.
@@ -27,10 +27,10 @@
 ##|*MATCH=vpn_wg_tunnels.php*
 ##|-PRIV
 
-// pfSense includes
+// libresense includes
 require_once('functions.inc');
 require_once('guiconfig.inc');
-require_once('pfsense-utils.inc');
+require_once('libresense-utils.inc');
 require_once('service-utils.inc');
 
 // WireGuard includes
@@ -65,7 +65,7 @@ if ($_POST) {
 		$tun_name = $_POST['tun'];
 
 		/* Check if the submitted tunnel exists
-		 * https://redmine.pfsense.org/issues/12731
+		 * https://redmine.libresense.org/issues/12731
 		 */
 		$tun_found = false;
 		foreach (config_get_path('installedpackages/wireguard/tunnels/item', []) as $tunnel) {
@@ -95,7 +95,7 @@ if ($_POST) {
 			$input_errors = $res['input_errors'];
 		} else {
 			/* User submitted a tunnel that does not exist, so bail.
-			 * https://redmine.pfsense.org/issues/12731
+			 * https://redmine.libresense.org/issues/12731
 			 */
 			$input_errors = array(gettext("The requested tunnel does not exist."));
 		}

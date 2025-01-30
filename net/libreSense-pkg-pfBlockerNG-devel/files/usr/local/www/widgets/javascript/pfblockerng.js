@@ -1,7 +1,7 @@
 /*
  * pfblockerng.js
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2016-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2015-2024 BBcan177@gmail.com
  * All rights reserved.
@@ -163,7 +163,7 @@ events.push(function() {
 
 	$('[id^=pfblockerngclearicon]').click(function(event) {
 		$('<div></div>').appendTo('body')
-		.html('<div><h6>Select which Packet Counts to clear:</h6><small>Note: Selecting \'IP\' will clear all pfSense counters.</small></div>')
+		.html('<div><h6>Select which Packet Counts to clear:</h6><small>Note: Selecting \'IP\' will clear all libreSense counters.</small></div>')
 		.dialog({
 			modal: true,
 			autoOpen: true,

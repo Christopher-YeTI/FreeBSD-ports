@@ -23,7 +23,7 @@
 require_once("globals.inc");
 require_once("guiconfig.inc");
 require_once("openvpn-client-export.inc");
-require_once("pfsense-utils.inc");
+require_once("libresense-utils.inc");
 require_once("pkg-utils.inc");
 require_once("certs.inc");
 require_once("classes/Form.class.php");
@@ -179,11 +179,11 @@ if (!empty($act)) {
 	$crtid = $_POST['crtid'];
 	$srvcfg = get_openvpnserver_by_id($srvid);
 	if ($srvid === false) {
-		pfSenseHeader("vpn_openvpn_export.php");
+		libreSenseHeader("vpn_openvpn_export.php");
 		exit;
 	} else if (($srvcfg['mode'] != "server_user") &&
 		(($usrid === false) || ($crtid === false))) {
-		pfSenseHeader("vpn_openvpn_export.php");
+		libreSenseHeader("vpn_openvpn_export.php");
 		exit;
 	}
 
