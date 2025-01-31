@@ -7,7 +7,7 @@
 /*
  * frr_ospf6.xml
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2012-2025 Rubicon Communications, LLC (Netgate)
  * All rights reserved.
  *
@@ -257,9 +257,9 @@
 			<type>info</type>
 		</field>
 		<field>
-			<fielddescr>pfSense Kernel Routes</fielddescr>
+			<fielddescr>libreSense Kernel Routes</fielddescr>
 			<fieldname>redistributekernel</fieldname>
-			<description>Redistribute pfSense Kernel</description>
+			<description>Redistribute libreSense Kernel</description>
 			<type>checkbox</type>
 			<combinefields>begin</combinefields>
 		</field>
@@ -277,7 +277,7 @@
 			<fielddescr></fielddescr>
 			<description>
 				<![CDATA[
-				Kernel routes are routes in the pfSense kernel routing table, which includes static routes and other non-local routes not obtained from routing protocols.
+				Kernel routes are routes in the libreSense kernel routing table, which includes static routes and other non-local routes not obtained from routing protocols.
 				]]>
 			</description>
 			<type>info</type>

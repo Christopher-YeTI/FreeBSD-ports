@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<pfsensepkgs>
+<libresensepkgs>
 	<package>
 		<name>tftpd</name>
 		<descr><![CDATA[Installs a TFTP server, used for thin client booting and more.]]></descr>
@@ -7,4 +7,4 @@
 		<version>%%PKGVERSION%%</version>
 		<configurationfile>tftpd.xml</configurationfile>
 	</package>
-</pfsensepkgs>
+</libresensepkgs>

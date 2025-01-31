@@ -7,7 +7,7 @@
 /*
  * squid_antivirus.xml
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2015-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2013-2014 Marcello Coutinho
  * All rights reserved.
@@ -135,7 +135,7 @@
 				<![CDATA[
 				When a virus is found then redirect the user to this URL.
 				<span class="text-info">Example:</span> http://proxy.example.com/blocked.html<br/>
-				<span class="text-info">Leave empty to use the default Squid/pfSense WebGUI URL.</span>
+				<span class="text-info">Leave empty to use the default Squid/libresense WebGUI URL.</span>
 				]]>
 			</description>
 			<type>input</type>

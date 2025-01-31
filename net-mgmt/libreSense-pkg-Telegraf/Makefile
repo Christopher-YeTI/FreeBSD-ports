@@ -9,7 +9,7 @@ DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
 MAINTAINER=	me@willboyce.com
-COMMENT=	pfSense package Telegraf
+COMMENT=	libresense package Telegraf
 
 LICENSE=	APACHE20
 

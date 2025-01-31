@@ -8,8 +8,8 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	coreteam@pfsense.org
-COMMENT=	pfSense package Service_Watchdog
+MAINTAINER=	coreteam@libresense.org
+COMMENT=	libresense package Service_Watchdog
 
 LICENSE=	APACHE20
 

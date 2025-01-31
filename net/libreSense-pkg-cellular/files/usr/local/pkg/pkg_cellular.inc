@@ -2,7 +2,7 @@
 /*
  * pkg_cellular.inc
  *
- * part of libreSense (https://www.libresense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (C) 2016 Voleatech GmbH, Fabian Schweinfurth
  * All rights reserved.
  *

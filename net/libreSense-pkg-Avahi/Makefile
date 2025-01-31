@@ -7,7 +7,7 @@ CATEGORIES=	net
 MASTER_SITES=	# empty
 DISTFILES=	# empty
 
-MAINTAINER=	coreteam@libresense.org
+MAINTAINER=	coreteam@libreSense.org
 COMMENT=	libreSense package Avahi
 
 LICENSE=	APACHE20

@@ -7,7 +7,7 @@
 /*
  * tailscale.xml
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2022-2025 Rubicon Communications, LLC (Netgate)
  * All rights reserved.
  *
@@ -32,7 +32,7 @@
 	<aftersaveredirect>/pkg_edit.php?xml=tailscale.xml</aftersaveredirect>
 	<service>
 		<name>tailscale</name>
-		<rcfile>pfsense_tailscaled</rcfile>
+		<rcfile>libresense_tailscaled</rcfile>
 		<executable>tailscaled</executable>
 		<description>Tailscale Daemon</description>
 	</service>

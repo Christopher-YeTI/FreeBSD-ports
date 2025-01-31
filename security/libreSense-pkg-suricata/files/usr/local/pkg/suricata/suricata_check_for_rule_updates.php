@@ -2,7 +2,7 @@
 /*
  * suricata_check_for_rule_updates.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2006-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2005 Bill Marquette <bill.marquette@gmail.com>.
  * Copyright (c) 2003-2004 Manuel Kasper <mk@neon1.net>.
@@ -438,7 +438,7 @@ foreach (config_get_path('installedpackages/suricata/rule', []) as $value) {
 	$if_real = get_real_interface($value['interface']);
 
 	/* Skip processing for instances whose underlying physical        */
-	/* interface has been removed in pfSense.                         */
+	/* interface has been removed in libresense.                         */
 	if ($if_real == "") {
 		continue;
 	}
@@ -935,7 +935,7 @@ if ($snortdownload == 'on' || $emergingthreats == 'on' || $snortcommunityrules =
 			$if_real = get_real_interface($value['interface']);
 
 			/* Skip processing for instances whose underlying physical       */
-			/* interface has been removed in pfSense.                        */
+			/* interface has been removed in libresense.                        */
 			if ($if_real == "") {
 				continue;
 			}

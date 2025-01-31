@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<pfsensepkgs>
+<libresensepkgs>
 	<package>
 		<name>squid3</name>
 		<internal_name>squid</internal_name>
@@ -11,4 +11,4 @@
 		<version>%%PKGVERSION%%</version>
 		<configurationfile>squid.xml</configurationfile>
 	</package>
-</pfsensepkgs>
+</libresensepkgs>

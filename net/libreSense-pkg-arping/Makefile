@@ -8,7 +8,7 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	coreteam@libresense.org
+MAINTAINER=	coreteam@libreSense.org
 COMMENT=	libreSense package arping
 
 LICENSE=	APACHE20

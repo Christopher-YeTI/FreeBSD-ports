@@ -2,16 +2,16 @@
 /*
  * pfblockerng_update.php
  *
- * part of libresense (https://www.libresense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2016-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2015-2023 BBcan177@gmail.com
  * All rights reserved.
  *
  * Portions of this code are based on original work done for
- * libresense from the following contributors:
+ * libreSense from the following contributors:
  *
  * pkg_mgr_install.php
- * Part of libresense (https://www.libresense.org)
+ * Part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2005 Colin Smith
  * All rights reserved.
  *

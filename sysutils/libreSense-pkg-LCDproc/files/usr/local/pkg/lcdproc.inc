@@ -2,7 +2,7 @@
 /*
  * lcdproc.inc
  *
- * part of pfSense (http://www.pfsense.org/)
+ * part of libresense (http://www.libresense.org/)
  * Copyright (c) 2015-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2012 Michele Di Maria
  * Copyright (c) 2007-2009 Seth Mos <seth.mos@dds.nl>

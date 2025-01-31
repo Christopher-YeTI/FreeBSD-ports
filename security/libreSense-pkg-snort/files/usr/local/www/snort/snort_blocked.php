@@ -2,7 +2,7 @@
 /*
  * snort_blocked.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2006-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2009 Robert Zelaya Sr. Developer
  * Copyright (c) 2014-2022 Bill Meeks
@@ -26,7 +26,7 @@ require_once("/usr/local/pkg/snort/snort.inc");
 
 $snortlogdir = SNORTLOGDIR;
 
-// Grab pfSense version so we can refer to it later on this page
+// Grab libresense version so we can refer to it later on this page
 $pfs_version=substr(trim(file_get_contents("/etc/version")),0,3);
 
 // Grad settings for auto-refresh boolean and number of displayed blocks
@@ -309,7 +309,7 @@ print($form);
 
 					/* Add zero-width space as soft-break opportunity after each colon if we have an IPv6 address */
 					$tmp_ip = str_replace(":", ":&#8203;", $blocked_ip);
-					/* Add reverse DNS lookup icons (two different links if pfSense version supports them) */
+					/* Add reverse DNS lookup icons (two different links if libresense version supports them) */
 					$rdns_link = "";
 					$rdns_link .= "<i class=\"fa-solid fa-search icon-pointer\" onclick=\"javascript:resolve_with_ajax('{$blocked_ip}');\" title=\"";
 					$rdns_link .= gettext("Resolve host via reverse DNS lookup") . "\" alt=\"Icon Reverse Resolve with DNS\"></i>";
@@ -347,7 +347,7 @@ print($form);
 </div>
 
 <!-- The following AJAX code was borrowed from the diag_logs_filter.php -->
-<!-- file in pfSense.  See copyright info at top of this page.          -->
+<!-- file in libresense.  See copyright info at top of this page.          -->
 <script type="text/javascript">
 //<![CDATA[
 

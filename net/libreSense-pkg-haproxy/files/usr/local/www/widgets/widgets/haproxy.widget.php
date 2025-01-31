@@ -2,7 +2,7 @@
 /*
  * haproxy.widget.php
  *
- * part of libresense (https://www.libresense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2016-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2013 PiBa-NL
  * Copyright (c) 2011 Thomas Schaefer - Tomschaefer.org
@@ -23,7 +23,7 @@
  */
 
 /*
-	Some mods made from pfBlocker widget to make this for HAProxy on libresense
+	Some mods made from pfBlocker widget to make this for HAProxy on libreSense
 	Copyleft 2012 by jvorhees
 */
 

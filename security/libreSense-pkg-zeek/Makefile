@@ -8,7 +8,7 @@ MASTER_SITES=	# none
 DISTFILES=	# none
 
 MAINTAINER=	ingprs01@gmail.com
-COMMENT=	Zeek Network Security Monitor package for pfSense
+COMMENT=	Zeek Network Security Monitor package for libresense
 
 LICENSE=	APACHE20
 

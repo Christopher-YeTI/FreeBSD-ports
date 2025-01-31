@@ -2,7 +2,7 @@
 /*
  * snort_sid_mgmt.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2006-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2005 Bill Marquette <bill.marquette@gmail.com>.
  * Copyright (c) 2003-2004 Manuel Kasper <mk@neon1.net>.
@@ -549,7 +549,7 @@ print($section);
 				<tbody>
 			   <?php foreach ($a_nat as $k => $natent): ?>
 				<?php
-					// Skip displaying any instance where the physical pfSense interface is missing
+					// Skip displaying any instance where the physical libresense interface is missing
 					if (get_real_interface($natent['interface']) == "") {
 						continue;
 					}

@@ -2,7 +2,7 @@
 /*
  * pkg_freeradius.inc
  *
- * part of libreSense (https://www.libresense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2022-2025 Rubicon Communications, LLC (Netgate)
  * All rights reserved.
  *

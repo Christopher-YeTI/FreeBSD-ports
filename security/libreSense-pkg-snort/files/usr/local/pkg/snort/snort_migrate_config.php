@@ -2,7 +2,7 @@
 /*
  * snort_migrate_config.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2019-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2013-2022 Bill Meeks
  * All rights reserved.
@@ -200,7 +200,7 @@ if (config_path_enabled('installedpackages/snortglobal', 'last_rule_upd_time')) 
 /**********************************************************/
 /* Randomize the Rules Update Start Time minutes field    */
 /* per request of Snort.org team to minimize impact of    */
-/* large numbers of pfSense users hitting Snort.org at    */
+/* large numbers of libresense users hitting Snort.org at    */
 /* the same minute past the hour for rules updates.       */
 /**********************************************************/
 if (config_get_path('installedpackages/snortglobal/rule_update_starttime', '00:05') == '00:05' ||

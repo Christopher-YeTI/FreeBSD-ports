@@ -7,7 +7,7 @@
 /*
  * darkstat.xml
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2009-2025 Rubicon Communications, LLC (Netgate)
  * All rights reserved.
  *
@@ -100,7 +100,7 @@
 			<description>
 				<![CDATA[
 				Bind the darkstat web interface to the specified port.<br />
-				<span class="text-danger">WARNING: </span>Do NOT set this to the same port where pfSense WebGUI is running (usually 80/443)!<br />
+				<span class="text-danger">WARNING: </span>Do NOT set this to the same port where libresense WebGUI is running (usually 80/443)!<br />
 				<span class="text-info">Default: 666</span>
 				]]>
 			</description>
@@ -114,7 +114,7 @@
 			<description>
 				<![CDATA[
 				Darkstat web interface can use HTTP only; HTTPS protocol is not supported.
-				If pfSense is <a href="/system_advanced_admin.php">configured to use HTTPS for webConfigurator</a>, it will force HTTPS via HSTS header.
+				If libresense is <a href="/system_advanced_admin.php">configured to use HTTPS for webConfigurator</a>, it will force HTTPS via HSTS header.
 				That will make it impossible to use the webConfigurator FQDN to access darkstat web interface via HTTP.<br/>
 				Configure a custom hostname here for use with darkstat web interface to work around this limitation.<br />
 				<strong><span class="text-info">Hint: </span></strong>Use the IPv4 address of one of the 'Web Interface Binding' interfaces selected above
@@ -125,13 +125,13 @@
 				- You need to set up a 'Host Override' in <a href="/services_unbound.php">Services &gt; DNS Resolver</a>
 				or <a href="/services_dnsmasq.php">Services &gt; DNS Forwarder</a> (depending on which of these you are using)
 				in order to make use of the 'Web Interface Hostname' configured here.<br/>
-				- If your clients are not using the DNS server on pfSense for DNS resolution, you need to set up such 'Host Override' (A record or CNAME pointing to pfSense)
+				- If your clients are not using the DNS server on libresense for DNS resolution, you need to set up such 'Host Override' (A record or CNAME pointing to libresense)
 				on the DNS server that the clients are using, or locally on the clients (using hosts file or similar) for 'Web Interface Hostname' to work for such clients.<br/><br/>
 				<strong><span class="text-info">Hint:</span></strong><br />
 				As an alternative, you may want to put the darkstat web interface behind haproxy. 
-				You can use the <a href="https://docs.netgate.com/pfsense/en/latest/packages/haproxy.html" target="_blank">haproxy package</a> for this purpose.
-				In that way, you can continue using HTTPS <em>and</em> the pfSense webConfigurator FQDN to access darkstat, and can even make it accessible via IPv6.<br/>
-				See the <a href="https://github.com/PiBa-NL/pfsense-haproxy-package-doc/wiki" target="_blank">HAProxy pfSense Package Howto</a> for usage instructions.
+				You can use the <a href="https://docs.netgate.com/libresense/en/latest/packages/haproxy.html" target="_blank">haproxy package</a> for this purpose.
+				In that way, you can continue using HTTPS <em>and</em> the libresense webConfigurator FQDN to access darkstat, and can even make it accessible via IPv6.<br/>
+				See the <a href="https://github.com/PiBa-NL/libresense-haproxy-package-doc/wiki" target="_blank">HAProxy libresense Package Howto</a> for usage instructions.
 				</div>
 				]]>
 			</description>

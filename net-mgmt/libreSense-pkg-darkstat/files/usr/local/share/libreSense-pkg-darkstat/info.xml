@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<pfsensepkgs>
+<libresensepkgs>
 	<package>
 		<name>darkstat</name>
 		<website>http://dmr.ath.cx/net/darkstat/</website>
@@ -7,4 +7,4 @@
 		<version>%%PKGVERSION%%</version>
 		<configurationfile>darkstat.xml</configurationfile>
 	</package>
-</pfsensepkgs>
+</libresensepkgs>

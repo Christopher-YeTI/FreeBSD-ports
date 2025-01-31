@@ -2,7 +2,7 @@
 /*
  * snort_post_install.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2006-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2009-2010 Robert Zelaya
  * Copyright (c) 2013-2022 Bill Meeks
@@ -43,7 +43,7 @@ $flowbit_rules_file = FLOWBITS_FILENAME;
 $snort_enforcing_rules_file = SNORT_ENFORCING_RULES_FILENAME;
 
 /* Hard kill any running Snort processes that may have been started by any   */
-/* of the pfSense scripts such as check_reload_status() or rc.start_packages */
+/* of the libresense scripts such as check_reload_status() or rc.start_packages */
 if(is_process_running("snort")) {
 	exec("/usr/bin/killall -z snort");
 	sleep(2);
@@ -122,7 +122,7 @@ if (config_get_path('installedpackages/snortglobal/forcekeepsettings') == 'on') 
 	foreach (config_get_path('installedpackages/snortglobal/rule', []) as $snortcfg) {
 		$if_real = get_real_interface($snortcfg['interface']);
 
-		/* Skip instance if its real interface is missing in pfSense */
+		/* Skip instance if its real interface is missing in libresense */
 		if ($if_real == "") {
 			continue;
 		}

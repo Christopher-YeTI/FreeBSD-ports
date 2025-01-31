@@ -33,7 +33,7 @@ header("X-Accel-Buffering: no");
 
 require_once('guiconfig.inc');
 require_once('globals.inc');
-require_once('libreSense-utils.inc');
+require_once('libresense-utils.inc');
 require_once('functions.inc');
 require_once('util.inc');
 require_once('/usr/local/pkg/pfblockerng/pfblockerng.inc');
@@ -455,7 +455,7 @@ if ($pfb['enable'] == 'on' && isset($pconfig['run']) && !empty($pconfig['pfb_for
 	<p><u>NOTE</u>:</p><br />
 	<ul>
 		<li>Please review the update log above for any errors.</li>
-		<li>For DNSBL, ensure that all of your LAN devices are pointed at libreSense ONLY for DNS resolution.</li>
+		<li>For DNSBL, ensure that all of your LAN devices are pointed at libresense ONLY for DNS resolution.</li>
 		<li>For users who have VLANS, please enable the DNSBL permit firewall rule option to allow all subnets to access the
 			DNSBL Webserver, or there may be some browser timeouts.</li>
 		<li>All IP/DNSBL events will be reported to the Reports/Alerts Tab. You can whitelist from the Alerts tab directly.</li>

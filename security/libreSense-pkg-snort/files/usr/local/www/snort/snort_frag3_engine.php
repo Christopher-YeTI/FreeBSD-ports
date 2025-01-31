@@ -2,7 +2,7 @@
 /*
  * snort_frag3_engine.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2018-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2013-2022 Bill Meeks
  * All rights reserved.

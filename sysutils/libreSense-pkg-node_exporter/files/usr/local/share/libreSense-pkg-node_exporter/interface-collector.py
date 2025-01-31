@@ -18,8 +18,8 @@ class simplemetric:
 		self.series.append('{name}{{{labels}}} {val}'.format(name=self.name, labels=','.join(lvs), val=val))
 
 metrics = {
-	'up': simplemetric('node_pfsense_interface_up','1 if interface is enabled, else 0.'),
-	'info': simplemetric('node_pfsense_interface_info', 'Information about the interface. Always 1.')
+	'up': simplemetric('node_libresense_interface_up','1 if interface is enabled, else 0.'),
+	'info': simplemetric('node_libresense_interface_info', 'Information about the interface. Always 1.')
 }
 
 root = ET.parse('/conf/config.xml')
@@ -35,6 +35,6 @@ for elem in root.find("interfaces"):
 	metrics['up'].add(enabled, name=pf_name)
 	metrics['info'].add(enabled, description=descr, interface=if_name, name=pf_name)
 
-textfile = open('/var/tmp/node_exporter/pfsense.prom','w')
+textfile = open('/var/tmp/node_exporter/libresense.prom','w')
 textfile.write('\n'.join(str(m) for m in list(metrics.values())))
 textfile.write('\n') # Ensure trailing newline

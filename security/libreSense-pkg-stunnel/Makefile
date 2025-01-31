@@ -8,8 +8,8 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	coreteam@pfsense.org
-COMMENT=	pfSense package stunnel
+MAINTAINER=	coreteam@libresense.org
+COMMENT=	libresense package stunnel
 
 LICENSE=	APACHE20
 

@@ -2,7 +2,7 @@
 #
 # /usr/local/bin/cellular_dev.py
 #
-# part of libreSense (https://www.libresense.org)
+# part of libresense (https://www.libresense.org)
 # Copyright (C) 2017 Voleatech GmbH
 # All rights reserved.
 #

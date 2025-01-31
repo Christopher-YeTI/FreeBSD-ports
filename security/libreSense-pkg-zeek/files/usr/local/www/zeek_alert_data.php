@@ -1,7 +1,7 @@
 <?php
 /*
 * zeek_alert_data.php
-* part of pfSense (https://www.pfSense.org/)
+* part of libresense (https://www.libresense.org/)
 * Copyright (c) 2018-2020 Prosper Doko
 * Copyright (c) 2020 Mark Overholser
 * All rights reserved.

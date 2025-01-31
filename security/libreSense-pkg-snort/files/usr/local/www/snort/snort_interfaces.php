@@ -2,7 +2,7 @@
 /*
  * snort_interfaces.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2011-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2022 Bill Meeks
  * All rights reserved.
@@ -101,9 +101,9 @@ if (isset($_POST['del_x'])) {
 			$snort_uuid = $a_nat[$rulei]['uuid'];
 			$if_real = get_real_interface($a_nat[$rulei]['interface']);
 
-			// Check that we still have the real interface defined in pfSense.
+			// Check that we still have the real interface defined in libresense.
 			// The real interface will return as an empty string if it has
-			// been removed in pfSense.
+			// been removed in libresense.
 			if ($if_real == "") {
 				rmdir_recursive("{$snortlogdir}/snort_*{$snort_uuid}");
 				rmdir_recursive("{$snortdir}/snort_{$snort_uuid}_*");
@@ -151,9 +151,9 @@ else {
 		$snort_uuid = $a_nat[$delbtn_list]['uuid'];
 		$if_real = get_real_interface($a_nat[$delbtn_list]['interface']);
 
-		// Check that we still have the real interface defined in pfSense.
+		// Check that we still have the real interface defined in libresense.
 		// The real interface will return as an empty string if it has
-		// been removed in pfSense.
+		// been removed in libresense.
 		if ($if_real == "") {
 			rmdir_recursive("{$snortlogdir}/snort_*{$snort_uuid}");
 			rmdir_recursive("{$snortdir}/snort_{$snort_uuid}_*");

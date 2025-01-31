@@ -8,8 +8,8 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	coreteam@pfsense.org
-COMMENT=	pfSense package softflowd
+MAINTAINER=	coreteam@libresense.org
+COMMENT=	libresense package softflowd
 
 LICENSE=	APACHE20
 

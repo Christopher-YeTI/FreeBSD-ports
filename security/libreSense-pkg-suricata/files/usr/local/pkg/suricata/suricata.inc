@@ -2,7 +2,7 @@
 /*
  * suricata.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2006-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2005 Bill Marquette <bill.marquette@gmail.com>.
  * Copyright (c) 2003-2004 Manuel Kasper <mk@neon1.net>.
@@ -23,7 +23,7 @@
  * limitations under the License.
  */
 
-require_once("pfsense-utils.inc");
+require_once("libresense-utils.inc");
 require_once("config.inc");
 require_once("globals.inc");
 require_once("functions.inc");
@@ -160,7 +160,7 @@ function suricata_reload_config($suricatacfg, $signal="SIGUSR2") {
 
 	/******************************************************/
 	/* Skip disabled Suricata instances or instances      */
-	/* whose pfSense physical interface has been removed. */
+	/* whose libresense physical interface has been removed. */
 	/******************************************************/
 	if (($suricatacfg['enable'] != 'on') || ($if_real == "")) {
 		return;
@@ -3509,7 +3509,7 @@ function suricata_create_rc() {
 		$if_real = get_real_interface($value['interface']);
 
 		// Skip disabled Suricata instances
-		// or instances whose pfSense physical
+		// or instances whose libresense physical
 		// interface has been removed.
 		if (($value['enable'] != 'on') || ($if_real == "")) {
 			continue;
@@ -3583,7 +3583,7 @@ EOE;
 #!/bin/sh
 ########
 # This file was automatically generated
-# by the pfSense service handler.
+# by the libresense service handler.
 ######## Start of main suricata.sh
 
 rc_start() {
@@ -3645,7 +3645,7 @@ function suricata_generate_yaml($suricatacfg) {
 	/* generating the configuration file.  Using two include    */
 	/* files works around the "require_once()" caching issues   */
 	/* that can prevent new changes in this code from being     */
-	/* available during package installs on pfSense.            */
+	/* available during package installs on libresense.            */
 	/*                                                          */
 	/* On Entry: suricatacfg --> Suricata instance info in      */
 	/*                           the config.xml master config   */
@@ -3946,7 +3946,7 @@ EOD;
 			}
 		}
 		$synctimeout = intval($synctimeout);
-		$rpc_client = new pfsense_xmlrpc_client();
+		$rpc_client = new libresense_xmlrpc_client();
 		$rpc_client->setConnectionData($sync_to_ip, $port, $username, $password, $protocol);
 		
 		/*************************************************/
@@ -3972,7 +3972,7 @@ EOD;
 		$resp = $rpc_client->xmlrpc_exec_php($execcmd, $synctimeout);
 		$resp = $rpc_client->xmlrpc_exec_php($execcmd2, $synctimeout);
 	} else {
-		// pfSense before 2.4
+		// libresense before 2.4
 		require_once('xmlrpc.inc');
 	
 		// Take care of IPv6 literal address
@@ -3991,7 +3991,7 @@ EOD;
 			$payload = "@file_put_contents('{$file}', base64_decode('{$content}'));";
 
 			/* assemble xmlrpc payload */
-			$method = 'pfsense.exec_php';
+			$method = 'libresense.exec_php';
 			$params = array( XML_RPC_encode($password), XML_RPC_encode($payload) );
 
 			syslog(LOG_NOTICE, "[suricata] XMLRPC sync sending auto-SID conf files to {$url}:{$port}.");
@@ -4012,7 +4012,7 @@ EOD;
 		}
 
 		if (!empty($sid_files) && $error == "") {
-			syslog(LOG_NOTICE, "[suricata] XMLRPC sync auto-SID conf files success with {$url}:{$port} (pfsense.exec_php).");
+			syslog(LOG_NOTICE, "[suricata] XMLRPC sync auto-SID conf files success with {$url}:{$port} (libresense.exec_php).");
 		}
 
 		/*************************************************/
@@ -4024,7 +4024,7 @@ EOD;
 			$payload = "@file_put_contents('{$file}', base64_decode('{$content}'));";
 
 			/* assemble xmlrpc payload */
-			$method = 'pfsense.exec_php';
+			$method = 'libresense.exec_php';
 			$params = array( XML_RPC_encode($password), XML_RPC_encode($payload) );
 
 			syslog(LOG_NOTICE, "[suricata] Suricata XMLRPC sync sending IPREP files to {$url}:{$port}.");
@@ -4045,7 +4045,7 @@ EOD;
 		}
 
 		if (!empty($iprep_files) && $error == "") {
-			syslog(LOG_NOTICE, "[suricata] XMLRPC sync IPREP files success with {$url}:{$port} (pfsense.exec_php).");
+			syslog(LOG_NOTICE, "[suricata] XMLRPC sync IPREP files success with {$url}:{$port} (libresense.exec_php).");
 		}
 
 		/* assemble xmlrpc payload */
@@ -4055,7 +4055,7 @@ EOD;
 		);
 
 		syslog(LOG_NOTICE, "[suricata] Beginning package configuration XMLRPC sync to {$url}:{$port}.");
-		$method = 'pfsense.merge_installedpackages_section_xmlrpc';
+		$method = 'libresense.merge_installedpackages_section_xmlrpc';
 		$msg = new XML_RPC_Message($method, $params);
 		$cli = new XML_RPC_Client('/xmlrpc.php', $url, $port);
 		$cli->setCredentials($username, $password);
@@ -4075,7 +4075,7 @@ EOD;
 		}
 
 		/* assemble xmlrpc payload */
-		$method = 'pfsense.exec_php';
+		$method = 'libresense.exec_php';
 		$params = array(
 			XML_RPC_encode($password),
 			XML_RPC_encode($execcmd)
@@ -4087,7 +4087,7 @@ EOD;
 		$cli->setCredentials($username, $password);
 		$resp = $cli->send($msg, $synctimeout);
 		if (!$resp) {
-			$error = "ERROR: A communications error occurred while attempting Suricata XMLRPC sync with {$url}:{$port} (pfsense.exec_php).";
+			$error = "ERROR: A communications error occurred while attempting Suricata XMLRPC sync with {$url}:{$port} (libresense.exec_php).";
 			syslog(LOG_ERR, $error);
 			file_notice("sync_settings", $error, "Suricata Settings Sync", "");
 		} elseif ($resp->faultCode()) {
@@ -4095,7 +4095,7 @@ EOD;
 			syslog(LOG_ERR, $error);
 			file_notice("sync_settings", $error, "Suricata Settings Sync", "");
 		} else {
-			syslog(LOG_NOTICE, "[suricata] XMLRPC sync reload configuration success with {$url}:{$port} (pfsense.exec_php).");
+			syslog(LOG_NOTICE, "[suricata] XMLRPC sync reload configuration success with {$url}:{$port} (libresense.exec_php).");
 		}
 
 		$params2 = array(
@@ -4106,7 +4106,7 @@ EOD;
 		$msg2 = new XML_RPC_Message($method, $params2);
 		$resp = $cli->send($msg2, $synctimeout);
 		if (!$resp) {
-			$error = "ERROR: A communications error occurred while attempting Suricata XMLRPC sync with {$url}:{$port} (pfsense.exec_php).";
+			$error = "ERROR: A communications error occurred while attempting Suricata XMLRPC sync with {$url}:{$port} (libresense.exec_php).";
 			syslog(LOG_ERR, $error);
 			file_notice("sync_settings", $error, "Suricata Settings Sync", "");
 		} elseif ($resp->faultCode()) {
@@ -4114,7 +4114,7 @@ EOD;
 			syslog(LOG_ERR, $error);
 			file_notice("sync_settings", $error, "Suricata Settings Sync", "");
 		} else {
-			syslog(LOG_NOTICE, "[suricata] XMLRPC sync reload configuration success with {$url}:{$port} (pfsense.exec_php).");
+			syslog(LOG_NOTICE, "[suricata] XMLRPC sync reload configuration success with {$url}:{$port} (libresense.exec_php).");
 		}
 	}
 }

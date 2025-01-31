@@ -64,7 +64,7 @@ pfborig=/var/db/pfblockerng/original/
 pfbmatch=/var/db/pfblockerng/match/
 pfbpermit=/var/db/pfblockerng/permit/
 pfbnative=/var/db/pfblockerng/native/
-libreSensealias=/var/db/aliastables/
+libresensealias=/var/db/aliastables/
 pfbdomain=/var/db/pfblockerng/dnsbl/
 pfbdomainorig=/var/db/pfblockerng/dnsblorig/
 
@@ -110,7 +110,7 @@ DISK_NAME="$(/bin/df /var/db/rrd | /usr/bin/tail -1 | /usr/bin/awk '{print $1;}'
 DISK_TYPE="$(/usr/bin/basename ${DISK_NAME} | /usr/bin/cut -c1-2)"
 
 if [ ! -d "${pfbdb}" ]; then mkdir "${pfbdb}"; fi
-if [ ! -d "${libreSensealias}" ]; then mkdir "${libreSensealias}"; fi
+if [ ! -d "${libresensealias}" ]; then mkdir "${libresensealias}"; fi
 if [ ! -d "${pfbmatch}" ]; then mkdir "${pfbmatch}"; fi
 if [ ! -d "${etdir}" ]; then mkdir "${etdir}"; fi
 if [ ! -d "${tmpxlsx}" ]; then mkdir "${tmpxlsx}"; fi
@@ -1297,7 +1297,7 @@ closingprocess() {
 	fi
 
 	echo; echo 'Alias table IP Counts'; echo '-----------------------------'
-	wc -l "${libreSensealias}"pfB_*.txt 2>/dev/null | sort -n -r
+	wc -l "${libresensealias}"pfB_*.txt 2>/dev/null | sort -n -r
 
 	echo; echo 'libreSense Table Stats'; echo '-------------------'
 	"${pathpfctl}" -s memory | grep 'table-entries'

@@ -1,7 +1,7 @@
 <?php
 /*
 * zeek.inc
-* part of pfSense (https://www.pfSense.org/)
+* part of libresense (https://www.libresense.org/)
 * Copyright (c) 2018-2020 Prosper Doko
 * Copyright (c) 2020 Mark Overholser
 * All rights reserved.
@@ -164,7 +164,7 @@ function zeek_install_command() {
 	global $g;
 
 	/* Hard kill any running zeek processes that may have been started by any
-	 of the pfSense scripts such as check_reload_status() or rc.start_packages*/
+	 of the libresense scripts such as check_reload_status() or rc.start_packages*/
 	if (is_process_running("zeek")) {
 		killbyname("zeek");
 		sleep(2);

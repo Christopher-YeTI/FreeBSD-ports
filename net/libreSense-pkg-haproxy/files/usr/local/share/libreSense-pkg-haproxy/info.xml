@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<pfsensepkgs>
+<libresensepkgs>
 	<package>
 		<name>haproxy</name>
-		<pkginfolink>https://docs.netgate.com/pfsense/en/latest/packages/haproxy.html</pkginfolink>
+		<pkginfolink>https://docs.netgate.com/libresense/en/latest/packages/haproxy.html</pkginfolink>
 		<descr><![CDATA[The Reliable, High Performance TCP/HTTP(S) Load Balancer.&lt;br /&gt;
 			This package implements the TCP, HTTP and HTTPS balancing features from haproxy.&lt;br /&gt;
 			Supports ACLs for smart backend switching.]]></descr>
@@ -15,4 +15,4 @@
 			<logfilename>haproxy.log</logfilename>
 		</logging>
 	</package>
-</pfsensepkgs>
+</libresensepkgs>

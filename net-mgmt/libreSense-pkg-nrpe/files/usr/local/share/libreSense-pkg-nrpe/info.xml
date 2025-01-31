@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<pfsensepkgs>
+<libresensepkgs>
 	<package>
 		<name>nrpe</name>
 		<descr><![CDATA[nrpe is used to execute Nagios plugins on remote hosts and report the results
@@ -9,4 +9,4 @@ to the main Nagios server.]]></descr>
 		<configurationfile>nrpe.xml</configurationfile>
 		<after_install_info>Please visit Services - NRPE for configuration</after_install_info>
 	</package>
-</pfsensepkgs>
+</libresensepkgs>

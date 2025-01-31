@@ -2,7 +2,7 @@
 /*
  * nmap_scan.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2022-2025 Rubicon Communications, LLC (Netgate)
  * All rights reserved.
  *
@@ -66,13 +66,13 @@ if ($_POST['downloadbtn'] == gettext("Download Results")) {
 
 $pgtitle = array(gettext('Diagnostics'), gettext("Nmap"));
 require_once("guiconfig.inc");
-/* require_once("pfsense-utils.inc"); */
+/* require_once("libresense-utils.inc"); */
 require_once("ipsec.inc");
 
 $fp = "/root/";
 $fn = "nmap.result";
 $fe = "nmap.error"; // stderr
-$max_display_size = 50*1024*1024; // 50MB limit on GUI results display. See https://redmine.pfsense.org/issues/9239
+$max_display_size = 50*1024*1024; // 50MB limit on GUI results display. See https://redmine.libresense.org/issues/9239
 
 $interfaces = get_configured_interface_with_descr();
 if (ipsec_enabled()) {

@@ -2,10 +2,10 @@
 /*
  * haproxy_listeners_edit.php
  *
- * part of libresense (https://www.libresense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2009-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2013-2015 PiBa-NL
- * Copyright (c) 2008 Remco Hoef <remcoverhoef@libresense.com>
+ * Copyright (c) 2008 Remco Hoef <remcoverhoef@libreSense.com>
  * Copyright (c) 2013 Marcello Coutinho <marcellocoutinho@gmail.com>
  * All rights reserved.
  *
@@ -29,7 +29,7 @@ require_once("haproxy/haproxy_utils.inc");
 require_once("haproxy/haproxy_htmllist.inc");
 require_once("haproxy/pkg_haproxy_tabs.inc");
 
-/* Compatibility function for libresense 2.0 */
+/* Compatibility function for libreSense 2.0 */
 if (!function_exists("cert_get_purpose")) {
 	function cert_get_purpose(){
 		$result = array();
@@ -860,7 +860,7 @@ $section->addInput(new Form_StaticText(
 	<<<EOT
 	SSL Offloading will reduce web servers load by maintaining and encrypting connection with users on internet while sending and retrieving data without encrytion to internal servers.
 	Also more ACL rules and http logging may be configured when this option is used.
-	Certificates can be imported into the <a href="/system_camanager.php" target="_blank">libresense "Certificate Authority Manager"</a>
+	Certificates can be imported into the <a href="/system_camanager.php" target="_blank">libreSense "Certificate Authority Manager"</a>
 	Please be aware this possibly will not work with all web applications. Some applications will require setting the SSL checkbox on the backend server configurations so the connection to the webserver will also be a encrypted connection, in that case there will be a slight overall performance loss."
 EOT
 ));

@@ -2,7 +2,7 @@
 /*
  * avahi_settings.php
  *
- * part of libreSense (https://www.libresense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2018 Denny Page
  * All rights reserved.
  *

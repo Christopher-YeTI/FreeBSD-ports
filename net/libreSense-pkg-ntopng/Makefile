@@ -8,8 +8,8 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	coreteam@libresense.org
-COMMENT=	libresense package ntopng
+MAINTAINER=	coreteam@libreSense.org
+COMMENT=	libreSense package ntopng
 
 LICENSE=	APACHE20
 

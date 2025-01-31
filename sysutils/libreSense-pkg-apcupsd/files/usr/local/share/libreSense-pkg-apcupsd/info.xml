@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<pfsensepkgs>
+<libresensepkgs>
 	<package>
 		<name>apcupsd</name>
 		<descr>Set of programs for controlling APC's UPS models.</descr>
@@ -15,4 +15,4 @@
 			<pidcmd>/var/run/apcupsd.pid</pidcmd>
 		</logging>
 	</package>
-</pfsensepkgs>
+</libresensepkgs>

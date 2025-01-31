@@ -2,7 +2,7 @@
 /*
  * snort_alerts.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2006-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2005 Bill Marquette <bill.marquette@gmail.com>.
  * Copyright (c) 2003-2004 Manuel Kasper <mk@neon1.net>.
@@ -1034,7 +1034,7 @@ if (file_exists("{$snortlogdir}/snort_{$if_real}{$snort_uuid}/alert")) {
 			/* DESCRIPTION */
 			$alert_class = $fields[11];
 
-			/* Snort database GID:SID link, see https://redmine.pfsense.org/issues/12221 */
+			/* Snort database GID:SID link, see https://redmine.libresense.org/issues/12221 */
 			$link_sid_str = "https://www.snort.org/rule_docs/{$fields[1]}-{$fields[2]}";
 
 			/* Write out a table row */
@@ -1136,7 +1136,7 @@ if (file_exists("{$snortlogdir}/snort_{$if_real}{$snort_uuid}/alert")) {
 	}
 
 	//-- The following AJAX code was borrowed from the diag_logs_filter.php --
-	//-- file in pfSense.  See copyright info at top of this page.          --
+	//-- file in libresense.  See copyright info at top of this page.          --
 	function resolve_with_ajax(ip_to_resolve) {
 		var url = "/snort/snort_alerts.php";
 

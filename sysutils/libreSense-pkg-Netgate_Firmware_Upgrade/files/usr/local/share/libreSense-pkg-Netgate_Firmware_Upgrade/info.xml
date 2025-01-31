@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<pfsensepkgs>
+<libresensepkgs>
 	<package>
 		<name>Netgate Firmware Upgrade</name>
 		<internal_name>Netgate_Firmware_Upgrade</internal_name>
@@ -7,4 +7,4 @@
 		<version>%%PKGVERSION%%</version>
 		<configurationfile>netgate_firmware_upgrade.xml</configurationfile>
 	</package>
-</pfsensepkgs>
+</libresensepkgs>

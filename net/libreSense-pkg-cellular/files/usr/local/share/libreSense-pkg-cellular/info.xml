@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<pfsensepkgs>
+<libresensepkgs>
 	<package>
 		<name>cellular</name>
 		<descr>This package enables stauts information about LTE/3G cellular cards. Currently it supports a couple of Huawei cards that are also available from Voleatech.</descr>
@@ -9,4 +9,4 @@
 		<configurationfile>cellular.xml</configurationfile>
 		<port_category>net</port_category>
 	</package>
-</pfsensepkgs>
+</libresensepkgs>

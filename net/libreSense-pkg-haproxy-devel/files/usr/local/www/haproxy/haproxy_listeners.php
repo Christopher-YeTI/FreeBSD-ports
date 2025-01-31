@@ -2,8 +2,8 @@
 /*
  * haproxy_listeners.php
  *
- * part of libresense (https://www.libresense.org)
- * Copyright (c) 2008 Remco Hoef <remcoverhoef@libresense.com>
+ * part of libreSense (https://www.libreSense.org)
+ * Copyright (c) 2008 Remco Hoef <remcoverhoef@libreSense.com>
  * Copyright (c) 2009-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2013-2016 PiBa-NL
  * All rights reserved.

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<pfsensepkgs>
+<libresensepkgs>
 	<package>
 		<name>pfBlockerNG</name>
 		<descr><![CDATA[
@@ -9,8 +9,8 @@
 			Provision to download from diverse List formats.&lt;br /&gt;
 			Advanced Integration for Proofpoint ET IQRisk IP Reputation Threat Sources.&lt;br /&gt;
 			Domain Name (DNSBL) blocking via Unbound DNS Resolver.]]></descr>
-		<pkginfolink>https://docs.netgate.com/pfsense/en/latest/packages/pfblocker.html</pkginfolink>
+		<pkginfolink>https://docs.netgate.com/libresense/en/latest/packages/pfblocker.html</pkginfolink>
 		<version>%%PKGVERSION%%</version>
 		<configurationfile>pfblockerng.xml</configurationfile>
 	</package>
-</pfsensepkgs>
+</libresensepkgs>

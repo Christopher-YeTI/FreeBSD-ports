@@ -6,8 +6,8 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	coreteam@libresense.org
-COMMENT=	libresense package WireGuard
+MAINTAINER=	coreteam@libreSense.org
+COMMENT=	libreSense package WireGuard
 
 LICENSE=	APACHE20
 

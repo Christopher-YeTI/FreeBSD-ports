@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<pfsensepkgs>
+<libresensepkgs>
 	<package>
 		<name>Lightsquid</name>
 		<descr><![CDATA[LightSquid is a high performance web proxy reporting tool. Includes proxy realtime statistics (SQStat).
@@ -9,4 +9,4 @@
 		<configurationfile>lightsquid.xml</configurationfile>
 		<noembedded>true</noembedded>
 	</package>
-</pfsensepkgs>
+</libresensepkgs>

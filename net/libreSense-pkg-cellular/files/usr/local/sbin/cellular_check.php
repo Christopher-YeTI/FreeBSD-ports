@@ -2,7 +2,7 @@
 <?php
 ####
 # Command Line Arguments
-# -i opt2 (Modem interface in libreSense, will be determined automatiucally otherwise)
+# -i opt2 (Modem interface in libresense, will be determined automatiucally otherwise)
 # -p cuaXX (Modem data port)
 # -r 10 (Reset modem after X tries)
 ###

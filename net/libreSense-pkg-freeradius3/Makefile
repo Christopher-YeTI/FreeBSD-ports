@@ -7,8 +7,8 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	coreteam@pfsense.org
-COMMENT=	FreeRADIUS 3.x package for pfSense
+MAINTAINER=	coreteam@libreSense.org
+COMMENT=	FreeRADIUS 3.x package for libreSense
 
 LICENSE=	APACHE20
 

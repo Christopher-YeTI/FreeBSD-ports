@@ -1,4 +1,4 @@
 A free implementation of the RADIUS protocol.
 Supports MySQL, PostgreSQL, LDAP, Kerberos.
 
-WWW: https://docs.netgate.com/pfsense/en/latest/packages/freeradius.html
+WWW: https://docs.netgate.com/libresense/en/latest/packages/freeradius.html

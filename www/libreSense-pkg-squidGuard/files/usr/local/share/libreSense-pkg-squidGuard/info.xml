@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<pfsensepkgs>
+<libresensepkgs>
 	<package>
 		<name>squidGuard</name>
 		<descr><![CDATA[High performance web proxy URL filter.
@@ -8,6 +8,6 @@
 		<website>http://www.squidGuard.org/</website>
 		<version>%%PKGVERSION%%</version>
 		<configurationfile>squidguard.xml</configurationfile>
-		<after_install_info>Please visit Services - SquidGuard Proxy Filter - Target Categories and set up at least one category there before enabling SquidGuard. See https://docs.netgate.com/pfsense/en/latest/packages/cache-proxy/squidguard.html for details.</after_install_info>
+		<after_install_info>Please visit Services - SquidGuard Proxy Filter - Target Categories and set up at least one category there before enabling SquidGuard. See https://docs.netgate.com/libresense/en/latest/packages/cache-proxy/squidguard.html for details.</after_install_info>
 	</package>
-</pfsensepkgs>
+</libresensepkgs>

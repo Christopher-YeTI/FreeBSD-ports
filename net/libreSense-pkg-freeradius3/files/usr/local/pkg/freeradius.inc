@@ -1223,7 +1223,7 @@ EOD;
 		unlink_if_exists(FREERADIUS_SITESENABLED . "/soh");
 	}
 
-	// For libreSense cert manager
+	// For libresense cert manager
 	$ca_cert = lookup_ca($eapconf["ssl_ca_cert"]);
 	$ca_cert = $ca_cert['item'];
 	if ($ca_cert == false) {
@@ -2508,7 +2508,7 @@ function freeradius_do_xmlrpc_sync($sync_to_ip, $username, $password, $varsyncpo
 		$resp = $rpc_client->xmlrpc_method('merge_installedpackages_section', $xml, $synctimeout);
 		$resp = $rpc_client->xmlrpc_exec_php($execcmd, $synctimeout);
 	} else {
-		// libreSense before 2.4
+		// libresense before 2.4
 		require_once('xmlrpc.inc');
 
 		/* Take care of IPv6 literal address */

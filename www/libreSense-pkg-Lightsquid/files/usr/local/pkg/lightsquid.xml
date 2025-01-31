@@ -7,7 +7,7 @@
 /*
  * lightsquid.xml
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2015-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2006-2012 Sergey Dvoriancev <dv_serg@mail.ru>
  * All rights reserved.
@@ -133,12 +133,12 @@
 			<description>
 				<![CDATA[
 				Password used to access lighttpd.
-				<span class="text-info">(Default: pfsense)</span>
+				<span class="text-info">(Default: libresense)</span>
 				]]>
 			</description>
 			<type>password</type>
 			<size>5</size>
-			<default_value>pfsense</default_value>
+			<default_value>libresense</default_value>
 			<required/>
 		</field>
 		<field>

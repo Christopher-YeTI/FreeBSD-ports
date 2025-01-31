@@ -2,7 +2,7 @@
 /*
  * vpn_wg_tunnels_edit.php
  *
- * part of libresense (https://www.libresense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2021-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2021 R. Christian McDonald (https://github.com/rcmcdonald91)
  * All rights reserved.
@@ -27,7 +27,7 @@
 ##|*MATCH=vpn_wg_tunnels_edit.php*
 ##|-PRIV
 
-// libresense includes
+// libreSense includes
 require_once('functions.inc');
 require_once('guiconfig.inc');
 

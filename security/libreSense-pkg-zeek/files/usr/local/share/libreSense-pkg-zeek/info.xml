@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<pfsensepkgs>
+<libresensepkgs>
 	<package>
 		<name>zeek</name>
 		<website>https://www.zeek.org</website>
@@ -9,8 +9,8 @@
 			]]>
 		</descr>
 		<version>%%PKGVERSION%%</version>
-		<maintainer>coreteam@pfsense.org</maintainer>
+		<maintainer>coreteam@libresense.org</maintainer>
 		<configurationfile>/zeek.xml</configurationfile>
 		<only_for_archs>i386 amd64</only_for_archs>
 	</package>
-</pfsensepkgs>
+</libresensepkgs>

@@ -7,7 +7,7 @@ CATEGORIES=	net-mgmt
 MASTER_SITES=	# empty
 DISTFILES=	# empty
 
-MAINTAINER=	coreteam@pfsense.org
+MAINTAINER=	coreteam@libresense.org
 COMMENT=	802.1ab Link Layer Discovery Protocol (LLDP) daemon
 
 LICENSE=	APACHE20

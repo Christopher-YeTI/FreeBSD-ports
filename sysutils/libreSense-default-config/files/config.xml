@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
-<pfsense>
+<libresense>
 	<version>23.2</version>
 	<lastchange></lastchange>
 	<system>
 		<optimization>normal</optimization>
-		<hostname>pfSense</hostname>
+		<hostname>libresense</hostname>
 		<domain>home.arpa</domain>
 		<dnsserver></dnsserver>
 		<dnsallowoverride></dnsallowoverride>
@@ -34,7 +34,7 @@
 		</user>
 		<nextuid>2000</nextuid>
 		<nextgid>2000</nextgid>
-		<timeservers>2.pfsense.pool.ntp.org</timeservers>
+		<timeservers>a.st1.ntp.br</timeservers>
 		<webgui>
 			<protocol>https</protocol>
 			<loginautocomplete></loginautocomplete>
@@ -270,4 +270,4 @@
 	</vlans>
 	<qinqs>
 	</qinqs>
-</pfsense>
+</libresense>

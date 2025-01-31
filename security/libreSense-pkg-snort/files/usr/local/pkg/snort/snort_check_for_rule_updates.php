@@ -2,7 +2,7 @@
 /*
  * snort_check_for_rule_updates.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2006-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2009 Robert Zelaya
  * Copyright (c) 2013-2022 Bill Meeks
@@ -459,7 +459,7 @@ foreach (config_get_path('installedpackages/snortglobal/rule', []) as $id => $va
 	$if_real = get_real_interface($value['interface']);
 
 	/* Skip processing for instances whose underlying physical        */
-	/* interface has been removed in pfSense.                         */
+	/* interface has been removed in libresense.                         */
 	if ($if_real == "") {
 		continue;
 	}
@@ -590,7 +590,7 @@ if ($snortdownload == 'on') {
 		/* the corresponding SO rules. Default to FreeBSD-13 for now.     */
 		$freebsd_version_so = 'FreeBSD-13';
 
-# Leave the automated OS version determination commented-out until pfSense moves off of FreeBSD-12
+# Leave the automated OS version determination commented-out until libresense moves off of FreeBSD-12
 #		$major_os_ver = strcspn(php_uname('r'), ".-");
 #		if ($major_os_ver > 0) {
 #			$freebsd_version_so = 'FreeBSD-' . substr(php_uname('r'), 0, $major_os_ver);
@@ -886,7 +886,7 @@ if ($snortdownload == 'on' || $emergingthreats == 'on' || $snortcommunityrules =
 			$if_real = get_real_interface($value['interface']);
 
 			/* Skip processing for instances whose underlying physical        */
-			/* interface has been removed in pfSense.                         */
+			/* interface has been removed in libresense.                         */
 			if ($if_real == "") {
 				continue;
 			}
@@ -945,7 +945,7 @@ elseif ($openappid_detectors == 'on') {
 		$if_real = get_real_interface($value['interface']);
 
 		/* Skip processing for instances whose underlying physical        */
-		/* interface has been removed in pfSense.                         */
+		/* interface has been removed in libresense.                         */
 		if ($if_real == "") {
 			continue;
 		}

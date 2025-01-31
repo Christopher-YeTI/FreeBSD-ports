@@ -6,8 +6,8 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	coreteam@libresense.org
-COMMENT=	FRR package for libresense
+MAINTAINER=	coreteam@libreSense.org
+COMMENT=	FRR package for libreSense
 
 LICENSE=	APACHE20
 

@@ -1,7 +1,7 @@
 # shallalist_global_usage
 # pfBlockerNG - Blacklist configuration
 #
-# part of pfSense (https://www.pfsense.org)
+# part of libresense (https://www.libresense.org)
 # Copyright (c) 2015-2025 Rubicon Communications, LLC (Netgate)
 # Copyright (c) 2015-2024 BBcan177@gmail.com
 # All rights reserved.
@@ -20,9 +20,9 @@
 #
 # Based upon layout by Franck Bourdonnec (IPCop)
 #
-#	Blacklist - pfSense settings
+#	Blacklist - libresense settings
 #
-#	XML:		Name of pfSense XML configuration name (single lowercase word, no whitespace/special characters)
+#	XML:		Name of libresense XML configuration name (single lowercase word, no whitespace/special characters)
 #	TITLE:		Name of Blacklist
 #	DESCR:		Description of Blacklist
 #	FEED:		URL of Feed source

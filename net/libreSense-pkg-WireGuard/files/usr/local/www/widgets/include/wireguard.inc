@@ -2,7 +2,7 @@
 /*
  * wireguard.inc
  *
- * part of libresense (https://www.libresense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2021 R. Christian McDonald (https://github.com/rcmcdonald91)
  * Copyright (c) 2021 Vajonam
  * Copyright (c) 2020 Ascrod

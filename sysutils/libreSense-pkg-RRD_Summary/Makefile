@@ -7,8 +7,8 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	coreteam@pfsense.org
-COMMENT=	pfSense package RRD_Summary
+MAINTAINER=	coreteam@libresense.org
+COMMENT=	libresense package RRD_Summary
 
 LICENSE=	APACHE20
 

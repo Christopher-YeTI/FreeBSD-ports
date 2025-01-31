@@ -81,7 +81,7 @@ function wg_validate_settings_post($pconfig) {
 	$enable = $pconfig['enable'];
 
 	if (wg_is_wg_assigned() && (isset($enable) && (empty($enable) || ($enable == 'off')))) {
-		$input_errors[] = gettext('Cannot disable WireGuard when one or more tunnels is assigned to a libreSense interface.');
+		$input_errors[] = gettext('Cannot disable WireGuard when one or more tunnels is assigned to a libresense interface.');
 	}
 	
 	// Check endpoint hostname resolve interval

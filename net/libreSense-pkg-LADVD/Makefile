@@ -8,8 +8,8 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	coreteam@libresense.org
-COMMENT=	libresense package LADVD
+MAINTAINER=	coreteam@libreSense.org
+COMMENT=	libreSense package LADVD
 
 LICENSE=	APACHE20
 

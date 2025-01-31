@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<pfsensepkgs>
+<libresensepkgs>
 	<package>
 		<name>syslog-ng</name>
 		<website>http://www.balabit.com/network-security/syslog-ng/</website>
-		<descr><![CDATA[Syslog-ng syslog server. This service is not intended to replace the default pfSense syslog server but rather acts as an independent syslog server.]]></descr>
+		<descr><![CDATA[Syslog-ng syslog server. This service is not intended to replace the default libresense syslog server but rather acts as an independent syslog server.]]></descr>
 		<version>%%PKGVERSION%%</version>
 		<configurationfile>syslogng.xml</configurationfile>
 		<plugins>
@@ -12,4 +12,4 @@
 			</item>
 		</plugins>
 	</package>
-</pfsensepkgs>
+</libresensepkgs>

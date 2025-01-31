@@ -8,8 +8,8 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	coreteam@pfsense.org
-COMMENT=	pfSense package zabbix-agent
+MAINTAINER=	coreteam@libreSense.org
+COMMENT=	libreSense package zabbix-agent
 
 LICENSE=	APACHE20
 

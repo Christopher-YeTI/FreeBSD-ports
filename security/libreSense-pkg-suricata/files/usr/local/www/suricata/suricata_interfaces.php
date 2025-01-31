@@ -2,7 +2,7 @@
 /*
  * suricata_interfaces.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2006-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2003-2004 Manuel Kasper
  * Copyright (c) 2005 Bill Marquette
@@ -52,13 +52,13 @@ if (isset($_POST['del_x'])) {
 			$if_friendly = convert_friendly_interface_to_friendly_descr($a_nat[$rulei]['interface']);
 			$suricata_uuid = $a_nat[$rulei]['uuid'];
 
-			// Check that we still have the real interface defined in pfSense.
+			// Check that we still have the real interface defined in libresense.
 			// The real interface will return as an empty string if it has
-			// been removed in pfSense.
+			// been removed in libresense.
 			if ($if_real == "") {
 				rmdir_recursive("{$suricatalogdir}suricata_{$if_real}{$suricata_uuid}");
 				rmdir_recursive("{$suricatadir}suricata_{$suricata_uuid}_*");
-				syslog(LOG_NOTICE, "Deleted the Suricata instance on a previously removed pfSense interface per user request...");
+				syslog(LOG_NOTICE, "Deleted the Suricata instance on a previously removed libreSense interface per user request...");
 			}
 			else {
 				// Delete the interface sub-directories and then the instance itself
@@ -105,13 +105,13 @@ if (isset($_POST['del_x'])) {
 		$if_friendly = convert_friendly_interface_to_friendly_descr($a_nat[$delbtn_list]['interface']);
 		$suricata_uuid = $a_nat[$delbtn_list]['uuid'];
 
-		// Check that we still have the real interface defined in pfSense.
+		// Check that we still have the real interface defined in libreSense.
 		// The real interface will return as an empty string if it has
-		// been removed in pfSense.
+		// been removed in libreSense.
 		if ($if_real == "") {
 			rmdir_recursive("{$suricatalogdir}suricata_{$if_real}{$suricata_uuid}");
 			rmdir_recursive("{$suricatadir}suricata_{$suricata_uuid}_*");
-			syslog(LOG_NOTICE, "Deleted the Suricata instance on a previously removed pfSense interface per user request...");
+			syslog(LOG_NOTICE, "Deleted the Suricata instance on a previously removed libreSense interface per user request...");
 		}
 		else {
 			// Delete the interface sub-directories and then the instance itself

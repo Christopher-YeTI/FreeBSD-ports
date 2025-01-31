@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<pfsensepkgs>
+<libresensepkgs>
 	<package>
 		<name>net-snmp</name>
 		<internal_name>net-snmp</internal_name>
@@ -12,4 +12,4 @@
 			</item>
 		</plugins>
 	</package>
-</pfsensepkgs>
+</libresensepkgs>

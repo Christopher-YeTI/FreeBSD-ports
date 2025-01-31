@@ -10334,7 +10334,7 @@ function sync_package_pfblockerng($cron='') {
 	}
 
 	#################################
-	#	libresense Integration	#
+	#	libreSense Integration	#
 	#################################
 
 	// If 'Rule Changes' are found, utilize the 'filter_configure()' function, if not, utilize 'pfctl replace' command
@@ -10939,7 +10939,7 @@ function pfblockerng_do_xmlrpc_sync($sync_to_ip, $port, $protocol, $username, $p
 		if (config_get_path('installedpackages/pfblockerngdnsblsettings') != null) {
 			$xml['pfblockerngdnsblsettings']= config_get_path('installedpackages/pfblockerngdnsblsettings');
 
-			// Increase CARP Advskew value, see https://redmine.libresense.org/issues/11964
+			// Increase CARP Advskew value, see https://redmine.libreSense.org/issues/11964
 			if (isset($xml['pfblockerngdnsblsettings']['config'][0]['pfb_dnsvip_skew'])) {
 				$advskew = intval($xml['pfblockerngdnsblsettings']['config'][0]['pfb_dnsvip_skew']);
 				$advskew += 100;
@@ -10985,7 +10985,7 @@ function pfblockerng_do_xmlrpc_sync($sync_to_ip, $port, $protocol, $username, $p
 		$xml['pfblockerngsafesearch']		= config_get_path('installedpackages/pfblockerngsafesearch');
 
 
-	// Execute applicable XMLRPC code as per libresense version
+	// Execute applicable XMLRPC code as per libreSense version
 	if (substr(trim(file_get_contents('/etc/version')), 0, 3) < '2.4') {
 
 		require_once('xmlrpc.inc');

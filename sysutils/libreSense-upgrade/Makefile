@@ -7,8 +7,8 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	coreteam@pfsense.org
-COMMENT=	pfSense upgrade script
+MAINTAINER=	coreteam@libresense.org
+COMMENT=	libresense upgrade script
 
 LICENSE=	APACHE20
 
@@ -21,7 +21,7 @@ PLIST_FILES=	libexec/libreSense-upgrade \
 
 .include <bsd.port.pre.mk>
 
-#RUN_DEPENDS+=	pfSense-repoc>=0:sysutils/pfSense-repoc
+#RUN_DEPENDS+=	libresense-repoc>=0:sysutils/libresense-repoc
 
 do-extract:
 	@${MKDIR} ${WRKSRC}

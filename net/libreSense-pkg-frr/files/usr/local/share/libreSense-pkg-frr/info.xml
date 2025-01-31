@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<pfsensepkgs>
+<libresensepkgs>
 	<package>
 		<name>FRR</name>
 		<internal_name>frr</internal_name>
@@ -8,4 +8,4 @@
 		<version>%%PKGVERSION%%</version>
 		<configurationfile>frr.xml</configurationfile>
 	</package>
-</pfsensepkgs>
+</libresensepkgs>

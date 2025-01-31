@@ -2,7 +2,7 @@
 /*
  * pfblockerng_install.inc
  *
- * part of libreSense (https://www.libreSense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2015-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2015-2024 BBcan177@gmail.com
  * All rights reserved.
@@ -20,7 +20,7 @@
  * limitations under the License.
  */
 
-require_once('libreSense-utils.inc');
+require_once('libresense-utils.inc');
 require_once('/usr/local/pkg/pfblockerng/pfblockerng.inc');
 require_once('/usr/local/www/pfblockerng/pfblockerng.php');
 
@@ -68,7 +68,7 @@ update_status(" done.\nRenew Firewall filter executables...");
 unlink_if_exists('/usr/local/bin/php_pfb');
 link('/usr/local/bin/php', '/usr/local/bin/php_pfb');
 
-// clog is not required for libreSense 2.5 and above
+// clog is not required for libresense 2.5 and above
 unlink_if_exists('/usr/local/sbin/clog_pfb');
 unlink_if_exists('/usr/bin/tail_pfb');
 if (substr(trim(file_get_contents('/etc/version')), 0, 3) < '2.5' && file_exists('/usr/local/sbin/clog')) {

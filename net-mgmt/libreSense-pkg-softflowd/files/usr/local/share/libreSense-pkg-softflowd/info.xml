@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<pfsensepkgs>
+<libresensepkgs>
 	<package>
 		<name>softflowd</name>
 		<website>https://www.freshports.org/net-mgmt/softflowd/</website>
@@ -9,4 +9,4 @@
 		<version>%%PKGVERSION%%</version>
 		<configurationfile>softflowd.xml</configurationfile>
 	</package>
-</pfsensepkgs>
+</libresensepkgs>

@@ -2,7 +2,7 @@
 /*
  * status_frr.php
  *
- * part of libresense (https://www.libresense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2010-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (C) 2010 Nick Buraglio <nick@buraglio.com>
  * All rights reserved.

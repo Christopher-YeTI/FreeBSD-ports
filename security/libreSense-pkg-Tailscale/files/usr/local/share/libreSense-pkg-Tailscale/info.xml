@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<pfsensepkgs>
+<libresensepkgs>
 	<package>
 		<name>Tailscale</name>
 		<descr><![CDATA[Tailscale is a mesh VPN alternative, based on WireGuard, that connects your computers, databases, and services together securely without any proxies.]]></descr>
@@ -7,4 +7,4 @@
 		<version>%%PKGVERSION%%</version>
 		<configurationfile>tailscale.xml</configurationfile>
 	</package>
-</pfsensepkgs>
+</libresensepkgs>

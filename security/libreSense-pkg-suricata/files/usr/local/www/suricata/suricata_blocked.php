@@ -2,7 +2,7 @@
 /*
  * suricata_blocked.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2006-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2003-2004 Manuel Kasper
  * Copyright (c) 2005 Bill Marquette
@@ -461,7 +461,7 @@ print($form);
 </div>
 
 <!-- The following AJAX code was borrowed from the diag_logs_filter.php -->
-<!-- file in pfSense.  See copyright info at top of this page.          -->
+<!-- file in libreSense.  See copyright info at top of this page.          -->
 <script type="text/javascript">
 //<![CDATA[
 function resolve_with_ajax(ip_to_resolve) {

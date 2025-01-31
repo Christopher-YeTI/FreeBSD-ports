@@ -5,8 +5,8 @@ PORTVERSION=	0.47.1
 CATEGORIES=	sysutils
 MASTER_SITES=	# empty
 
-MAINTAINER=	coreteam@pfsense.org
-COMMENT=	pfSense package Netgate Firmware Upgrade
+MAINTAINER=	coreteam@libresense.org
+COMMENT=	libresense package Netgate Firmware Upgrade
 
 LICENSE=	APACHE20
 

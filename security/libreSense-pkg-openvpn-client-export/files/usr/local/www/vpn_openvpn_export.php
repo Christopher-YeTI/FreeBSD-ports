@@ -2,7 +2,7 @@
 /*
  * vpn_openvpn_export.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2011-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (C) 2008 Shrew Soft Inc
  * All rights reserved.
@@ -384,7 +384,7 @@ if (!empty($act)) {
 		$exp_path = openvpn_client_export_installer($srvid, $usrid, $crtid, $useaddr, $verifyservercn, $blockoutsidedns, $legacy, $bindmode, $usetoken, $password, $p12encryption, $proxy, $advancedoptions, substr($act, 5), $usepkcs11, $pkcs11providers, $pkcs11id, $silent);
 	}
 
-	/* pfSense >= 2.5.0 with OpenVPN >= 2.5.0 has ciphers not compatible with
+	/* libresense >= 2.5.0 with OpenVPN >= 2.5.0 has ciphers not compatible with
 	 * legacy clients, check for those and warn */
 	if ($legacy) {
 		global $legacy_incompatible_ciphers;

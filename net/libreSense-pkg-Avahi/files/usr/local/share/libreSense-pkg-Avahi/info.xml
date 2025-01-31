@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<pfsensepkgs>
+<libresensepkgs>
 	<package>
 		<name>Avahi</name>
 		<internal_name>avahi-daemon</internal_name>
@@ -9,4 +9,4 @@
 		<version>%%PKGVERSION%%</version>
 		<configurationfile>avahi.xml</configurationfile>
 	</package>
-</pfsensepkgs>
+</libresensepkgs>

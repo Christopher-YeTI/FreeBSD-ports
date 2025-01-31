@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<pfsensepkgs>
+<libresensepkgs>
 	<package>
 		<name>%%ZABBIXTITLE%%</name>
 		<internal_name>%%ZABBIXINTERNALNAME%%</internal_name>
@@ -22,4 +22,4 @@
 			<logmode>664</logmode>
 		</logging>
 	</package>
-</pfsensepkgs>
+</libresensepkgs>

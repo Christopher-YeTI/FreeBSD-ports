@@ -2,7 +2,7 @@
 /*
  * suricata_post_install.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2019-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2005 Bill Marquette <bill.marquette@gmail.com>.
  * Copyright (c) 2003-2004 Manuel Kasper <mk@neon1.net>.
@@ -45,7 +45,7 @@ $suricata_enforcing_rules_file = SURICATA_ENFORCING_RULES_FILENAME;
 $rcdir = RCFILEPREFIX;
 
 // Hard kill any running Suricata process that may have been started by any
-// of the pfSense scripts such as check_reload_status() or rc.start_packages
+// of the libresense scripts such as check_reload_status() or rc.start_packages
 if(is_process_running("suricata")) {
 	killbyname("suricata");
 	sleep(2);
@@ -165,7 +165,7 @@ if (config_get_path('installedpackages/suricata/config/0/forcekeepsettings') == 
 	foreach (config_get_path('installedpackages/suricata/rule', []) as $suricatacfg) {
 		$if_real = get_real_interface($suricatacfg['interface']);
 
-		/* Skip instance if its real interface is missing in pfSense */
+		/* Skip instance if its real interface is missing in libresense */
 		if ($if_real == "") {
 			continue;
 		}

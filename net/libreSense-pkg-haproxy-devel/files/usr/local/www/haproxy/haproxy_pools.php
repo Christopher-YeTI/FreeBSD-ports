@@ -2,10 +2,10 @@
 /*
  * haproxy_pools.php
  *
- * part of libresense (https://www.libresense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2009-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2013 PiBa-NL
- * Copyright (c) 2008 Remco Hoef <remcoverhoef@libresense.com>
+ * Copyright (c) 2008 Remco Hoef <remcoverhoef@libreSense.com>
  * All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");

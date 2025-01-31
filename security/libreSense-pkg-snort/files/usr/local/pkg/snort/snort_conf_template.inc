@@ -9,7 +9,7 @@
 
 $snort_conf_text = <<<EOD
 # snort configuration file
-# generated automatically by the pfSense subsystems do not modify manually
+# generated automatically by the libresense subsystems do not modify manually
 
 # Define Local Network #
 ipvar HOME_NET [{$home_net}]

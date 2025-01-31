@@ -8,8 +8,8 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	coreteam@pfsense.org
-COMMENT=	Net-SNMP package for pfSense
+MAINTAINER=	coreteam@libresense.org
+COMMENT=	Net-SNMP package for libresense
 
 LICENSE=	APACHE20
 

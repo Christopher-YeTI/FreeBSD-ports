@@ -7,8 +7,8 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	coreteam@pfsense.org
-COMMENT=	BandwidthD package for pfSense
+MAINTAINER=	coreteam@libreSense.org
+COMMENT=	BandwidthD package for libreSense
 
 LICENSE=	APACHE20
 

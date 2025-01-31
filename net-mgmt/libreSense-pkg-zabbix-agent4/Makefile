@@ -1,13 +1,13 @@
 # $FreeBSD$
 
-MASTERDIR=	${.CURDIR}/../pfSense-pkg-zabbix-agent
+MASTERDIR=	${.CURDIR}/../libreSense-pkg-zabbix-agent
 
-PORTNAME=	pfSense-pkg-zabbix-agent4
+PORTNAME=	libreSense-pkg-zabbix-agent4
 
-CONFLICTS=	pfSense-pkg-zabbix-agent \
-		pfSense-pkg-zabbix-agent44 \
-		pfSense-pkg-zabbix-agent5 \
-		pfSense-pkg-zabbix-agent52
+CONFLICTS=	libreSense-pkg-zabbix-agent \
+		libreSense-pkg-zabbix-agent44 \
+		libreSense-pkg-zabbix-agent5 \
+		libreSense-pkg-zabbix-agent52
 
 RUN_DEPENDS=	zabbix_agentd:net-mgmt/zabbix4-agent
 

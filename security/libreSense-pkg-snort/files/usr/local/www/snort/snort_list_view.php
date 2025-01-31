@@ -2,7 +2,7 @@
 /*
  * snort_list_view.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2004-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2006-2009 Volker Theile
  * Copyright (c) 2008-2009 Robert Zelaya

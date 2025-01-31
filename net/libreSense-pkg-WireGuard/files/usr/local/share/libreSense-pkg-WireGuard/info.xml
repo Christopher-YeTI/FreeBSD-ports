@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<pfsensepkgs>
+<libresensepkgs>
 	<package>
 		<name>WireGuard</name>
 		<descr><![CDATA[WireGuard is an extremely simple yet fast and modern VPN&lt;br /&gt;
@@ -14,8 +14,8 @@
 				heavy development, but already it might be regarded as the&lt;br /&gt;
 				most secure, easiest to use, and simplest VPN solution in&lt;br /&gt;
 				the industry.]]></descr>
-		<pkginfolink>https://github.com/pfsense/FreeBSD-ports/commits/devel/net/pfSense-pkg-WireGuard</pkginfolink>
+		<pkginfolink>https://github.com/libresense/FreeBSD-ports/commits/devel/net/libresense-pkg-WireGuard</pkginfolink>
 		<version>%%PKGVERSION%%</version>
 		<configurationfile>wireguard.xml</configurationfile>
 	</package>
-</pfsensepkgs>
+</libresensepkgs>

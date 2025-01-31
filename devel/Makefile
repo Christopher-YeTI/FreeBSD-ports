@@ -4231,6 +4231,7 @@
     SUBDIR += performance
     SUBDIR += perlconsole
     SUBDIR += pfSense-composer-deps
+    SUBDIR += libreSense-composer-deps
     SUBDIR += phabricator
     SUBDIR += phasar
     SUBDIR += phorgeit-arcanist

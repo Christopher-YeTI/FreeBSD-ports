@@ -7,7 +7,7 @@
 /*
  * squidguard.xml
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2015-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (C) 2006-2013 Sergey Dvoriancev <dv_serg@mail.ru>
  * All rights reserved.
@@ -89,7 +89,7 @@
 			<sethelp>
 				<![CDATA[
 				<strong><span class="errmsg">Important: </span></strong>Please set up at least one category on the 'Target Categories' tab before enabling.
-				See <a href="https://docs.netgate.com/pfsense/en/latest/packages/cache-proxy/squidguard.html">this link for details</a>.
+				See <a href="https://docs.netgate.com/libresense/en/latest/packages/cache-proxy/squidguard.html">this link for details</a>.
 				]]>
 			</sethelp>
 			<type>checkbox</type>
@@ -240,7 +240,7 @@
 			<fielddescr>Blacklist URL</fielddescr>
 			<fieldname>blacklist_url</fieldname>
 			<description>
-				<![CDATA[Enter the path to the blacklist (blacklist.tar.gz) here. You can use FTP, HTTP or LOCAL URL blacklist archive or leave blank. The LOCAL path could be your pfsense (/tmp/blacklist.tar.gz).]]>
+				<![CDATA[Enter the path to the blacklist (blacklist.tar.gz) here. You can use FTP, HTTP or LOCAL URL blacklist archive or leave blank. The LOCAL path could be your libresense (/tmp/blacklist.tar.gz).]]>
 			</description>
 			<type>input</type>
 			<size>100</size>

@@ -2,7 +2,7 @@
 /*
  * snort_check_cron_misc.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2019-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2009-2010 Robert Zelaya
  * Copyright (c) 2022 Bill Meeks
@@ -56,7 +56,7 @@ function snort_check_dir_size_limit($snortloglimitsize) {
 		foreach (config_get_path('installedpackages/snortglobal/rule', []) as $value) {
 			$if_real = get_real_interface($value['interface']);
 
-			// Skip instances where pfSense physical interface has been removed
+			// Skip instances where libresense physical interface has been removed
 			if ($if_real == "") {
 				continue;
 			}
@@ -208,7 +208,7 @@ if (config_get_path('installedpackages/snortglobal/enable_log_mgmt') == 'on') {
 		$warm_restart = FALSE;
 		$if_real = get_real_interface($value['interface']);
 
-		// Skip instances where pfSense physical interface has been removed
+		// Skip instances where libresense physical interface has been removed
 		if ($if_real == "") {
 			continue;
 		}

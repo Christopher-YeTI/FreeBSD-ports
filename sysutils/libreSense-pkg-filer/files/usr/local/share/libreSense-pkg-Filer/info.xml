@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<pfsensepkgs>
+<libresensepkgs>
 	<package>
 		<name>Filer</name>
 		<descr><![CDATA[Allows you to create and overwrite files from the GUI.]]></descr>
@@ -7,4 +7,4 @@
 		<configurationfile>filer.xml</configurationfile>
 		<category>Diagnostics</category>
 	</package>
-</pfsensepkgs>
+</libresensepkgs>

@@ -2,4 +2,4 @@ Snort is an open source network intrusion prevention and detection system
 (IDS/IPS). Combining the benefits of signature, protocol, and anomaly-based
 inspection.
 
-WWW: https://docs.netgate.com/pfsense/en/latest/packages/snort/index.html
+WWW: https://docs.netgate.com/libresense/en/latest/packages/snort/index.html

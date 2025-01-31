@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<pfsensepkgs>
+<libresensepkgs>
 	<package>
 		<name>FTP Client Proxy</name>
 		<internal_name>FTP_Client_Proxy</internal_name>
@@ -8,4 +8,4 @@
 		<version>%%PKGVERSION%%</version>
 		<configurationfile>ftpproxy.xml</configurationfile>
 	</package>
-</pfsensepkgs>
+</libresensepkgs>

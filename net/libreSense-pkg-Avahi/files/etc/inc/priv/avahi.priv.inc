@@ -2,7 +2,7 @@
 /*
  * avahi.priv.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2018 Denny Page
  * All rights reserved.
  *

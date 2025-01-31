@@ -41,7 +41,7 @@ stats:
 # Configure the type of alert (and other) logging.
 outputs:
 
-  # alert-pf custom blocking plugin for pfSense only
+  # alert-pf custom blocking plugin for libresense only
   - alert-pf:
       enabled: {$suri_blockoffenders}
       kill-state: {$suri_killstates}

@@ -8,8 +8,8 @@ MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	coreteam@libresense.org
-COMMENT=	libresense package mtr-nox11
+MAINTAINER=	coreteam@libreSense.org
+COMMENT=	libreSense package mtr-nox11
 
 LICENSE=	APACHE20
 

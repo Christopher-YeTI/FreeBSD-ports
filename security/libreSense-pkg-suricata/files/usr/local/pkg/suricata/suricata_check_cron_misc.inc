@@ -2,7 +2,7 @@
 /*
  * suricata_check_cron_misc.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2006-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2005 Bill Marquette <bill.marquette@gmail.com>.
  * Copyright (c) 2003-2004 Manuel Kasper <mk@neon1.net>.
@@ -72,7 +72,7 @@ function suricata_check_dir_size_limit($suricataloglimitsize) {
 		foreach (config_get_path('installedpackages/suricata/rule', []) as $value) {
 			$if_real = get_real_interface($value['interface']);
 
-			// Skip instances where pfSense physical interface
+			// Skip instances where libresense physical interface
 			// has been removed.
 			if ($if_real == "") {
 				continue;
@@ -132,7 +132,7 @@ function suricata_check_dir_size_limit($suricataloglimitsize) {
 		foreach (config_get_path('installedpackages/suricata/rule', []) as $value) {
 			$if_real = get_real_interface($value['interface']);
 
-			// Skip instances where pfSense physical interface
+			// Skip instances where libresense physical interface
 			// has been removed.
 			if ($if_real == "") {
 				continue;
@@ -363,7 +363,7 @@ if (config_get_path('installedpackages/suricata/config/0/enable_log_mgmt') == 'o
 	foreach (config_get_path('installedpackages/suricata/rule', []) as $value) {
 		$if_real = get_real_interface($value['interface']);
 
-		// Skip instances where pfSense physical interface
+		// Skip instances where libresense physical interface
 		// has been removed.
 		if ($if_real == "") {
 			continue;

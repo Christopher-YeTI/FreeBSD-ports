@@ -252,7 +252,7 @@ sbin/openvpn_connect_async.php
 @(,,755) sbin/ovpn_auth_verify
 @(,,755) sbin/ovpn_auth_verify_async
 @(,,755) sbin/libreSense-dhclient-script
-@(,,755) sbin/pfSsh.php
+@(,,755) sbin/libreSsh.php
 @(,,755) sbin/ppp-ipv6
 @(,,755) sbin/ppp-linkdown
 @(,,755) sbin/ppp-linkup

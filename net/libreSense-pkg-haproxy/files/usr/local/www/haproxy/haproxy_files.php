@@ -2,7 +2,7 @@
 /*
  * haproxy_files.php
  *
- * part of libresense (https://www.libresense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2016-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2014 PiBa-NL
  * All rights reserved.

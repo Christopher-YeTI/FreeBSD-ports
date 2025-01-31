@@ -3,7 +3,7 @@
 /*
  * nut_email.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2004-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2016 Denny Page
  * All rights reserved.

@@ -2,7 +2,7 @@
 /*
  * tailscale_install.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2022-2025 Rubicon Communications, LLC (Netgate)
  * All rights reserved.
  *
@@ -24,7 +24,7 @@ global $tailscale_is_installing;
 require_once('tailscale/tailscale_common.inc');
 
 /*
- * Returns a static array representing the pfSense ifgroup entry for tailscale
+ * Returns a static array representing the libresense ifgroup entry for tailscale
  */
 function tailscale_ifgroup_entry()
 {
@@ -143,7 +143,7 @@ function tailscale_install_hook()
  * package deinstall hook
  * 
  * Here is where do useful PHP things during package deinstallation
- * Note: We can't call the pfsense_tailscaled script anymore, it has already been deleted
+ * Note: We can't call the libresense_tailscaled script anymore, it has already been deleted
  */
 function tailscale_deinstall_hook()
 {

@@ -2,7 +2,7 @@
 /*
  * udpbroadcastrelay.inc
  *
- * part of libreSense (https://www.libreSense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2023-2025 Rubicon Communications, LLC (Netgate)
  * All rights reserved.
  *

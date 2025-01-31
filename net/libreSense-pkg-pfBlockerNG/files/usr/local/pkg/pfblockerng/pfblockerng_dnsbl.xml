@@ -7,7 +7,7 @@
 /*
  * pfblockerng_dnsbl.xml
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2015-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2015-2016 BBcan177@gmail.com
  * All rights reserved.
@@ -124,7 +124,7 @@
 					To debug issues with 'False Positives', the following tools below can be used:<br /><ol>
 
 				<li>Browser Dev mode (F12) and goto 'Console' to review any error messages.</li>
-				<li>Execute the following command from pfSense Shell (Changing the interface 're1' to the pfSense Lan Interface):<br />
+				<li>Execute the following command from libresense Shell (Changing the interface 're1' to the libresense Lan Interface):<br />
 				&emsp;<strong>tcpdump -nnvli re1 port 53 | grep -B1 'A 10.10.10.1'</strong></li>
 				<li>Packet capture software such as Wireshark.</li></ol></div>]]>
 			</description>
@@ -269,7 +269,7 @@
 				still allowing <u>deliberate</u> outgoing sessions to be created in the other direction.</li></ul>
 				<strong><u>'Alias' Rule:</u></strong><br />
 				<strong>'Alias'</strong> rules create an <a href="/firewall_aliases.php">alias</a> for the list (and do nothing else).
-				This enables a pfBlockerNG list to be used by name, in any firewall rule or pfSense function, as desired.</div>]]>
+				This enables a pfBlockerNG list to be used by name, in any firewall rule or libresense function, as desired.</div>]]>
 			</description>
 			<fieldname>action</fieldname>
 			<type>select</type>

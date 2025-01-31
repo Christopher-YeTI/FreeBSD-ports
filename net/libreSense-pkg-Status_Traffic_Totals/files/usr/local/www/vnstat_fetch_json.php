@@ -2,7 +2,7 @@
 /*
  * vnstat_fetch_json.php
  *
- * part of libresense (https://www.libresense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2008-2025 Rubicon Communications, LLC (Netgate)
  * All rights reserved.
  *

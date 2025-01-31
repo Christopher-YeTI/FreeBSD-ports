@@ -2,7 +2,7 @@
 /*
  * status_ladvd.php
  *
- * part of libresense (https://www.libresense.org)
+ * part of libreSense (https://www.libreSense.org)
  * Copyright (c) 2014 Andrea Tuccia
  * Copyright (c) 2014-2025 Rubicon Communications, LLC (Netgate)
  * All rights reserved.

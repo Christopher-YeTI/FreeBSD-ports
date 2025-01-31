@@ -2,7 +2,7 @@
 /*
  * suricata_interfaces_edit.php
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2006-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2003-2004 Manuel Kasper
  * Copyright (c) 2005 Bill Marquette
@@ -110,7 +110,7 @@ elseif (isset($id) && !isset($a_rule[$id])) {
 	foreach(config_get_path('installedpackages/suricata/rule', []) as $r)
 		$ifrules[] = $r['interface'];
 
-	// Walk pfSense-configured interfaces, and take first one not already in our Suricata list
+	// Walk libresense-configured interfaces, and take first one not already in our Suricata list
 	foreach ($ifaces as $i) {
 		if (!in_array($i, $ifrules)) {
 			$pconfig['interface'] = $i;
@@ -891,7 +891,7 @@ $section->addInput(new Form_Input(
 	'Description',
 	'text',
 	$pconfig['descr']
-))->setHelp('Enter a meaningful description here for your reference. The default is the pfSense interface friendly description.');
+))->setHelp('Enter a meaningful description here for your reference. The default is the libresense interface friendly description.');
 
 $form->add($section);
 

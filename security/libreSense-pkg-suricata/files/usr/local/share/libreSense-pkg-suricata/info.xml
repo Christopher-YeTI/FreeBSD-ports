@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<pfsensepkgs>
+<libresensepkgs>
 	<package>
 		<name>suricata</name>
 		<website>http://suricata-ids.org/</website>
@@ -7,4 +7,4 @@
 		<version>%%PKGVERSION%%</version>
 		<configurationfile>suricata.xml</configurationfile>
 	</package>
-</pfsensepkgs>
+</libresensepkgs>

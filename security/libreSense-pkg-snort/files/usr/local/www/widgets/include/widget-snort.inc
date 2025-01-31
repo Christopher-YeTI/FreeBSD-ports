@@ -2,7 +2,7 @@
 /*
  * widget-snort.inc
  *
- * part of pfSense (https://www.pfsense.org)
+ * part of libresense (https://www.libresense.org)
  * Copyright (c) 2016-2025 Rubicon Communications, LLC (Netgate)
  * Copyright (c) 2014 Bill Meeks
  * All rights reserved.
