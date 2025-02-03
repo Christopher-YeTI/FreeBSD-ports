@@ -2,7 +2,7 @@
 /*
  * acme_serverconnectors.inc
  * 
- * part of libresense (https://www.libresense.org/)
+ * part of pfSense (https://www.pfsense.org/)
  * Copyright (c) 2016 PiBa-NL
  * All rights reserved.
  *
@@ -19,7 +19,7 @@
  * limitations under the License.
  */
 
-namespace libresense_pkg\acme;
+namespace pfsense_pkg\acme;
 
 class FTPConnection
 {

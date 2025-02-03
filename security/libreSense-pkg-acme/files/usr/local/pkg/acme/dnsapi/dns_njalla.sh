@@ -1,12 +1,7 @@
 #!/usr/bin/env sh
-# shellcheck disable=SC2034
-dns_njalla_info='Njalla
-Site: Njal.la
-Docs: github.com/acmesh-official/acme.sh/wiki/dnsapi#dns_njalla
-Options:
- NJALLA_Token API Token
-Issues: github.com/acmesh-official/acme.sh/issues/2913
-'
+
+#
+#NJALLA_Token="sdfsdfsdfljlbjkljlkjsdfoiwje"
 
 NJALLA_Api="https://njal.la/api/1/"
 
@@ -126,7 +121,7 @@ _get_root() {
   p=1
 
   while true; do
-    h=$(printf "%s" "$domain" | cut -d . -f "$i"-100)
+    h=$(printf "%s" "$domain" | cut -d . -f $i-100)
     _debug h "$h"
     if [ -z "$h" ]; then
       #not valid
@@ -140,7 +135,7 @@ _get_root() {
     if _contains "$response" "\"$h\""; then
       _domain_returned=$(echo "$response" | _egrep_o "\{\"name\": *\"[^\"]*\"" | _head_n 1 | cut -d : -f 2 | tr -d \" | tr -d " ")
       if [ "$_domain_returned" ]; then
-        _sub_domain=$(printf "%s" "$domain" | cut -d . -f 1-"$p")
+        _sub_domain=$(printf "%s" "$domain" | cut -d . -f 1-$p)
         _domain=$h
         return 0
       fi

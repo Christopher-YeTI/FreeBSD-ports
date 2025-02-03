@@ -1,13 +1,9 @@
 #!/usr/bin/env sh
-# shellcheck disable=SC2034
-dns_azion_info='Azion.om
-Site: Azion.com
-Docs: github.com/acmesh-official/acme.sh/wiki/dnsapi2#dns_azion
-Options:
- AZION_Email Email
- AZION_Password Password
-Issues: github.com/acmesh-official/acme.sh/issues/3555
-'
+
+#
+#AZION_Email=""
+#AZION_Password=""
+#
 
 AZION_Api="https://api.azionapi.net"
 
@@ -100,7 +96,7 @@ _get_root() {
   fi
 
   while true; do
-    h=$(printf "%s" "$domain" | cut -d . -f "$i"-100)
+    h=$(printf "%s" "$domain" | cut -d . -f $i-100)
     _debug h "$h"
     if [ -z "$h" ]; then
       # not valid
@@ -111,7 +107,7 @@ _get_root() {
       _domain_id=$(echo "$response" | tr '{' "\n" | grep "\"domain\":\"$h\"" | _egrep_o "\"id\":[0-9]*" | _head_n 1 | cut -d : -f 2 | tr -d \")
       _debug _domain_id "$_domain_id"
       if [ "$_domain_id" ]; then
-        _sub_domain=$(printf "%s" "$domain" | cut -d . -f 1-"$p")
+        _sub_domain=$(printf "%s" "$domain" | cut -d . -f 1-$p)
         _domain=$h
         return 0
       fi

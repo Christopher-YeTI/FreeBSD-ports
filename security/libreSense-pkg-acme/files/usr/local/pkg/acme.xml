@@ -7,7 +7,7 @@
 /*
  * acme.xml
  *
- * part of libresense (https://www.libresense.org/)
+ * part of pfSense (https://www.pfSense.org/)
  * Copyright (C) 2015 ESF, LLC
  * Copyright (C) 2016 PiBa-NL
  *
@@ -43,9 +43,9 @@
 	</plugins>
 	<configpath>installedpackages->acme->config</configpath>
 	<custom_php_install_command>
-		libresense_pkg\acme\acme_custom_php_install_command();
+		pfsense_pkg\acme\acme_custom_php_install_command();
 	</custom_php_install_command>
 	<custom_php_deinstall_command>
-		libresense_pkg\acme\acme_custom_php_deinstall_command();
+		pfsense_pkg\acme\acme_custom_php_deinstall_command();
 	</custom_php_deinstall_command>
 </packagegui>

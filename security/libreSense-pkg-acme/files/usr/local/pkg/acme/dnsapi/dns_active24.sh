@@ -1,13 +1,6 @@
 #!/usr/bin/env sh
-# shellcheck disable=SC2034
-dns_active24_info='Active24.com
-Site: Active24.com
-Docs: github.com/acmesh-official/acme.sh/wiki/dnsapi#dns_active24
-Options:
- ACTIVE24_Token API Token
-Issues: github.com/acmesh-official/acme.sh/issues/2059
-Author: Milan Pála
-'
+
+#ACTIVE24_Token="sdfsdfsdfljlbjkljlkjsdfoiwje"
 
 ACTIVE24_Api="https://api.active24.com"
 
@@ -83,10 +76,10 @@ _get_root() {
     return 1
   fi
 
-  i=1
+  i=2
   p=1
   while true; do
-    h=$(printf "%s" "$domain" | cut -d . -f "$i"-100)
+    h=$(printf "%s" "$domain" | cut -d . -f $i-100)
     _debug "h" "$h"
     if [ -z "$h" ]; then
       #not valid
@@ -94,7 +87,7 @@ _get_root() {
     fi
 
     if _contains "$response" "\"$h\"" >/dev/null; then
-      _sub_domain=$(printf "%s" "$domain" | cut -d . -f 1-"$p")
+      _sub_domain=$(printf "%s" "$domain" | cut -d . -f 1-$p)
       _domain=$h
       return 0
     fi

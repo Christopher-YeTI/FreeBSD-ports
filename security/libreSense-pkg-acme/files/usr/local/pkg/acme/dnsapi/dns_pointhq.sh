@@ -1,13 +1,9 @@
 #!/usr/bin/env sh
-# shellcheck disable=SC2034
-dns_pointhq_info='pointhq.com PointDNS
-Site: pointhq.com
-Docs: github.com/acmesh-official/acme.sh/wiki/dnsapi#dns_pointhq
-Options:
- PointHQ_Key API Key
- PointHQ_Email Email
-Issues: github.com/acmesh-official/acme.sh/issues/2060
-'
+
+#
+#PointHQ_Key="sdfsdfsdfljlbjkljlkjsdfoiwje"
+#
+#PointHQ_Email="xxxx@sss.com"
 
 PointHQ_Api="https://api.pointhq.com"
 
@@ -118,7 +114,7 @@ _get_root() {
   i=2
   p=1
   while true; do
-    h=$(printf "%s" "$domain" | cut -d . -f "$i"-100)
+    h=$(printf "%s" "$domain" | cut -d . -f $i-100)
     _debug h "$h"
     if [ -z "$h" ]; then
       #not valid
@@ -130,7 +126,7 @@ _get_root() {
     fi
 
     if _contains "$response" "\"name\":\"$h\"" >/dev/null; then
-      _sub_domain=$(printf "%s" "$domain" | cut -d . -f 1-"$p")
+      _sub_domain=$(printf "%s" "$domain" | cut -d . -f 1-$p)
       _domain=$h
       return 0
     fi

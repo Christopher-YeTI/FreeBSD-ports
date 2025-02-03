@@ -1,14 +1,8 @@
 #!/usr/bin/env sh
-# shellcheck disable=SC2034
-dns_huaweicloud_info='HuaweiCloud.com
-Site: HuaweiCloud.com
-Docs: github.com/acmesh-official/acme.sh/wiki/dnsapi2#dns_huaweicloud
-Options:
- HUAWEICLOUD_Username Username
- HUAWEICLOUD_Password Password
- HUAWEICLOUD_DomainName DomainName
-Issues: github.com/acmesh-official/acme.sh/issues/3265
-'
+
+# HUAWEICLOUD_Username
+# HUAWEICLOUD_Password
+# HUAWEICLOUD_DomainName
 
 iam_api="https://iam.myhuaweicloud.com"
 dns_api="https://dns.ap-southeast-1.myhuaweicloud.com" # Should work
@@ -210,7 +204,7 @@ _get_recordset_id() {
   _zoneid=$3
   export _H1="X-Auth-Token: ${_token}"
 
-  response=$(_get "${dns_api}/v2/zones/${_zoneid}/recordsets?name=${_domain}&status=ACTIVE")
+  response=$(_get "${dns_api}/v2/zones/${_zoneid}/recordsets?name=${_domain}")
   if _contains "${response}" '"id"'; then
     _id="$(echo "${response}" | _egrep_o "\"id\": *\"[^\"]*\"" | cut -d : -f 2 | tr -d \" | tr -d " ")"
     printf "%s" "${_id}"
@@ -227,7 +221,7 @@ _add_record() {
 
   # Get Existing Records
   export _H1="X-Auth-Token: ${_token}"
-  response=$(_get "${dns_api}/v2/zones/${zoneid}/recordsets?name=${_domain}&status=ACTIVE")
+  response=$(_get "${dns_api}/v2/zones/${zoneid}/recordsets?name=${_domain}")
 
   _debug2 "${response}"
   _exist_record=$(echo "${response}" | _egrep_o '"records":[^]]*' | sed 's/\"records\"\:\[//g')

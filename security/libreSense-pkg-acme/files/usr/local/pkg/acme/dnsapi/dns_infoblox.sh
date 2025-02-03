@@ -1,14 +1,8 @@
 #!/usr/bin/env sh
-# shellcheck disable=SC2034
-dns_infoblox_info='Infoblox.com
-Site: Infoblox.com
-Docs: github.com/acmesh-official/acme.sh/wiki/dnsapi#dns_infoblox
-Options:
- Infoblox_Creds Credentials. E.g. "username:password"
- Infoblox_Server Server hostname. IP or FQDN of infoblox appliance
-Issues: github.com/jasonkeller/acme.sh
-Author: Jason Keller, Elijah Tenai
-'
+
+## Infoblox API integration by Jason Keller and Elijah Tenai
+##
+## Report any bugs via https://github.com/jasonkeller/acme.sh
 
 dns_infoblox_add() {
 

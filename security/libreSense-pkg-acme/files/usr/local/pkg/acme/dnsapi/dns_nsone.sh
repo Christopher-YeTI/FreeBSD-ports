@@ -1,13 +1,10 @@
 #!/usr/bin/env sh
-# shellcheck disable=SC2034
-dns_nsone_info='ns1.com
-Domains: ns1.net
-Site: ns1.com
-Docs: github.com/acmesh-official/acme.sh/wiki/dnsapi#dns_nsone
-Options:
- NS1_Key API Key
-Author: <dev@1e.ca>
-'
+
+# bug reports to dev@1e.ca
+
+#
+#NS1_Key="sdfsdfsdfljlbjkljlkjsdfoiwje"
+#
 
 NS1_Api="https://api.nsone.net/v1"
 
@@ -119,7 +116,7 @@ _get_root() {
     return 1
   fi
   while true; do
-    h=$(printf "%s" "$domain" | cut -d . -f "$i"-100)
+    h=$(printf "%s" "$domain" | cut -d . -f $i-100)
     _debug h "$h"
     if [ -z "$h" ]; then
       #not valid
@@ -127,7 +124,7 @@ _get_root() {
     fi
 
     if _contains "$response" "\"zone\":\"$h\""; then
-      _sub_domain=$(printf "%s" "$domain" | cut -d . -f 1-"$p")
+      _sub_domain=$(printf "%s" "$domain" | cut -d . -f 1-$p)
       _domain="$h"
       return 0
     fi

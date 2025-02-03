@@ -1,12 +1,6 @@
 #!/usr/bin/env sh
-# shellcheck disable=SC2034
-dns_nederhost_info='NederHost.nl
-Site: NederHost.nl
-Docs: github.com/acmesh-official/acme.sh/wiki/dnsapi#dns_nederhost
-Options:
- NederHost_Key API Key
-Issues: github.com/acmesh-official/acme.sh/issues/2089
-'
+
+#NederHost_Key="sdfgikogfdfghjklkjhgfcdcfghj"
 
 NederHost_Api="https://api.nederhost.nl/dns/v1"
 
@@ -88,8 +82,8 @@ _get_root() {
   i=2
   p=1
   while true; do
-    _domain=$(printf "%s" "$domain" | cut -d . -f "$i"-100)
-    _sub_domain=$(printf "%s" "$domain" | cut -d . -f 1-"$p")
+    _domain=$(printf "%s" "$domain" | cut -d . -f $i-100)
+    _sub_domain=$(printf "%s" "$domain" | cut -d . -f 1-$p)
     _debug _domain "$_domain"
     if [ -z "$_domain" ]; then
       #not valid

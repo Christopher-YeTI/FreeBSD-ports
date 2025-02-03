@@ -1,15 +1,14 @@
 # $FreeBSD$
 
-PORTNAME=	libreSense-pkg-acme
-PORTVERSION=	0.9
-PORTREVISION=	1
+PORTNAME=	pfSense-pkg-acme
+PORTVERSION=	0.7.4
 CATEGORIES=	security
 MASTER_SITES=	# empty
 DISTFILES=	# empty
 EXTRACT_ONLY=	# empty
 
-MAINTAINER=	jimp@netgate.com
-COMMENT=	ACME package for libreSense
+MAINTAINER=	PiBa.NL.dev@gmail.com
+COMMENT=	ACME package for pfSense
 
 LICENSE=	APACHE20
 

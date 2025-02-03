@@ -1,12 +1,9 @@
 #!/usr/bin/env sh
-# shellcheck disable=SC2034
-dns_nanelo_info='Nanelo.com
-Site: Nanelo.com
-Docs: github.com/acmesh-official/acme.sh/wiki/dnsapi2#dns_nanelo
-Options:
- NANELO_TOKEN API Token
-Issues: github.com/acmesh-official/acme.sh/issues/4519
-'
+
+# Official DNS API for Nanelo.com
+
+# Provide the required API Key like this:
+# NANELO_TOKEN="FmD408PdqT1E269gUK57"
 
 NANELO_API="https://api.nanelo.com/v1/"
 

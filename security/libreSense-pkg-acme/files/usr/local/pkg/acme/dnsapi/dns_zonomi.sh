@@ -1,11 +1,9 @@
 #!/usr/bin/env sh
-# shellcheck disable=SC2034
-dns_zonomi_info='zonomi.com
-Site: zonomi.com
-Docs: github.com/acmesh-official/acme.sh/wiki/dnsapi#dns_zonomi
-Options:
- ZM_Key API Key
-'
+
+#
+#ZM_Key="sdfsdfsdfljlbjkljlkjsdfoiwje"
+#
+#https://zonomi.com dns api
 
 ZM_Api="https://zonomi.com/app/dns/dyndns.jsp"
 

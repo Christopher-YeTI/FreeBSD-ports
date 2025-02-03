@@ -2,7 +2,7 @@
 /*
  * acme_certificates_edit.php
  * 
- * part of libresense (https://www.libresense.org/)
+ * part of pfSense (https://www.pfsense.org/)
  * Copyright (c) 2016 PiBa-NL
  * All rights reserved.
  *
@@ -19,15 +19,17 @@
  * limitations under the License.
  */
 
-namespace libresense_pkg\acme;
+namespace pfsense_pkg\acme;
 
 $shortcut_section = "acme";
 require("guiconfig.inc");
-require_once("libresense-utils.inc");
+require_once("pfsense-utils.inc");
 require_once("acme/acme.inc");
 require_once("acme/acme_utils.inc");
 require_once("acme/acme_htmllist.inc");
 require_once("acme/pkg_acme_tabs.inc");
+
+$a_certificates = &getarraybyref($config,'installedpackages','acme','certificates','item');
 
 if (isset($_POST['id'])) {
 	$id = $_POST['id'];
@@ -149,14 +151,14 @@ function customdrawcell_actions($object, $item, $itemvalue, $editable, $itemname
 	}
 }
 
-if (isset($id) && config_get_path("installedpackages/acme/certificates/item/{$id}")) {
-	$a_domains = config_get_path("installedpackages/acme/certificates/item/{$id}/a_domainlist/item", []);
-	$a_actions = config_get_path("installedpackages/acme/certificates/item/{$id}/a_actionlist/item", []);
+if (isset($id) && $a_certificates[$id]) {
+	$a_domains = $a_certificates[$id]['a_domainlist']['item'];
+	$a_actions = $a_certificates[$id]['a_actionlist']['item'];
 
-	$pconfig["lastrenewal"] = config_get_path("installedpackages/acme/certificates/item/{$id}/lastrenewal");
-	$pconfig['keypaste'] = base64_decode(config_get_path("installedpackages/acme/certificates/item/{$id}/keypaste"));
+	$pconfig["lastrenewal"] = $a_certificates[$id]["lastrenewal"];
+	$pconfig['keypaste'] = base64_decode($a_certificates[$id]['keypaste']);
 	foreach($simplefields as $stat) {
-		$pconfig[$stat] = config_get_path("installedpackages/acme/certificates/item/{$id}/{$stat}");
+		$pconfig[$stat] = $a_certificates[$id][$stat];
 	}
 }
 
@@ -212,8 +214,8 @@ if ($_POST) {
 	}
 	
 	/* Ensure that our certificate names are unique */
-	for ($i=0; config_get_path("installedpackages/acme/certificates/item/{$i}") !== null; $i++) {
-		if (($_POST['name'] == config_get_path("installedpackages/acme/certificates/item/{$i}/name")) && ($i != $id)) {
+	for ($i=0; isset($config['installedpackages']['acme']['certificates']['item'][$i]); $i++) {
+		if (($_POST['name'] == $config['installedpackages']['acme']['certificates']['item'][$i]['name']) && ($i != $id)) {
 			$input_errors[] = "This name has already been used. Names must be unique.";
 		}
 	}
@@ -236,8 +238,8 @@ if ($_POST) {
 	$a_actions = $actionslist->acme_htmllist_get_values();
 
 	$certificate = array();
-	if(isset($id)) {
-		$certificate = config_get_path("installedpackages/acme/certificates/item/{$id}", $certificate);
+	if(isset($id) && $a_certificates[$id]) {
+		$certificate = $a_certificates[$id];
 	}
 		
 //	echo "newname id:$id";
@@ -246,6 +248,11 @@ if ($_POST) {
 		// name changed:
 		$oldvalue = $certificate['name'];
 		$newvalue = $_POST['name'];
+		
+		$a_certificates = &$config['installedpackages']['acme']['certificates']['item'];
+		if (!is_array($a_certificates)) {
+			$a_certificates = array();
+		}
 	}
 
 	if($certificate['name'] != "") {
@@ -260,10 +267,10 @@ if ($_POST) {
 		update_if_changed($stat, $certificate[$stat], $_POST[$stat]);
 	}
 
-	if (isset($id) && config_get_path("installedpackages/acme/certificates/item/{$id}")) {
-		config_set_path("installedpackages/acme/certificates/item/{$id}", $certificate);
+	if (isset($id) && $a_certificates[$id]) {
+		$a_certificates[$id] = $certificate;
 	} else {
-		config_set_path('installedpackages/acme/certificates/item/', $certificate);
+		$a_certificates[] = $certificate;
 	}
 	if (!isset($input_errors)) {
 		if ($changecount > 0) {
@@ -337,7 +344,7 @@ $form = new \Form;
 
 $section = new \Form_Section('Edit Certificate options');
 $section->addInput(new \Form_Input('name', 'Name', 'text', $pconfig['name']
-))->setHelp('The name set here will also be used to create or overwrite a certificate that might already exist with this name in the libreSense Certificate Manager.');
+))->setHelp('The name set here will also be used to create or overwrite a certificate that might already exist with this name in the pfSense Certificate Manager.');
 $section->addInput(new \Form_Input('descr', 'Description', 'text', $pconfig['descr']));
 $activedisable = array();
 $activedisable['active'] = "Active";
@@ -348,11 +355,12 @@ $section->addInput(new \Form_Select(
 	$pconfig['status'],
 	$activedisable
 ));
+$a_accountkeys = &$config['installedpackages']['acme']['accountkeys']['item'];
 $section->addInput(new \Form_Select(
 	'acmeaccount',
 	'Acme Account',
 	$pconfig['acmeaccount'],
-	form_name_array(config_get_path('installedpackages/acme/accountkeys/item', []))
+	form_name_array($a_accountkeys)
 ));
 
 $section->addInput(new \Form_Select(
@@ -426,7 +434,7 @@ $section->addInput(new \Form_Input('renewafter', 'Certificate renewal after', 't
 
 $form->add($section);
 
-if (!is_array(config_get_path('installedpackages/acme/accountkeys/item')) || count(config_get_path('installedpackages/acme/accountkeys/item')) == 0) {
+if (!is_array($a_accountkeys) || count($a_accountkeys) == 0) {
 	$form = new \Form;
 	$section = new \Form_Section('Edit Certificate options');
 	$section->addInput(new \Form_StaticText(
@@ -437,7 +445,7 @@ if (!is_array(config_get_path('installedpackages/acme/accountkeys/item')) || cou
 }
 print $form;
 ?>	
-	<?php if (isset($id) && config_get_path("installedpackages/acme/certificates/item/{$id}")): ?>
+	<?php if (isset($id) && $a_certificates[$id]): ?>
 	<input name="id" type="hidden" value="<?=$id;?>" />
 	<?php endif; ?>
 <br/>

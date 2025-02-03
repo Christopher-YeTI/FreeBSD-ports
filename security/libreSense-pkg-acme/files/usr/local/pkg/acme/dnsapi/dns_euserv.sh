@@ -1,14 +1,18 @@
 #!/usr/bin/env sh
-# shellcheck disable=SC2034
-dns_euserv_info='EUserv.com
-Domains: EUserv.eu
-Site: EUserv.com
-Docs: github.com/acmesh-official/acme.sh/wiki/dnsapi#dns_euserv
-Options:
- EUSERV_Username Username
- EUSERV_Password Password
-Author: Michael Brueckner
-'
+
+#This is the euserv.eu api wrapper for acme.sh
+#
+#Author: Michael Brueckner
+#Report Bugs: https://www.github.com/initit/acme.sh  or  mbr@initit.de
+
+#
+#EUSERV_Username="username"
+#
+#EUSERV_Password="password"
+#
+# Dependencies:
+# -------------
+# - none -
 
 EUSERV_Api="https://api.euserv.net"
 
@@ -151,7 +155,7 @@ _get_root() {
   response="$_euserv_domain_orders"
 
   while true; do
-    h=$(echo "$domain" | cut -d . -f "$i"-100)
+    h=$(echo "$domain" | cut -d . -f $i-100)
     _debug h "$h"
     if [ -z "$h" ]; then
       #not valid
@@ -159,7 +163,7 @@ _get_root() {
     fi
 
     if _contains "$response" "$h"; then
-      _sub_domain=$(echo "$domain" | cut -d . -f 1-"$p")
+      _sub_domain=$(echo "$domain" | cut -d . -f 1-$p)
       _domain="$h"
       if ! _euserv_get_domain_id "$_domain"; then
         _err "invalid domain"
