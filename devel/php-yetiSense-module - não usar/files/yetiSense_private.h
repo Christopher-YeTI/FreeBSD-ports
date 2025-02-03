@@ -21,7 +21,7 @@
 #ifndef _LIBRESENSE_PRIVATE_H
 #define _LIBRESENSE_PRIVATE_H
 
-#include "php_libresense.h"
+#include "php_yetiSense.h"
 
 #include <sys/endian.h>
 #include <sys/ioctl.h>
