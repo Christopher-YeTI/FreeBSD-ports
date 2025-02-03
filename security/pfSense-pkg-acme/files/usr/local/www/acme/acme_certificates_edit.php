@@ -2,7 +2,7 @@
 /*
  * acme_certificates_edit.php
  * 
- * part of pfSense (https://www.pfsense.org/)
+ * part of libresense (https://www.libresense.org/)
  * Copyright (c) 2016 PiBa-NL
  * All rights reserved.
  *
@@ -19,11 +19,11 @@
  * limitations under the License.
  */
 
-namespace pfsense_pkg\acme;
+namespace libresense_pkg\acme;
 
 $shortcut_section = "acme";
 require("guiconfig.inc");
-require_once("pfsense-utils.inc");
+require_once("libresense-utils.inc");
 require_once("acme/acme.inc");
 require_once("acme/acme_utils.inc");
 require_once("acme/acme_htmllist.inc");
@@ -337,7 +337,7 @@ $form = new \Form;
 
 $section = new \Form_Section('Edit Certificate options');
 $section->addInput(new \Form_Input('name', 'Name', 'text', $pconfig['name']
-))->setHelp('The name set here will also be used to create or overwrite a certificate that might already exist with this name in the pfSense Certificate Manager.');
+))->setHelp('The name set here will also be used to create or overwrite a certificate that might already exist with this name in the libreSense Certificate Manager.');
 $section->addInput(new \Form_Input('descr', 'Description', 'text', $pconfig['descr']));
 $activedisable = array();
 $activedisable['active'] = "Active";

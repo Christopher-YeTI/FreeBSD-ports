@@ -1,6 +1,6 @@
 #!/usr/local/bin/php -f
 <?php
-namespace pfsense_pkg\acme;
+namespace libresense_pkg\acme;
 
 include_once("config.lib.inc");
 include_once("acme.inc");

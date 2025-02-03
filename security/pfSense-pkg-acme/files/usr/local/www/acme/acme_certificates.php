@@ -2,7 +2,7 @@
 /*
  * acme_certificates.php
  * 
- * part of pfSense (https://www.pfsense.org/)
+ * part of libresense (https://www.libresense.org/)
  * Copyright (c) 2016 PiBa-NL
  * All rights reserved.
  *
@@ -19,11 +19,11 @@
  * limitations under the License.
  */
 
-namespace pfsense_pkg\acme;
+namespace libresense_pkg\acme;
 
 $shortcut_section = "acme";
 require_once("guiconfig.inc");
-require_once("pfsense-utils.inc");
+require_once("libresense-utils.inc");
 require_once("certs.inc");
 require_once("acme/acme.inc");
 require_once("acme/acme_gui.inc");

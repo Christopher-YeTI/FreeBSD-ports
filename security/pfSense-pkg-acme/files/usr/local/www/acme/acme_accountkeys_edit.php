@@ -2,7 +2,7 @@
 /*
  * acme_accountkeys_edit.php
  * 
- * part of pfSense (https://www.pfsense.org/)
+ * part of libresense (https://www.libresense.org/)
  * Copyright (c) 2016 PiBa-NL
  * All rights reserved.
  *
@@ -19,7 +19,7 @@
  * limitations under the License.
  */
 
-namespace pfsense_pkg\acme;
+namespace libresense_pkg\acme;
 
 $shortcut_section = "acme";
 require("guiconfig.inc");

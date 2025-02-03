@@ -53,7 +53,7 @@ CA_SERVERS="$CA_ZEROSSL,$CA_LETSENCRYPT_V2,$CA_LETSENCRYPT_V2_TEST,$CA_BUYPASS,$
 
 DEFAULT_USER_AGENT="$PROJECT_NAME/$VER ($PROJECT)"
 
-# pfSense default still RSA for now.
+# libresense default still RSA for now.
 DEFAULT_ACCOUNT_KEY_LENGTH=2048
 DEFAULT_DOMAIN_KEY_LENGTH=2048
 
@@ -98,7 +98,7 @@ B64CONF_START="__ACME_BASE64__START_"
 B64CONF_END="__ACME_BASE64__END_"
 
 ECC_SEP="_"
-# No need for ECC suffix on pfSense, dual key certs are not supported.
+# No need for ECC suffix on libresense, dual key certs are not supported.
 ECC_SUFFIX=""
 
 LOG_LEVEL_1=1

@@ -2,7 +2,7 @@
 /*
  * acme_htmllist.php
  * 
- * part of pfSense (https://www.pfsense.org/)
+ * part of libresense (https://www.libresense.org/)
  * Copyright (c) 2016 PiBa-NL
  * All rights reserved.
  *
@@ -20,10 +20,10 @@
  */
 /*
   This file contains functions which are NOT specific to the package and may/could/should 
-  be moved to the general pfSense php library for possible easy use by other parts of pfSense
+  be moved to the general libresense php library for possible easy use by other parts of libresense
 */
 
-namespace pfsense_pkg\acme;
+namespace libresense_pkg\acme;
 
 require_once("config.inc");
 require_once("acme_utils.inc");
